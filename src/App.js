@@ -1,24 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+// REACT
+import React from "react";
+
+// COMPONENTS
+import GlobalStyle from "./Components/GlobalStyled";
+import Nav from "./Components/Nav";
+
+// STYLES
+import "./Styles/App.scss";
+
+import {
+  ThemeProvider,
+  createMuiTheme,
+  responsiveFontSizes,
+} from "@material-ui/core/styles";
+const font = "'Merriweather', serif;";
+// theme
+let theme = createMuiTheme({
+  typography: {
+    fontFamily: font,
+  },
+});
+theme = responsiveFontSizes(theme);
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
+
+      <Nav />
+    </ThemeProvider>
   );
 }
 

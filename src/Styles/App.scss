@@ -1,0 +1,28 @@
+.shown {
+  left: 0;
+  opacity: 1;
+  transition: all 0.4s ease;
+  position: absolute;
+  z-index: 999;
+}
+.hide {
+  left: -100%;
+  opacity: 0;
+  transition: all 0.4s linear;
+  position: absolute;
+  z-index: 999;
+}
+
+// MATERIAL UI OVERRIDES
+button.MuiIconButton-root {
+  background: #ff0d62;
+  padding: 1rem;
+  height: 2.8rem;
+  width: 2.8rem;
+  align-self: center;
+  padding: 0;
+  color: #000;
+  &:hover {
+    background-color: #ff2571;
+  }
+}
