@@ -3,7 +3,7 @@ import React from "react";
 
 // COMPONENTS
 import GlobalStyle from "./Components/GlobalStyled";
-import Nav from "./Components/Nav";
+import Nav from "./Components/Nav/Nav";
 
 // STYLES
 import "./Styles/App.scss";
@@ -17,6 +17,9 @@ const font = "'Merriweather', serif;";
 // theme
 let theme = createMuiTheme({
   typography: {
+    subtitle1: {
+      fontFamily: "Helvetica, Arial, sans-serif",
+    },
     fontFamily: font,
   },
 });
@@ -26,7 +29,6 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-
       <Nav />
     </ThemeProvider>
   );
