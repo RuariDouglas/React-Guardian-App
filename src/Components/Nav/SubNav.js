@@ -10,12 +10,6 @@ import styled from "styled-components";
 import TypoGraphy from "@material-ui/core/Typography";
 
 const SubNav = () => {
-  var mq = window.matchMedia("(max-width: 570px)");
-  if (mq.matches) {
-    console.log("Shit, it works");
-  } else {
-    // window width is greater than 570px
-  }
   return (
     <SubNavContainer>
       <ul>
