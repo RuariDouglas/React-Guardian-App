@@ -73,6 +73,7 @@ const Logo = styled.div`
   align-self: flex-end;
   margin-top: 2rem;
   h2 a {
+    font-weight: 700;
     color: ${col.white};
     span {
       color: ${col.pLight};

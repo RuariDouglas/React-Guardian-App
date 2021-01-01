@@ -63,8 +63,6 @@ const SubNavContainer = styled.nav`
   }
   @media (max-width: 500px) {
     width: 100%;
-    box-shadow: none;
-    border-bottom: 1px solid ${col.pLight};
     padding: 0 1rem;
     ul {
       justify-content: space-between;

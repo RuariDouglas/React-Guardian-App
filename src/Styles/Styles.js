@@ -10,6 +10,7 @@ export const col = {
 };
 export const fontS = {
   large: "1.4rem",
+  md: "1.1rem",
 };
 export const eightyVw = {
   sizer: `width: 80vw; margin: 0 auto`,

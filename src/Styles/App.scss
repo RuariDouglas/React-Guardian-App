@@ -16,6 +16,47 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
+// MAIN GRID STYLES (Featured in Home.js)
+.mainGrid {
+  height: 100%;
+  display: grid;
+  grid-template-columns: minmax(5rem, 20%) minmax(20rem, 55%) minmax(11rem, 25%);
+  grid-template-rows: 100%;
+  grid-template-areas: "leftCol main rightCol";
+  .leftCol {
+    grid-area: leftCol;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    border-right: 1px solid rgb(148, 148, 148);
+    border-left: 1px solid rgb(148, 148, 148);
+    @media (max-width: 960px) {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+  .mainSection {
+    grid-area: main;
+    padding: 1rem;
+    border-right: 1px solid rgb(148, 148, 148);
+  }
+  .rightCol {
+    grid-area: rightCol;
+    background-color: purple;
+  }
+  @media (max-width: 960px) {
+    grid-template-rows: 10% auto;
+    grid-template-areas:
+      "leftCol leftCol leftCol"
+      "main main rightCol"
+      "main main rightCol";
+  }
+  @media (max-width: 755px) {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
 // MATERIAL UI OVERRIDES
 button.MuiIconButton-root {
   background: #ff0d62;
