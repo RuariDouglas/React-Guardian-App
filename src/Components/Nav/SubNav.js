@@ -14,27 +14,27 @@ const SubNav = () => {
     <SubNavContainer>
       <ul>
         <li>
-          <Link>
+          <Link to="/#">
             <TypoGraphy variant="subtitle1">Hello</TypoGraphy>
           </Link>
         </li>
         <li>
-          <Link>
+          <Link to="/#">
             <TypoGraphy variant="subtitle1">Hello</TypoGraphy>
           </Link>
         </li>
         <li>
-          <Link>
+          <Link to="/#">
             <TypoGraphy variant="subtitle1">Hello</TypoGraphy>
           </Link>
         </li>
         <li>
-          <Link>
+          <Link to="/#">
             <TypoGraphy variant="subtitle1">Hello</TypoGraphy>
           </Link>
         </li>
         <li>
-          <Link>
+          <Link to="/#">
             <TypoGraphy variant="subtitle1">Hello</TypoGraphy>
           </Link>
         </li>
@@ -45,7 +45,7 @@ const SubNav = () => {
 
 const SubNavContainer = styled.nav`
   position: relative;
-  z-index: 0;
+  z-index: 3;
   ${eightyVw.sizer};
 
   overflow: hidden;

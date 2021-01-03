@@ -27,6 +27,11 @@ let theme = createMuiTheme({
     subtitle1: {
       fontFamily: "Helvetica, Arial, sans-serif",
     },
+    subtitle2: {
+      fontFamily: "Helvetica, Arial, sans-serif",
+      color: "#646464",
+      fontSize: 14,
+    },
     fontFamily: font,
   },
 });
@@ -38,6 +43,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <GlobalStyle />
       <Nav />
+
       <Switch location={location} key={location.pathname}>
         <Route path="/">
           <Home />

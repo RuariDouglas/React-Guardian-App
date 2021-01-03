@@ -10,19 +10,19 @@ const MenuLinks = () => {
   return (
     <List>
       <li>
-        <Link to="/">News</Link>
+        <Link to="/#">News</Link>
       </li>
       <li>
-        <Link>Opinion</Link>
+        <Link to="/#">Opinion</Link>
       </li>
       <li>
-        <Link>Sport</Link>
+        <Link to="/#">Sport</Link>
       </li>
       <li>
-        <Link>Culture</Link>
+        <Link to="/#">Culture</Link>
       </li>
       <li>
-        <Link>LifeStyle</Link>
+        <Link to="/#">LifeStyle</Link>
       </li>
     </List>
   );

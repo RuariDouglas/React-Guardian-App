@@ -21,7 +21,7 @@ const SideNav = () => {
   return (
     <div className={`${menuToggle ? "shown" : "hide"}`}>
       <SideNavContainer>
-        <IconButton onClick={() => dispatch({ type: "TOGGLE" })}>
+        <IconButton onClick={() => dispatch({ type: "SIDE_NAV_TOGGLE" })}>
           <CloseIcon />
         </IconButton>
         <SideMenu>

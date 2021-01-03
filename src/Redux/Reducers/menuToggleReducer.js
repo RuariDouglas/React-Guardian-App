@@ -1,10 +1,16 @@
-const menuToggleReducer = (state = false, action) => {
+export const menuToggleReducer = (state = false, action) => {
   switch (action.type) {
-    case "TOGGLE":
+    case "SIDE_NAV_TOGGLE":
       return !state;
     default:
       return state;
   }
 };
-
-export default menuToggleReducer;
+export const weatherToggleReducer = (state = false, action) => {
+  switch (action.type) {
+    case "WEATHER_TOGGLE":
+      return !state;
+    default:
+      return state;
+  }
+};

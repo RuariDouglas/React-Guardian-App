@@ -1,5 +1,6 @@
 const initState = {
   weatherData: {},
+  forecastData: [],
   loading: true,
 };
 

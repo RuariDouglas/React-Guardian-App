@@ -30,14 +30,14 @@ const Nav = () => {
         <div className="navContainer">
           <Logo>
             <Typography variant="h2">
-              <Link>
+              <Link to="/">
                 <span>the</span>guardian
               </Link>
             </Typography>
           </Logo>
           <MainMenu>
             <MenuLinks />
-            <IconButton onClick={() => dispatch({ type: "TOGGLE" })}>
+            <IconButton onClick={() => dispatch({ type: "SIDE_NAV_TOGGLE" })}>
               {!menuToggle ? <MenuIcon /> : <CloseIcon />}
             </IconButton>
           </MainMenu>
@@ -60,7 +60,6 @@ const NavBg = styled.header`
     flex-direction: column;
     ${eightyVw.sizer};
     height: 100%;
-    overflow: hidden;
     /* NAVCONT MEDIA QUERY */
     @media (max-width: 755px) {
       flex-direction: row;
@@ -75,7 +74,10 @@ const Logo = styled.div`
   h2 a {
     font-weight: 700;
     color: ${col.white};
+    letter-spacing: -1px;
+    font-family: Georgia, "Times New Roman", Times, serif;
     span {
+      font-family: Georgia, "Times New Roman", Times, serif;
       color: ${col.pLight};
     }
   }

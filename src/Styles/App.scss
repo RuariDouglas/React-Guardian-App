@@ -1,3 +1,4 @@
+// SIDENAV
 .shown {
   left: 0;
   opacity: 1;
@@ -12,6 +13,20 @@
   position: absolute;
   z-index: 999;
 }
+// SIDENAV
+.weatherShown {
+  top: 3.5rem;
+  opacity: 1;
+  transition: all 0.4s ease;
+  position: absolute;
+  z-index: 1;
+}
+.weatherHide {
+  top: -100%;
+  opacity: 0;
+  transition: all 0.4s linear;
+  position: absolute;
+}
 .sansSerif {
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -24,12 +39,12 @@
   grid-template-rows: 100%;
   grid-template-areas: "leftCol main rightCol";
   .leftCol {
+    position: relative;
+    z-index: 2;
     grid-area: leftCol;
     display: flex;
     flex-direction: column;
-    padding: 1rem;
-    border-right: 1px solid rgb(148, 148, 148);
-    border-left: 1px solid rgb(148, 148, 148);
+    background-image: linear-gradient(#eee, #fff);
     @media (max-width: 960px) {
       flex-direction: row;
       justify-content: space-between;
@@ -38,10 +53,11 @@
   .mainSection {
     grid-area: main;
     padding: 1rem;
-    border-right: 1px solid rgb(148, 148, 148);
   }
   .rightCol {
     grid-area: rightCol;
+    padding: 1rem;
+    background-image: linear-gradient(#eee, #fff);
     background-color: purple;
   }
   @media (max-width: 960px) {
@@ -52,8 +68,7 @@
       "main main rightCol";
   }
   @media (max-width: 755px) {
-    display: flex;
-    flex-direction: column;
+    display: block;
   }
 }
 
