@@ -15,6 +15,7 @@ import { Switch, Route, useLocation } from "react-router-dom";
 import "./Styles/App.scss";
 
 // MATERIAL UI
+import CssBaseline from "@material-ui/core/CssBaseline";
 import {
   ThemeProvider,
   createMuiTheme,
@@ -41,6 +42,7 @@ function App() {
   const location = useLocation();
   return (
     <ThemeProvider theme={theme}>
+      <CssBaseline />
       <GlobalStyle />
       <Nav />
 

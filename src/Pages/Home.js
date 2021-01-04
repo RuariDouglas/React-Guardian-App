@@ -8,6 +8,7 @@ import { useDispatch } from "react-redux";
 // COMPONENTS
 import WeatherApp from "../Components/WeatherApp";
 import Title from "../Components/Title";
+import { dateFormatter } from "../Functions";
 
 // STYLES
 import styled from "styled-components";
@@ -19,11 +20,11 @@ const Home = () => {
   useEffect(() => {
     dispatch(loadWeather("london"));
   }, [dispatch]);
-  // // TITLE COMPONENT DATA
-  // const date = new Date();
+  // TITLE COMPONENT DATA
+  let date = dateFormatter();
   const titleData = {
     mainTitle: "Headlines",
-    subTitle: "Thursday",
+    subTitle: date,
   };
 
   return (

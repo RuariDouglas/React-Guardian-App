@@ -5,7 +5,6 @@ export const loadWeather = (location) => async (dispatch) => {
   try {
     const weatherData = await axios.get(searchWeather(location));
     const forecastData = await axios.get(searchForecast(location));
-    console.log(location);
     dispatch({
       type: "FETCH_WEATHER",
       payload: {

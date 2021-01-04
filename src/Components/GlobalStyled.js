@@ -22,6 +22,10 @@ footer, header, hgroup, menu, nav, section {
 a {
     text-decoration: none;
 }
+textarea:focus, input:focus{
+    outline: none;
+    border: none;
+}
 `;
 
 export default GlobalStyle;

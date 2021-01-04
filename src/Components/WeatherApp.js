@@ -1,5 +1,5 @@
 // REACT
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { v4 as uuidv4 } from "uuid";
 
 // REDUX
@@ -10,27 +10,22 @@ import { loadWeather } from "../Redux/Actions/weatherAction";
 import TypoGraphy from "@material-ui/core/Typography";
 import SearchIcon from "@material-ui/icons/Search";
 import DownAngle from "@material-ui/icons/ExpandMore";
-import TextField from "@material-ui/core/TextField";
-import InputAdornment from "@material-ui/core/InputAdornment";
+import ButtonGroup from "@material-ui/core/ButtonGroup";
 
 // STYLES
 import styled from "styled-components";
-// import { motion } from "framer-motion";
-// import { col, fontS } from "../Styles/Styles";
+import { col } from "../Styles/Styles";
 
 const WeatherApp = () => {
   const dispatch = useDispatch();
   const { weatherData, forecastData, loading } = useSelector(
     (state) => state.weather
   );
-  const [location, setLocation] = useState();
+  const inputRef = useRef();
 
-  const checkValue = (e) => {
-    setLocation(e.target.value);
-  };
   const sendResult = (e) => {
     e.preventDefault();
-    dispatch(loadWeather(location));
+    dispatch(loadWeather(inputRef.current.value));
   };
   const weatherToggle = useSelector((state) => state.weatherToggle);
 
@@ -50,7 +45,7 @@ const WeatherApp = () => {
               <div className="textContainer">
                 <TypoGraphy variant="subtitle2">Now</TypoGraphy>
                 <TypoGraphy variant="subtitle1">
-                  {weatherData.main.temp.toString().substr(0, 1)}ºC
+                  {Math.round(Number(weatherData.main.temp))}ºC
                 </TypoGraphy>
               </div>
               <div className="weatherToggle">
@@ -65,18 +60,10 @@ const WeatherApp = () => {
           <ForecastList weatherToggle={weatherToggle}>
             <div className="searchContainer">
               <form onSubmit={sendResult}>
-                <TextField
-                  id="input-with-icon-textfield"
-                  color="secondary"
-                  onChange={checkValue}
-                  InputProps={{
-                    startAdornment: (
-                      <InputAdornment position="start">
-                        <SearchIcon />
-                      </InputAdornment>
-                    ),
-                  }}
-                />
+                <button>
+                  <SearchIcon />
+                </button>
+                <input ref={inputRef} type="text" />
               </form>
             </div>
             <div className="forecastContainer">
@@ -96,7 +83,7 @@ const WeatherApp = () => {
                       </div>
                       <div className="textContainer">
                         <TypoGraphy variant="subtitle1">
-                          {entry.main.temp.toString().substr(0, 1)}ºC
+                          {Math.round(Number(entry.main.temp))}ºC
                         </TypoGraphy>
                       </div>
                     </li>
@@ -146,10 +133,16 @@ const CurrentWeather = styled.div`
         width: 75px;
       }
     }
+    .weatherToggle {
+      cursor: pointer;
+      .rotate {
+        transform: rotate(180deg);
+      }
+    }
   }
   @media (min-width: 960px) {
     justify-content: center;
-    padding-top: 0;
+    padding: 0;
     .currentWeatherContainer {
       .iconContainer {
         width: 70px;
@@ -159,9 +152,9 @@ const CurrentWeather = styled.div`
           width: 90px;
         }
       }
-      .weatherToggle {
-        display: none;
-      }
+    }
+    .weatherToggle {
+      display: none;
     }
   }
 `;
@@ -172,18 +165,63 @@ const ForecastList = styled.div`
   padding: 1rem;
   display: ${(props) => (props.weatherToggle ? "flex" : "none")};
   background-color: #eee;
-  box-shadow: 0 5px 0.4rem rgba(0, 0, 0, 0.4);
+  box-shadow: 0 5px 2rem rgba(0, 0, 0, 0.4);
   position: absolute;
   top: 5rem;
   right: 0;
   text-align: center;
   border-radius: 10px;
+  .searchContainer {
+    form {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      button,
+      button:focus,
+      button:active {
+        cursor: pointer;
+        outline: none;
+        border: none;
+        height: 35px;
+        width: 35px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        transition: background-color 0.2s linear;
+      }
+      button svg:hover {
+        opacity: 0.6;
+      }
+      input {
+        width: 100%;
+        padding: 0.5rem 1rem;
+        border: 1px solid ${col.greyLight};
+        border-radius: 2rem;
+        &:focus,
+        :active {
+          border-color: ${col.accent};
+        }
+      }
+    }
+  }
   .forecastContainer {
     margin-top: 10px;
 
     ul {
       display: flex;
       justify-content: space-evenly;
+      li {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      li:nth-of-type(2) {
+        border-right: 1px solid ${col.greyLight};
+        border-left: 1px solid ${col.greyLight};
+      }
     }
     .iconContainer {
       height: 45px;
@@ -201,6 +239,7 @@ const ForecastList = styled.div`
     }
   }
   @media (min-width: 960px) {
+    width: 100%;
     display: flex;
     box-shadow: none;
     background-color: transparent;
@@ -212,9 +251,6 @@ const ForecastList = styled.div`
   @media (max-width: 500px) {
     width: 100%;
     border-radius: none;
-    .searchContainer > div {
-      width: 80%;
-    }
   }
 `;
 

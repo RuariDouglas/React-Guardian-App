@@ -44,7 +44,6 @@
     grid-area: leftCol;
     display: flex;
     flex-direction: column;
-    background-image: linear-gradient(#eee, #fff);
     @media (max-width: 960px) {
       flex-direction: row;
       justify-content: space-between;
@@ -56,7 +55,6 @@
   }
   .rightCol {
     grid-area: rightCol;
-    padding: 1rem;
     background-image: linear-gradient(#eee, #fff);
     background-color: purple;
   }

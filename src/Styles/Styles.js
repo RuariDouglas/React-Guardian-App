@@ -4,6 +4,7 @@ export const col = {
   pLight: "#506991",
   white: "#fff",
   accent: "#ff0d62",
+  title: "#c70000",
   grey: "#4d4d50",
   greyLight: "#b3b3b3",
 };
