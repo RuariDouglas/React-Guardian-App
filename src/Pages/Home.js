@@ -3,7 +3,8 @@ import React, { useEffect } from "react";
 
 // REDUX
 import { loadWeather } from "../Redux/Actions/weatherAction";
-import { useDispatch } from "react-redux";
+import { loadSection } from "../Redux/Actions/guardianSectionAction";
+import { useDispatch, useSelector } from "react-redux";
 
 // COMPONENTS
 import WeatherApp from "../Components/WeatherApp";
@@ -17,9 +18,10 @@ import styled from "styled-components";
 const Home = () => {
   // API CALLS
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(loadWeather("london"));
-  }, [dispatch]);
+  // useEffect(() => {
+  //   // dispatch(loadWeather("london"));
+  //   dispatch(loadSection('business'));
+  // }, [dispatch]);
   // TITLE COMPONENT DATA
   let date = dateFormatter();
   const titleData = {
@@ -37,8 +39,14 @@ const Home = () => {
           </div>
           <main className="mainSection">
             <section>
+              {}
+
               <article>
-                <h2>Main Story</h2>
+                <h2>
+                  <button onClick={() => dispatch(loadSection(""))}>
+                    Click
+                  </button>
+                </h2>
               </article>
               <article style={{ padding: "1rem", width: "100%" }}>
                 <img

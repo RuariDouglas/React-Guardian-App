@@ -1,28 +1,27 @@
 // REACT
-import React, { useState, useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
-
 // REDUX
 import { useSelector, useDispatch } from "react-redux";
 import { loadWeather } from "../Redux/Actions/weatherAction";
-
 // MATERIAL UI
 import TypoGraphy from "@material-ui/core/Typography";
 import SearchIcon from "@material-ui/icons/Search";
 import DownAngle from "@material-ui/icons/ExpandMore";
-import ButtonGroup from "@material-ui/core/ButtonGroup";
-
 // STYLES
 import styled from "styled-components";
 import { col } from "../Styles/Styles";
-
+// APP
 const WeatherApp = () => {
   const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(loadWeather("london"));
+  }, [dispatch]);
   const { weatherData, forecastData, loading } = useSelector(
     (state) => state.weather
   );
+  // Weather search input
   const inputRef = useRef();
-
   const sendResult = (e) => {
     e.preventDefault();
     dispatch(loadWeather(inputRef.current.value));
@@ -177,6 +176,8 @@ const ForecastList = styled.div`
       display: flex;
       justify-content: center;
       align-items: center;
+      button {
+      }
       button,
       button:focus,
       button:active {
@@ -188,8 +189,10 @@ const ForecastList = styled.div`
         display: flex;
         align-items: center;
         justify-content: center;
-        border-radius: 50%;
-        transition: background-color 0.2s linear;
+        background-color: transparent;
+      }
+      button svg {
+        transition: opacity 0.3s linear;
       }
       button svg:hover {
         opacity: 0.6;
@@ -199,6 +202,7 @@ const ForecastList = styled.div`
         padding: 0.5rem 1rem;
         border: 1px solid ${col.greyLight};
         border-radius: 2rem;
+        transition: all 0.3s ease;
         &:focus,
         :active {
           border-color: ${col.accent};
