@@ -34,6 +34,7 @@
 // MAIN GRID STYLES (Featured in Home.js)
 .mainGrid {
   height: 100%;
+  width: 100%;
   display: grid;
   grid-template-columns: minmax(5rem, 20%) minmax(20rem, 55%) minmax(11rem, 25%);
   grid-template-rows: 100%;
@@ -51,9 +52,10 @@
   }
   .mainSection {
     grid-area: main;
-    padding: 1rem;
+    padding: 1rem 0;
   }
   .rightCol {
+    padding: 1rem;
     grid-area: rightCol;
     background-image: linear-gradient(#eee, #fff);
     background-color: purple;

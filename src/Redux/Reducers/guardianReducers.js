@@ -1,6 +1,6 @@
 const initState = {
   sectionData: {},
-  isLoading: true,
+  loading: true,
 };
 
 const guardianReducer = (state = initState, action) => {
@@ -9,7 +9,7 @@ const guardianReducer = (state = initState, action) => {
       return {
         ...state,
         ...action.payload,
-        isLoading: false,
+        loading: false,
       };
     default:
       return { ...state };

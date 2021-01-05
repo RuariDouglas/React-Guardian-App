@@ -105,6 +105,7 @@ const WeatherContainer = styled.div`
   }
   @media (min-width: 960px) {
     position: relative;
+    background-image: linear-gradient(#eee, #fff);
   }
 `;
 
@@ -163,13 +164,13 @@ const ForecastList = styled.div`
   flex-direction: column;
   padding: 1rem;
   display: ${(props) => (props.weatherToggle ? "flex" : "none")};
-  background-color: #eee;
   box-shadow: 0 5px 2rem rgba(0, 0, 0, 0.4);
   position: absolute;
   top: 5rem;
   right: 0;
   text-align: center;
   border-radius: 10px;
+  background-color: #eee;
   .searchContainer {
     form {
       width: 100%;
@@ -246,8 +247,10 @@ const ForecastList = styled.div`
     width: 100%;
     display: flex;
     box-shadow: none;
-    background-color: transparent;
     padding-top: 0;
+    position: relative;
+    top: 0;
+    background-color: transparent;
     .searchContainer > div {
       width: 100%;
     }

@@ -2,7 +2,6 @@
 import React, { useEffect } from "react";
 
 // REDUX
-import { loadWeather } from "../Redux/Actions/weatherAction";
 import { loadSection } from "../Redux/Actions/guardianSectionAction";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -13,15 +12,18 @@ import { dateFormatter } from "../Functions";
 
 // STYLES
 import styled from "styled-components";
+import { col, fontS } from "../Styles/Styles";
 // import { titleAnim } from "../Animations/animation";
 
 const Home = () => {
   // API CALLS
   const dispatch = useDispatch();
-  // useEffect(() => {
-  //   // dispatch(loadWeather("london"));
-  //   dispatch(loadSection('business'));
-  // }, [dispatch]);
+  useEffect(() => {
+    dispatch(loadSection("business"));
+  }, [dispatch]);
+
+  const { sectionData, loading } = useSelector((state) => state.guardian);
+
   // TITLE COMPONENT DATA
   let date = dateFormatter();
   const titleData = {
@@ -39,30 +41,60 @@ const Home = () => {
           </div>
           <main className="mainSection">
             <section>
-              {}
-
-              <article>
-                <h2>
-                  <button onClick={() => dispatch(loadSection(""))}>
-                    Click
-                  </button>
-                </h2>
-              </article>
-              <article style={{ padding: "1rem", width: "100%" }}>
-                <img
-                  style={{ padding: "1rem", width: "100%" }}
-                  src="https://i.guim.co.uk/img/media/45535da84dfb818ccdeccc394b511dd95e08a4da/0_262_3938_2362/master/3938.jpg?width=620&quality=85&auto=format&fit=max&s=75bd2d3b74b29f49e377c4e60c520ee4"
-                  alt="alternative"
-                />
-              </article>
-              <article>Sub Story</article>
-              <article>Sub Story</article>
+              {!loading && (
+                <>
+                  <article className="mainArticle">
+                    <img
+                      style={{ width: "100%" }}
+                      src={sectionData[0].fields.thumbnail}
+                      alt=""
+                    />
+                    <h2>
+                      <span>{`${sectionData[0].sectionName} / `}</span>
+                      {sectionData[0].fields.headline}
+                    </h2>
+                    <p className="trailText">
+                      {sectionData[0].fields.headline}
+                    </p>
+                  </article>
+                  <article className="secondaryArticle">
+                    <h2>
+                      <span>{`${sectionData[1].sectionName} / `}</span>
+                      {sectionData[1].fields.headline}
+                    </h2>
+                  </article>
+                  <article className="secondaryArticle">
+                    <h2>
+                      <span>{`${sectionData[2].sectionName} / `}</span>
+                      {sectionData[2].fields.headline}
+                    </h2>
+                  </article>
+                </>
+              )}
             </section>
           </main>
           <div className="rightCol">
-            <article>Right Column</article>
-            <article></article>
-            <article></article>
+            {!loading && (
+              <>
+                <article className="mainArticleRight">
+                  <img
+                    style={{ width: "100%" }}
+                    src={sectionData[3].fields.thumbnail}
+                    alt=""
+                  />
+                  <h2>
+                    <span>{`${sectionData[3].sectionName} / `}</span>
+                    {sectionData[3].fields.headline}
+                  </h2>
+                </article>
+                <article className="secondaryArticleRight">
+                  <h2>
+                    <span>{`${sectionData[4].sectionName} / `}</span>
+                    {sectionData[4].fields.headline}
+                  </h2>
+                </article>
+              </>
+            )}
           </div>
         </div>
       </div>
@@ -72,11 +104,47 @@ const Home = () => {
 
 const HeadingBg = styled.section`
   width: 100vw;
+  article {
+    img {
+      margin-bottom: 0.5rem;
+    }
+  }
+  .mainArticle,
+  .mainArticleRight {
+    border-top: 1px solid ${col.title};
+  }
+  .secondaryArticle,
+  .secondaryArticleRight {
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid ${col.greyLight};
+  }
+  h2 {
+    span {
+      color: ${col.title};
+    }
+  }
   .headingContainer {
     height: 100vh;
     margin: 0 auto;
     @media (min-width: 500px) {
-      width: 80vw;
+      width: 90vw;
+    }
+  }
+  // MAIN COLUMN
+  .mainSection {
+    padding: 1rem;
+    width: 100%;
+    .mainArticle {
+      h2 {
+        font-size: ${fontS.large};
+      }
+    }
+  }
+  // RIGHT COLUMN
+  @media (max-width: 755px) {
+    .trailText {
+      display: none;
     }
   }
 `;

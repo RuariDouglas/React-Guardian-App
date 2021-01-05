@@ -14,5 +14,5 @@ export const fontS = {
   sm: "1rem",
 };
 export const eightyVw = {
-  sizer: `width: 80vw; margin: 0 auto`,
+  sizer: `width: 90vw; margin: 0 auto`,
 };
