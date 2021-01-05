@@ -46,8 +46,8 @@ const SubNav = () => {
 const SubNavContainer = styled.nav`
   position: relative;
   z-index: 3;
-  ${eightyVw.sizer};
-
+  width: 90vw;
+  margin: 0 auto;
   overflow: hidden;
   box-shadow: 0px 2px 1rem 0 rgba(0, 0, 0, 0.3);
   ul {

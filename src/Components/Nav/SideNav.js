@@ -20,7 +20,7 @@ const SideNav = () => {
   const dispatch = useDispatch();
   return (
     <div className={`${menuToggle ? "shown" : "hide"}`}>
-      <SideNavContainer>
+      <SideNavContainer menuToggle={menuToggle}>
         <IconButton onClick={() => dispatch({ type: "SIDE_NAV_TOGGLE" })}>
           <CloseIcon />
         </IconButton>
@@ -34,9 +34,11 @@ const SideNav = () => {
 
 const SideNavContainer = styled.div`
   height: 100vh;
-  width: 20rem;
+  width: 100vw;
   padding: 1rem;
-  position: absolute;
+  position: fixed;
+  overflow: hidden;
+
   z-index: 9999;
   background-color: ${col.primary};
   box-shadow: 1rem 0 10rem #000;
@@ -46,8 +48,8 @@ const SideNavContainer = styled.div`
   button {
     align-self: flex-end;
   }
-  @media (max-width: 730px) {
-    width: 100vw;
+  @media (min-width: 730px) {
+    width: 20rem;
   }
 `;
 

@@ -103,11 +103,19 @@ const Home = () => {
 };
 
 const HeadingBg = styled.section`
-  width: 100vw;
+  width: 100%;
+  .headingContainer {
+    height: 100vh;
+    width: 90vw;
+    margin: 0 auto;
+  }
   article {
     img {
       margin-bottom: 0.5rem;
     }
+  }
+  .trailText {
+    display: none;
   }
   .mainArticle,
   .mainArticleRight {
@@ -124,13 +132,6 @@ const HeadingBg = styled.section`
       color: ${col.title};
     }
   }
-  .headingContainer {
-    height: 100vh;
-    margin: 0 auto;
-    @media (min-width: 500px) {
-      width: 90vw;
-    }
-  }
   // MAIN COLUMN
   .mainSection {
     padding: 1rem;
@@ -142,10 +143,12 @@ const HeadingBg = styled.section`
     }
   }
   // RIGHT COLUMN
-  @media (max-width: 755px) {
+  @media (min-width: 755px) {
     .trailText {
-      display: none;
+      display: block;
     }
+  }
+  @media (min-width: 500px) {
   }
 `;
 

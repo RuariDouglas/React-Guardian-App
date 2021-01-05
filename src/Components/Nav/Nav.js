@@ -12,7 +12,7 @@ import SubNav from "./SubNav";
 
 // STYLES
 import styled from "styled-components";
-import { col, eightyVw } from "../../Styles/Styles";
+import { col } from "../../Styles/Styles";
 
 // MATERIAL UI
 import Typography from "@material-ui/core/Typography";
@@ -28,6 +28,12 @@ const Nav = () => {
       <SideNav />
       <NavBg>
         <div className="navContainer">
+          <MainMenu>
+            <MenuLinks />
+            <IconButton onClick={() => dispatch({ type: "SIDE_NAV_TOGGLE" })}>
+              {!menuToggle ? <MenuIcon /> : <CloseIcon />}
+            </IconButton>
+          </MainMenu>
           <Logo>
             <Typography variant="h2">
               <Link to="/">
@@ -35,12 +41,6 @@ const Nav = () => {
               </Link>
             </Typography>
           </Logo>
-          <MainMenu>
-            <MenuLinks />
-            <IconButton onClick={() => dispatch({ type: "SIDE_NAV_TOGGLE" })}>
-              {!menuToggle ? <MenuIcon /> : <CloseIcon />}
-            </IconButton>
-          </MainMenu>
         </div>
       </NavBg>
       <SubNav />
@@ -52,25 +52,29 @@ const NavBg = styled.header`
   position: relative;
   z-index: 1;
   background: ${col.primary};
-  height: 20vh;
-  min-height: 140px;
   .navContainer {
-    position: relative;
+    width: 90vw;
+    margin: 0 auto;
     display: flex;
-    flex-direction: column;
-    ${eightyVw.sizer};
-    height: 100%;
-    /* NAVCONT MEDIA QUERY */
-    @media (max-width: 755px) {
-      flex-direction: row;
-      justify-content: center;
+    padding: 1rem;
+    justify-content: space-between;
+    align-items: center;
+  }
+  @media (max-width: 340px) {
+    .navContainer {
+      padding: 1rem 0;
+    }
+  }
+  @media (min-width: 755px) {
+    .navContainer {
+      padding: 1rem 0 0;
+      flex-direction: column-reverse;
     }
   }
 `;
 
 const Logo = styled.div`
   align-self: flex-end;
-  margin-top: 2rem;
   h2 a {
     font-weight: 700;
     color: ${col.white};
@@ -81,40 +85,30 @@ const Logo = styled.div`
       color: ${col.pLight};
     }
   }
-  /* LOGO MEDIA QUERY */
-  @media (max-width: 755px) {
-    align-self: auto;
+  @media (min-width: 755px) {
+    margin-bottom: 1rem;
   }
 `;
-
 const MainMenu = styled.nav`
   display: flex;
-  width: 100%;
-  padding-right: 1rem;
-  /* border-top: 1px solid ${col.pLight};
-  border-left: 1px solid ${col.pLight};
-  border-right: 1px solid ${col.pLight}; */
-  box-shadow: 0px -2px 1rem 0 rgba(0, 0, 0, 0.3);
-  position: absolute;
-  z-index: 0;
-  bottom: 0;
-  /* MENULINKS STYLING (SEE COMPONENTS/MENU.JS) */
+  justify-content: space-between;
   ul {
-    display: flex;
-    width: 100%;
-    align-items: space-between;
+    display: none;
     li {
-      display: inline-block;
+      border-right: 1px solid ${col.pLight};
     }
   }
-  /* MAIN MENU MEDIA QUERY */
-  @media (max-width: 755px) {
-    box-shadow: none;
-    border: none;
-    width: auto;
-    padding: 1rem;
+  @media (min-width: 755px) {
+    display: flex;
+    align-self: flex-start;
+    border: 1px solid ${col.pLight};
+    width: 100%;
     ul {
-      display: none;
+      display: flex;
+    }
+    button {
+      justify-self: flex-end;
+      margin-right: 1rem;
     }
   }
 `;
