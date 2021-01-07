@@ -31,7 +31,7 @@ const MenuLinks = () => {
 const List = styled.ul`
   a {
     display: block;
-    padding: 1rem;
+    padding: 0.5rem 1rem;
     color: white;
     font-weight: bold;
     font-size: ${fontS.large};

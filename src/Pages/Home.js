@@ -8,11 +8,16 @@ import { useDispatch, useSelector } from "react-redux";
 // COMPONENTS
 import WeatherApp from "../Components/WeatherApp";
 import Title from "../Components/Title";
+// Grid //
+import HeroMain from "../Components/Grid/HeroMain";
+import HeroRightCol from "../Components/Grid/HeroRightCol";
+import SubMain from "../Components/Grid/SubMain";
+
 import { dateFormatter } from "../Functions";
 
 // STYLES
 import styled from "styled-components";
-import { col, fontS } from "../Styles/Styles";
+import { col } from "../Styles/Styles";
 // import { titleAnim } from "../Animations/animation";
 
 const Home = () => {
@@ -32,123 +37,40 @@ const Home = () => {
   };
 
   return (
-    <HeadingBg>
-      <div className="headingContainer">
-        <div className="mainGrid">
-          <div className="leftCol">
-            <Title titleData={titleData} />
-            <WeatherApp />
-          </div>
-          <main className="mainSection">
-            <section>
-              {!loading && (
-                <>
-                  <article className="mainArticle">
-                    <img
-                      style={{ width: "100%" }}
-                      src={sectionData[0].fields.thumbnail}
-                      alt=""
-                    />
-                    <h2>
-                      <span>{`${sectionData[0].sectionName} / `}</span>
-                      {sectionData[0].fields.headline}
-                    </h2>
-                    <p className="trailText">
-                      {sectionData[0].fields.headline}
-                    </p>
-                  </article>
-                  <article className="secondaryArticle">
-                    <h2>
-                      <span>{`${sectionData[1].sectionName} / `}</span>
-                      {sectionData[1].fields.headline}
-                    </h2>
-                  </article>
-                  <article className="secondaryArticle">
-                    <h2>
-                      <span>{`${sectionData[2].sectionName} / `}</span>
-                      {sectionData[2].fields.headline}
-                    </h2>
-                  </article>
-                </>
-              )}
-            </section>
-          </main>
-          <div className="rightCol">
-            {!loading && (
-              <>
-                <article className="mainArticleRight">
-                  <img
-                    style={{ width: "100%" }}
-                    src={sectionData[3].fields.thumbnail}
-                    alt=""
-                  />
-                  <h2>
-                    <span>{`${sectionData[3].sectionName} / `}</span>
-                    {sectionData[3].fields.headline}
-                  </h2>
-                </article>
-                <article className="secondaryArticleRight">
-                  <h2>
-                    <span>{`${sectionData[4].sectionName} / `}</span>
-                    {sectionData[4].fields.headline}
-                  </h2>
-                </article>
-              </>
-            )}
+    <>
+      <HeadingBg>
+        <div className="headingContainer">
+          <div className="grid">
+            <div className="leftCol">
+              <Title titleData={titleData} />
+              <WeatherApp />
+            </div>
+            <main className="mainCol">
+              <HeroMain newsData={sectionData} loading={loading} />
+              <SubMain newsData={sectionData} loading={loading} />
+            </main>
+            <div className="rightCol">
+              <HeroRightCol newsData={sectionData} loading={loading} />
+            </div>
           </div>
         </div>
-      </div>
-    </HeadingBg>
+      </HeadingBg>
+    </>
   );
 };
 
 const HeadingBg = styled.section`
   width: 100%;
   .headingContainer {
-    height: 100vh;
+    height: auto;
     width: 90vw;
     margin: 0 auto;
   }
-  article {
-    img {
-      margin-bottom: 0.5rem;
-    }
-  }
-  .trailText {
-    display: none;
-  }
-  .mainArticle,
-  .mainArticleRight {
-    border-top: 1px solid ${col.title};
-  }
-  .secondaryArticle,
-  .secondaryArticleRight {
-    margin-top: 0.5rem;
-    padding-top: 0.5rem;
-    border-top: 1px solid ${col.greyLight};
-  }
+
   h2 {
     span {
       color: ${col.title};
     }
-  }
-  // MAIN COLUMN
-  .mainSection {
-    padding: 1rem;
-    width: 100%;
-    .mainArticle {
-      h2 {
-        font-size: ${fontS.large};
-      }
-    }
-  }
-  // RIGHT COLUMN
-  @media (min-width: 755px) {
-    .trailText {
-      display: block;
-    }
-  }
-  @media (min-width: 500px) {
   }
 `;
 

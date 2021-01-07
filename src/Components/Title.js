@@ -28,7 +28,6 @@ const Title = (props) => {
 };
 
 const TitleContainer = styled.div`
-  padding: 1rem;
   h2 {
     font-size: ${fontS.large};
     font-weight: 900;

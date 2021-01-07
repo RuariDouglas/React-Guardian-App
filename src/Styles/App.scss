@@ -1,3 +1,11 @@
+
+// VARIABLES (CORRESPONDING WITH STYLES/STYLES.JS)
+$title: #c70000;
+$fullPad: 1rem;
+$halfPad: .5rem;
+$quartPad: .25rem;
+
+
 // SIDENAV
 .shown {
   left: 0;
@@ -32,46 +40,9 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
-// MAIN GRID STYLES (Featured in Home.js)
-.mainGrid {
-  height: 100%;
-  width: 100%;
-  display: grid;
-  grid-template-columns: minmax(5rem, 20%) minmax(20rem, 55%) minmax(11rem, 25%);
-  grid-template-rows: 100%;
-  grid-template-areas: "leftCol main rightCol";
-  .leftCol {
-    position: relative;
-    z-index: 2;
-    grid-area: leftCol;
-    display: flex;
-    flex-direction: column;
-    @media (max-width: 960px) {
-      flex-direction: row;
-      justify-content: space-between;
-    }
-  }
-  .mainSection {
-    grid-area: main;
-    padding: 1rem 0;
-  }
-  .rightCol {
-    padding: 1rem;
-    grid-area: rightCol;
-    background-image: linear-gradient(#eee, #fff);
-    background-color: purple;
-  }
-  @media (max-width: 960px) {
-    grid-template-rows: 10% auto;
-    grid-template-areas:
-      "leftCol leftCol leftCol"
-      "main main rightCol"
-      "main main rightCol";
-  }
-  @media (max-width: 755px) {
-    display: block;
-  }
-}
+
+
+
 
 // MATERIAL UI OVERRIDES
 button.MuiIconButton-root {
@@ -86,3 +57,8 @@ button.MuiIconButton-root {
     background-color: #ff2571;
   }
 }
+
+
+
+@import "./Article";
+@import "./Grid";

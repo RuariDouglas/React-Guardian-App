@@ -105,15 +105,12 @@ const WeatherContainer = styled.div`
   }
   @media (min-width: 960px) {
     position: relative;
-    background-image: linear-gradient(#eee, #fff);
   }
 `;
 
 const CurrentWeather = styled.div`
   display: flex;
   justify-content: flex-end;
-  padding-top: 1rem;
-  padding-right: 1rem;
   .currentWeatherContainer {
     display: flex;
     align-items: center;
@@ -141,6 +138,8 @@ const CurrentWeather = styled.div`
     }
   }
   @media (min-width: 960px) {
+    margin-top: 1rem;
+    border-top: 1px solid ${col.greyLight};
     justify-content: center;
     padding: 0;
     .currentWeatherContainer {
@@ -213,7 +212,6 @@ const ForecastList = styled.div`
   }
   .forecastContainer {
     margin-top: 10px;
-
     ul {
       display: flex;
       justify-content: space-evenly;
@@ -244,13 +242,18 @@ const ForecastList = styled.div`
     }
   }
   @media (min-width: 960px) {
+    border-radius: 0;
+    border-top: 1px solid ${col.greyLight};
     width: 100%;
     display: flex;
     box-shadow: none;
-    padding-top: 0;
+    padding: 1rem 0;
     position: relative;
     top: 0;
     background-color: transparent;
+    .forecastContainer {
+      justify-content: space-between;
+    }
     .searchContainer > div {
       width: 100%;
     }
