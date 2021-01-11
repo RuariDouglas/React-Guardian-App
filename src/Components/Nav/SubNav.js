@@ -47,7 +47,7 @@ const SubNavContainer = styled.nav`
   position: relative;
   z-index: 3;
   width: 90vw;
-  margin: 0 auto;
+  margin: 0 auto 1rem auto;
   overflow: hidden;
   box-shadow: 0px 2px 1rem 0 rgba(0, 0, 0, 0.3);
   ul {
@@ -74,6 +74,9 @@ const SubNavContainer = styled.nav`
         }
       }
     }
+  }
+  @media (min-width: 1300px) {
+    width: 80vw;
   }
 `;
 

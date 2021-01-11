@@ -10,8 +10,8 @@ import WeatherApp from "../Components/WeatherApp";
 import Title from "../Components/Title";
 // Grid //
 import HeroMain from "../Components/Grid/HeroMain";
-import HeroRightCol from "../Components/Grid/HeroRightCol";
 import SubMain from "../Components/Grid/SubMain";
+import SubAlt from "../Components/Grid/SubAlt";
 
 import { dateFormatter } from "../Functions";
 
@@ -39,39 +39,41 @@ const Home = () => {
   return (
     <>
       <HeadingBg>
-        <div className="headingContainer">
-          <div className="grid">
-            <div className="leftCol">
-              <Title titleData={titleData} />
-              <WeatherApp />
-            </div>
-            <main className="mainCol">
-              <HeroMain newsData={sectionData} loading={loading} />
-              <SubMain newsData={sectionData} loading={loading} />
-            </main>
-            <div className="rightCol">
-              <HeroRightCol newsData={sectionData} loading={loading} />
-            </div>
-          </div>
+        <div className="wrapper">
+          <aside className="leftCol">
+            <Title titleData={titleData} />
+            <WeatherApp />
+          </aside>
+          <main className="mainCol">
+            <HeroMain newsData={sectionData} loading={loading} />
+            <SubMain newsData={sectionData} loading={loading} />
+          </main>
         </div>
       </HeadingBg>
+      <div className="altBg">
+        <div className="wrapper">
+          <aside className="leftCol">
+            <h2>CoronaVirus</h2>
+          </aside>
+          <main className="mainCol">
+            <SubAlt newsData={sectionData} loading={loading} />
+          </main>
+        </div>
+      </div>
+      <div className="wrapper">
+        <aside className="leftCol">
+          <h2>CoronaVirus</h2>
+        </aside>
+        <main className="mainCol">
+          <HeroMain newsData={sectionData} loading={loading} />
+        </main>
+      </div>
     </>
   );
 };
 
 const HeadingBg = styled.section`
   width: 100%;
-  .headingContainer {
-    height: auto;
-    width: 90vw;
-    margin: 0 auto;
-  }
-
-  h2 {
-    span {
-      color: ${col.title};
-    }
-  }
 `;
 
 export default Home;

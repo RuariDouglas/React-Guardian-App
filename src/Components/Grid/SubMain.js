@@ -1,112 +1,68 @@
 // REACT
 import React from "react";
-// STYLES
-import styled from "styled-components";
-import { col, fontS } from "../../Styles/Styles";
 
 const SubMain = (props) => {
   const { newsData, loading } = props;
   return (
-    <ArticleBlock>
+    <>
       {!loading && (
-        <>
-          <div className="subMainLeft">
-            <article
-              className={`mainArticle subMainArticle ${
-                newsData[6].type === "liveblog" ? "red" : ""
-              }`}
-            >
-              <img src={newsData[6].fields.thumbnail} alt="" />
+        <div className="splitContainer">
+          <div className="splitLeft">
+            <div className="mainArticle">
+              <div className="imgContainer">
+                <img src={newsData[0].fields.thumbnail} alt="" />
+              </div>
               <div className="textContainer">
                 <h2>
-                  {newsData[6].type === "liveblog" ? (
+                  {newsData[0].type === "liveblog" ? (
                     <>
                       <span className="live">{"Live"}</span>
                       <span>{` / `}</span>
                     </>
                   ) : (
-                    <span>{`${newsData[6].sectionName} / `}</span>
+                    <span>{`${newsData[0].sectionName} / `}</span>
                   )}
 
-                  {newsData[6].fields.headline}
-                </h2>
-                <p className="trailText">{newsData[6].fields.headline}</p>
-              </div>
-            </article>
-            <article className="subArticle">
-              <h2>
-                <span>{`${newsData[2].sectionName} / `}</span>
-                {newsData[2].fields.headline}
-              </h2>
-            </article>
-            <article className="subArticle">
-              <h2>
-                <span>{`${newsData[2].sectionName} / `}</span>
-                {newsData[2].fields.headline}
-              </h2>
-            </article>
-            <article className="subArticle">
-              <h2>
-                <span>{`${newsData[2].sectionName} / `}</span>
-                {newsData[2].fields.headline}
-              </h2>
-            </article>
-          </div>
-          <div className="subMainRight">
-            <article
-              className={`mainArticle subMainArticle ${
-                newsData[6].type === "liveblog" ? "red" : ""
-              }`}
-            >
-              <img src={newsData[6].fields.thumbnail} alt="" />
-              <div className="textContainer">
-                <h2>
-                  {newsData[6].type === "liveblog" ? (
-                    <>
-                      <span className="live">{"Live"}</span>
-                      <span>{` / `}</span>
-                    </>
-                  ) : (
-                    <span>{`${newsData[6].sectionName} / `}</span>
-                  )}
-
-                  {newsData[6].fields.headline}
+                  {newsData[0].fields.headline}
                 </h2>
               </div>
-            </article>
-            <article className="subArticle">
-              <h2>
-                <span>{`${newsData[2].sectionName} / `}</span>
-                {newsData[2].fields.headline}
-              </h2>
-            </article>
-            <article className="subArticle">
-              <h2>
-                <span>{`${newsData[2].sectionName} / `}</span>
-                {newsData[2].fields.headline}
-              </h2>
-            </article>
-            <article className="subArticle">
-              <h2>
-                <span>{`${newsData[2].sectionName} / `}</span>
-                {newsData[2].fields.headline}
-              </h2>
-            </article>
-            <article className="subArticle">
-              <h2>
-                <span>{`${newsData[2].sectionName} / `}</span>
-                {newsData[2].fields.headline}
-              </h2>
-            </article>
+            </div>
+            <div className="subArticleWrapper">
+              {newsData.map((entry, index) => {
+                if (index > 0 && index < 5) {
+                  return (
+                    <div className="subArticle">
+                      <h2>
+                        <span>{`${entry.sectionName} / `} </span>
+                        {entry.fields.headline}
+                      </h2>
+                    </div>
+                  );
+                }
+              })}
+            </div>
           </div>
-        </>
+          {/* RIGHT COLUMN */}
+          <div className="splitRight">
+            <div className="subArticleWrapper">
+              {newsData.map((entry, index) => {
+                if (index > 4 && index < 9) {
+                  return (
+                    <div className="subArticle">
+                      <h2>
+                        <span>{`${entry.sectionName} / `} </span>
+                        {entry.fields.headline}
+                      </h2>
+                    </div>
+                  );
+                }
+              })}
+            </div>
+          </div>
+        </div>
       )}
-    </ArticleBlock>
+    </>
   );
 };
-
-const ArticleBlock = styled.section`
-  height: 100%;
-`;
 
 export default SubMain;

@@ -1,64 +1,106 @@
-
 // VARIABLES (CORRESPONDING WITH STYLES/STYLES.JS)
 $title: #c70000;
+$primary: #052962;
+$pLight: #506991;
+$white: #fff;
+$accent: #ff0d62;
+$grey: #4d4d50;
+$greyLight: #dbdbdb;
+$alt: #f2efea;
+$purp: #403d58;
 $fullPad: 1rem;
-$halfPad: .5rem;
-$quartPad: .25rem;
+$halfPad: 0.5rem;
+$quartPad: 0.25rem;
+@mixin flexColumn {
+    display: flex;
+    flex-direction: column;
+}
 
+// RESPONSIVE FONTS
+* {
+    line-height: 1.2;
+    h2 {
+        font-size: 1rem;
+    }
+    @media (min-width: 755px) {
+        h2 {
+            font-size: 1.1rem;
+        }
+        .subArticle {
+            h2 {
+                font-size: 0.9rem;
+            }
+        }
+    }
+    @media (min-width: 960px) {
+        h2 {
+            font-size: 1.3rem;
+        }
+        .subArticle {
+            h2 {
+                font-size: 1rem;
+            }
+        }
+    }
+}
+
+// LAYOUT STYLES
+.altBg {
+    background-color: $greyLight;
+    color: $purp;
+    padding-top: 0.5rem;
+}
 
 // SIDENAV
 .shown {
-  left: 0;
-  opacity: 1;
-  transition: all 0.4s ease;
-  position: absolute;
-  
-  z-index: 999;
+    left: 0;
+    opacity: 1;
+    transition: all 0.4s ease;
+    position: absolute;
+    z-index: 999;
 }
+
 .hide {
-  left: -100%;
-  opacity: 0;
-  transition: all 0.4s linear;
-  position: absolute;
-  z-index: 999;
+    left: -100%;
+    opacity: 0;
+    transition: all 0.4s linear;
+    position: absolute;
+    z-index: 999;
 }
+
 // SIDENAV
 .weatherShown {
-  top: 3.5rem;
-  opacity: 1;
-  transition: all 0.4s ease;
-  position: absolute;
-  z-index: 1;
+    top: 3.5rem;
+    opacity: 1;
+    transition: all 0.4s ease;
+    position: absolute;
+    z-index: 1;
 }
+
 .weatherHide {
-  top: -100%;
-  opacity: 0;
-  transition: all 0.4s linear;
-  position: absolute;
+    top: -100%;
+    opacity: 0;
+    transition: all 0.4s linear;
+    position: absolute;
 }
+
 .sansSerif {
-  font-family: Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
-
-
-
-
 
 // MATERIAL UI OVERRIDES
 button.MuiIconButton-root {
-  background: #ff0d62;
-  padding: 1rem;
-  height: 2.5rem;
-  width: 2.5rem;
-  align-self: center;
-  padding: 0;
-  color: #000;
-  &:hover {
-    background-color: #ff2571;
-  }
+    background: #ff0d62;
+    padding: 1rem;
+    height: 2.5rem;
+    width: 2.5rem;
+    align-self: center;
+    padding: 0;
+    color: #000;
+    &:hover {
+        background-color: #ff2571;
+    }
 }
-
-
 
 @import "./Article";
 @import "./Grid";

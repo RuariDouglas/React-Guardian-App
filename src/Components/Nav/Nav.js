@@ -71,6 +71,11 @@ const NavBg = styled.header`
       flex-direction: column-reverse;
     }
   }
+  @media (min-width: 1300px) {
+    .navContainer {
+      width: 80vw;
+    }
+  }
 `;
 
 const Logo = styled.div`
