@@ -11,7 +11,7 @@ const Title = (props) => {
 
   return (
     <TitleContainer>
-      <h2>{mainTitle}</h2>
+      <h2 className="left-col__title article__heading--primary">{mainTitle}</h2>
       {subTitle ? (
         <>
           <Typography variant="h6">{day}</Typography>
@@ -28,11 +28,6 @@ const Title = (props) => {
 };
 
 const TitleContainer = styled.div`
-  h2 {
-    font-size: ${fontS.large};
-    font-weight: 900;
-    padding-bottom: 0.5rem;
-  }
   h6 {
     display: inline;
     line-height: 1;

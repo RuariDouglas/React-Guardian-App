@@ -17,7 +17,7 @@ const SubAlt = (props) => {
                   {newsData.map((entry, index) => {
                     if (index > 0 && index < 4) {
                       return (
-                        <div className="article article--alt article--overlay--blue">
+                        <div className="article--alt article--overlay--blue">
                           <h4 className="article__heading--tertiary">
                             <span>{`${entry.sectionName} / `} </span>
                             {entry.fields.headline}

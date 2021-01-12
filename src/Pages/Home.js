@@ -52,7 +52,9 @@ const Home = () => {
       <div className="bg--alt">
         <div className="wrapper">
           <aside className="col-left">
-            <Title titleData={titleData} />
+            <h2 className="left-col__title article__heading--primary">
+              Coronavirus
+            </h2>
           </aside>
           <main className="col-right">
             <SubAlt newsData={sectionData} loading={loading} />
@@ -61,7 +63,9 @@ const Home = () => {
       </div>
       <div className="wrapper">
         <aside className="col-left">
-          <Title titleData={titleData} />
+          <h2 className="left-col__title article__heading--primary">
+            Most Viewed
+          </h2>
         </aside>
         <main className="col-right">
           <MostViewed newsData={sectionData} loading={loading} />

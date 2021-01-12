@@ -26,10 +26,15 @@ h6 {
 
 .article__heading--tertiary {
     font-size: 0.833rem;
+    font-weight: 500;
 }
 
 .meta {
     font-size: 0.937rem;
+}
+
+.left-col__title {
+    font-weight: 900;
 }
 
 @media (min-width: 755px) {

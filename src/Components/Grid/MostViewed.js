@@ -3,22 +3,40 @@ import React from "react";
 const MostViewed = (props) => {
   const { newsData, loading } = props;
   return (
-    <div className="grid grid--2fr-2fr most-viewed">
-      <ul className="grid__item--span1 most-viewed__list--left">
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
-        <li>4</li>
-        <li>5</li>
-      </ul>
-      <ul className="grid__item--span1  most-viewed__list--right">
-        <li>6</li>
-        <li>7</li>
-        <li>8</li>
-        <li>9</li>
-        <li>10</li>
-      </ul>
-    </div>
+    <>
+      {!loading && (
+        <div className="most-viewed">
+          <ul className="grid__item--span1 most-viewed__list--left">
+            {newsData.map((entry, index) => {
+              if (index >= 0 && index < 5) {
+                return (
+                  <li className="most-viewed__list-item">
+                    <p className="most-viewed__index-heading">{index + 1} </p>
+                    <h4 className="most-viewed__heading">
+                      {entry.fields.headline}
+                    </h4>
+                  </li>
+                );
+              }
+            })}
+          </ul>
+          <ul className="grid__item--span1  most-viewed__list--right">
+            {newsData.map((entry, index) => {
+              if (index >= 5 && index < 11) {
+                return (
+                  <li className="most-viewed__list-item">
+                    <p className="most-viewed__index-heading">{index + 1} </p>
+                    <h4 className="most-viewed__heading">
+                      {entry.fields.headline}
+                    </h4>
+                  </li>
+                );
+              }
+            })}
+          </ul>
+        </div>
+      )}
+    </>
   );
 };
 
