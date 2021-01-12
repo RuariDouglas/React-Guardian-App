@@ -56,7 +56,7 @@ const Home = () => {
               Coronavirus
             </h2>
           </aside>
-          <main className="col-right">
+          <main className="col-main">
             <SubAlt newsData={sectionData} loading={loading} />
           </main>
         </div>
@@ -67,7 +67,7 @@ const Home = () => {
             Most Viewed
           </h2>
         </aside>
-        <main className="col-right">
+        <main className="col-main">
           <MostViewed newsData={sectionData} loading={loading} />
         </main>
       </div>

@@ -42,11 +42,23 @@
     .col-left {
         height: 100%;
         flex-direction: column;
+        align-items: flex-start;
+        position: relative;
+        &::after {
+            content: "";
+            position: absolute;
+            height: 100%;
+            width: 1px;
+            background-color: $greyLight;
+            right: $halfPad;
+        }
     }
     .col-main {
         flex-shrink: 3;
         height: 100%;
         display: flex;
+        padding-right: $halfPad;
+        border-right: 1px solid $greyLight;
     }
 }
 

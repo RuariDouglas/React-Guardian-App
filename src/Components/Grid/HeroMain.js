@@ -34,7 +34,7 @@ const HeroMain = (props) => {
               {newsData.map((entry, index) => {
                 if (index > 0 && index < 4) {
                   return (
-                    <div className="article article--tertiary">
+                    <div className="article article--tertiary article--padded--bg">
                       <h4 className="article__heading--tertiary">
                         <span>{`${entry.sectionName} / `} </span>
                         {entry.fields.headline}
