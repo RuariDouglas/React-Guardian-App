@@ -1,13 +1,37 @@
-// VARIABLES (CORRESPONDING WITH STYLES/STYLES.JS)
-$title: #c70000;
-$primary: #052962;
-$pLight: #506991;
-$white: #fff;
-$accent: #ff0d62;
-$grey: #4d4d50;
-$greyLight: #dbdbdb;
-$alt: #eee;
-$purp: #403d58;
+$neutral97: #f6f6f6;
+$neutral90: #eee;
+$neutral86: #dcdcdc;
+$neutral60: #999999;
+$neutral20: #333333;
+$nutral7: #121212;
+
+$brandDark: #041f4a;
+$brandMain: #052962;
+$brandPastel: #506991;
+
+$newsMain: #c70000;
+$newsBright: #ff4e36;
+$newsFaded: #fff4f2;
+
+$opinionMain: #e05e00;
+$opinionBright: #ff7f0f;
+$opinionFaded: #fef9f5;
+
+$sportMain: #0084c6;
+$sportBright: #00b2ff;
+$sportFaded: #f1f8fc;
+
+$cultureMain: #a1845c;
+$cultureBright: #eacca0;
+$cultureFaded: #fbf6ef;
+
+$lifestyleMain: #bb3b80;
+$lifestyleBright: #ffabdb;
+$lifestyleFaded: #feeef7;
+
+$highlight: #ffe500;
+$highlightPastel: #fff280;
+
 $fullPad: 1rem;
 $threeqPad: 0.75rem;
 $halfPad: 0.5rem;
@@ -59,7 +83,7 @@ $quartPad: 0.25rem;
 
 // MATERIAL UI OVERRIDES
 button.MuiIconButton-root {
-    background: #ff0d62;
+    background: $highlight;
     padding: 1rem;
     height: 2.5rem;
     width: 2.5rem;
@@ -67,7 +91,7 @@ button.MuiIconButton-root {
     padding: 0;
     color: #000;
     &:hover {
-        background-color: #ff2571;
+        background-color: $highlight;
     }
 }
 

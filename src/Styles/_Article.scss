@@ -25,33 +25,33 @@ img {
 }
 
 .article--primary {
-    border-top: 3px solid $title;
+    border-top: 3px solid $newsMain;
     @include flexColumn;
 }
 
 .article--padded--bg {
-    background-color: #eee;
+    background-color: $neutral90;
     padding: $halfPad;
 }
 
 .article--secondary {
-    border-top: 3px solid $greyLight;
+    border-top: 3px solid $neutral86;
 }
 
 .article--tertiary {
-    border-top: 3px solid $greyLight;
+    border-top: 3px solid $neutral86;
 }
 
 .article--alt {
-    border-top: 3px solid $accent;
+    border-top: 3px solid $newsBright;
 }
 
 .article--overlay--blue {
-    background-color: $primary;
-    padding: $halfPad;
-    color: $white;
+    background-color: $brandMain;
+    padding:0  $halfPad;
+    color: #fff;
     span {
-        color: $accent;
+        color: $newsBright;
     }
 }
 
@@ -69,7 +69,7 @@ img {
 }
 
 .article__live-span {
-    color: $title;
+    color: $newsMain;
     font-weight: 900;
     animation: blinker 1.5s linear infinite;
     opacity: 1;
@@ -78,16 +78,16 @@ img {
 // MOST VIEWED
 .most-viewed {
     @include flexColumn;
-    border-left: 1px solid $greyLight;
-    border-right: 1px solid $greyLight;
-    border-top: 1px solid $greyLight;
+    border-left: 1px solid $neutral86;
+    border-right: 1px solid $neutral86;
+    border-top: 1px solid $neutral86;
 }
 
 .most-viewed__list-item {
     padding: $fullPad;
     display: flex;
     align-items: center;
-    border-bottom: 1px solid $greyLight;
+    border-bottom: 1px solid $neutral86;
 }
 
 .most-viewed__index-heading {
@@ -138,7 +138,7 @@ img {
         @include flexColumn;
     }
     .most-viewed__list--right {
-        border-left: 1px solid $greyLight;
+        border-left: 1px solid $neutral86;
     }
     .most-viewed__list-item {
         min-height: 5rem;
@@ -153,7 +153,7 @@ img {
 .red {
     h2 {
         span {
-            color: $title;
+            color: $newsMain;
             font-weight: 900;
         }
         span.article__live-span {
@@ -175,7 +175,7 @@ img {
         background-repeat: no-repeat;
         background-size: 50% 50%, 50% 50%;
         background-position: 0 0, 100% 0, 100% 100%, 0 100%;
-        background-image: linear-gradient($title, $title);
+        background-image: linear-gradient($newsMain, $newsMain);
         animation: rotate 3s linear infinite;
     }
     &::after {
@@ -189,7 +189,7 @@ img {
         background: #f5f5f5;
     }
     @media (min-width: 755px) {
-        border-top: 2px solid $title;
+        border-top: 2px solid $newsMain;
         &::before {
             content: "";
             display: none;

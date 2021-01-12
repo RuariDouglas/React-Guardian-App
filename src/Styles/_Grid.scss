@@ -1,6 +1,6 @@
 // BG
 .bg--alt {
-    background-color: $alt;
+    background-color: $neutral90;
 }
 
 .wrapper {
@@ -49,7 +49,7 @@
             position: absolute;
             height: 100%;
             width: 1px;
-            background-color: $greyLight;
+            background-color: $neutral86;
             right: $halfPad;
         }
     }
@@ -58,7 +58,7 @@
         height: 100%;
         display: flex;
         padding-right: $halfPad;
-        border-right: 1px solid $greyLight;
+        border-right: 1px solid $neutral86;
     }
 }
 
