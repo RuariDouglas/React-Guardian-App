@@ -8,7 +8,7 @@ const HeroMain = (props) => {
       {!loading && (
         <div className="grid grid--3fr-1fr">
           <div className="grid grid--3fr">
-            <div className="article article--primary article--hero grid__item grid__item--span3">
+            <div className="article article--primary article--hero article--padded--bg  grid__item grid__item--span3">
               <div className="article__img-container article__img-container--hero">
                 <img src={newsData[0].fields.thumbnail} alt="" />
               </div>
@@ -16,7 +16,7 @@ const HeroMain = (props) => {
                 <h2 className="article__heading--primary">
                   {newsData[0].type === "liveblog" ? (
                     <>
-                      <span className="live">{"Live"}</span>
+                      <span className="article__live-span">{"Live"}</span>
                       <span>{` / `}</span>
                     </>
                   ) : (
@@ -34,7 +34,7 @@ const HeroMain = (props) => {
               {newsData.map((entry, index) => {
                 if (index > 0 && index < 4) {
                   return (
-                    <div className="article--tertiary">
+                    <div className="article article--tertiary">
                       <h4 className="article__heading--tertiary">
                         <span>{`${entry.sectionName} / `} </span>
                         {entry.fields.headline}
@@ -47,7 +47,7 @@ const HeroMain = (props) => {
           </div>
           {/* RIGHT COLUMN */}
           <div className="article-wrapper--column">
-            <div className="article article--primary">
+            <div className="article article--primary article--padded--bg">
               <img src={newsData[3].fields.thumbnail} alt="" />
               <h3 className="article__heading--secondary">
                 {newsData[3].type === "liveblog" ? (

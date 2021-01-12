@@ -12,6 +12,7 @@ import Title from "../Components/Title";
 import HeroMain from "../Components/Grid/HeroMain";
 import SubMain from "../Components/Grid/SubMain";
 import SubAlt from "../Components/Grid/SubAlt";
+import MostViewed from "../Components/Grid/MostViewed";
 
 import { dateFormatter } from "../Functions";
 
@@ -48,12 +49,22 @@ const Home = () => {
           <SubMain newsData={sectionData} loading={loading} />
         </main>
       </div>
+      <div className="bg--alt">
+        <div className="wrapper">
+          <aside className="col-left">
+            <Title titleData={titleData} />
+          </aside>
+          <main className="col-right">
+            <SubAlt newsData={sectionData} loading={loading} />
+          </main>
+        </div>
+      </div>
       <div className="wrapper">
         <aside className="col-left">
           <Title titleData={titleData} />
         </aside>
         <main className="col-right">
-          <SubAlt newsData={sectionData} loading={loading} />
+          <MostViewed newsData={sectionData} loading={loading} />
         </main>
       </div>
     </>

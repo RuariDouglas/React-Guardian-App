@@ -8,7 +8,7 @@ const SubMain = (props) => {
       {!loading && (
         <div className="grid grid--3fr-1fr">
           <div className="grid grid--3fr">
-            <div className="grid__item--span2 article article--primary">
+            <div className="grid__item--span2 article article--primary article--padded--bg ">
               <div className="article__img-container">
                 <img src={newsData[0].fields.thumbnail} alt="" />
               </div>
@@ -25,13 +25,16 @@ const SubMain = (props) => {
 
                   {newsData[0].fields.headline}
                 </h2>
+                <p className="article__trail-text">
+                  {newsData[0].fields.headline}
+                </p>
               </div>
             </div>
             <div className="article-wrapper--column">
               {newsData.map((entry, index) => {
-                if (index > 0 && index < 5) {
+                if (index > 0 && index < 4) {
                   return (
-                    <div className="article article--secondary">
+                    <div className="article article--primary">
                       <h3 className="article__heading--secondary">
                         <span>{`${entry.sectionName} / `} </span>
                         {entry.fields.headline}
