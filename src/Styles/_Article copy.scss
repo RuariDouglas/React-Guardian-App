@@ -4,64 +4,6 @@ img {
     background-position: 50% 50%;
     background-repeat: no-repeat;
 }
-// BEM STYLES
-.article-wrapper {
-    display: flex;
-    width: 100%;
-}
-.article-wrapper--column {
-    @include flexColumn;
-    width: 100%;
-    justify-content: space-between;
-}
-.article {
-    justify-self: stretch;
-    height: min-content;
-}
-.article--primary {
-    border-top: 3px solid $title;
-}
-.article--primary--sm {}
-.article--secondary {
-    border-top: 3px solid $greyLight;
-}
-.article--tertiary {
-    border-top: 3px solid $greyLight;
-}
-.article__heading--primary {}
-.article__heading--secondary {}
-.article__trail-text {
-    display: none;
-}
-.article__img-container {
-    img {
-        justify-self: stretch;
-        height: 100%;
-        width: 100%;
-    }
-}
-
-@media (min-width: 755px) {
-    .article--hero {
-        display: flex;
-        flex-flow: row-reverse;
-        justify-content: space-between;
-        height: min-content;        
-    }
-    .article__img-container--hero {
-        width: 66%;
-    }
-    .article__text-container--hero {
-        @include flexColumn;
-        width: 33%;
-        justify-content: space-between;
-    }
-}
-@media (min-width: 960px) {
-    .article__trail-text {
-        display: block;
-    }
-}
 
 // MAIN ARTICLE STYLES
 .splitContainer {

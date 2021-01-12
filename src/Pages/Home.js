@@ -38,27 +38,23 @@ const Home = () => {
 
   return (
     <>
-      <HeadingBg>
-        <div className="wrapper">
-          <aside className="leftCol">
-            <Title titleData={titleData} />
-            <WeatherApp />
-          </aside>
-          <main className="mainCol">
-            <HeroMain newsData={sectionData} loading={loading} />
-            <SubMain newsData={sectionData} loading={loading} />
-          </main>
-        </div>
-      </HeadingBg>
-      <div className="altBg">
-        <div className="wrapper">
-          <aside className="leftCol">
-            <h2>CoronaVirus</h2>
-          </aside>
-          <main className="mainCol">
-            <SubAlt newsData={sectionData} loading={loading} />
-          </main>
-        </div>
+      <div className="wrapper">
+        <aside className="col-left">
+          <Title titleData={titleData} />
+          {/* <WeatherApp /> */}
+        </aside>
+        <main className="col-main">
+          <HeroMain newsData={sectionData} loading={loading} />
+          {/* <SubMain newsData={sectionData} loading={loading} /> */}
+        </main>
+      </div>
+      <div className="wrapper">
+        <aside className="leftCol">
+          <h2>CoronaVirus</h2>
+        </aside>
+        <main className="mainCol">
+          <SubAlt newsData={sectionData} loading={loading} />
+        </main>
       </div>
       <div className="wrapper">
         <aside className="leftCol">
