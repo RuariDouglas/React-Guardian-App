@@ -4,35 +4,59 @@ img {
     background-position: 50% 50%;
     background-repeat: no-repeat;
 }
-// BEM STYLES
+
+// ARTICLE WRAPPER
 .article-wrapper {
     display: flex;
     width: 100%;
+    height: auto;
 }
+
 .article-wrapper--column {
     @include flexColumn;
     width: 100%;
     justify-content: space-between;
 }
+
 .article {
     justify-self: stretch;
-    height: min-content;
+    height: 100%;
 }
+
 .article--primary {
     border-top: 3px solid $title;
 }
+
 .article--primary--sm {}
+
 .article--secondary {
     border-top: 3px solid $greyLight;
 }
+
 .article--tertiary {
     border-top: 3px solid $greyLight;
 }
-.article__heading--primary {}
-.article__heading--secondary {}
-.article__trail-text {
-    display: none;
+
+.article--alt {
+    border-top: 3px solid $accent;
 }
+
+.article--overlay--blue {
+    background-color: $primary;
+    border-top: 3px solid $accent;
+    padding: $halfPad;
+    color: $white;
+}
+
+// TYPOGRAPHY
+.article__heading--primary {}
+
+.article__heading--secondary {}
+
+.article__heading--tertiary {
+    font-weight: 500;
+}
+
 .article__img-container {
     img {
         justify-self: stretch;
@@ -41,22 +65,42 @@ img {
     }
 }
 
+.article__trail-text {
+    display: none;
+}
+
+.article__live-span {
+    color: $title;
+    font-weight: 900;
+    animation: blinker 1.5s linear infinite;
+    opacity: 1;
+}
+
 @media (min-width: 755px) {
     .article--hero {
         display: flex;
         flex-flow: row-reverse;
         justify-content: space-between;
-        height: min-content;        
+        height: min-content;
     }
     .article__img-container--hero {
-        width: 66%;
+        width: 66.3%;
     }
     .article__text-container--hero {
         @include flexColumn;
-        width: 33%;
+        width: 33.3%;
         justify-content: space-between;
     }
+    .article-wrapper--overlay {
+        position: absolute;
+        bottom: 1rem;
+        padding: $halfPad;
+    }
+    .article__img-container--overlay {
+        position: relative;
+    }
 }
+
 @media (min-width: 960px) {
     .article__trail-text {
         display: block;

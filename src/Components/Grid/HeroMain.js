@@ -12,7 +12,7 @@ const HeroMain = (props) => {
               <div className="article__img-container article__img-container--hero">
                 <img src={newsData[0].fields.thumbnail} alt="" />
               </div>
-              <div className=" article__text-container--hero">
+              <div className="article__text-container--hero">
                 <h2 className="article__heading--primary">
                   {newsData[0].type === "liveblog" ? (
                     <>
@@ -35,7 +35,7 @@ const HeroMain = (props) => {
                 if (index > 0 && index < 4) {
                   return (
                     <div className="article--tertiary">
-                      <h4>
+                      <h4 className="article__heading--tertiary">
                         <span>{`${entry.sectionName} / `} </span>
                         {entry.fields.headline}
                       </h4>
@@ -49,7 +49,7 @@ const HeroMain = (props) => {
           <div className="article-wrapper--column">
             <div className="article article--primary">
               <img src={newsData[3].fields.thumbnail} alt="" />
-              <h2 className="article__heading--secondary">
+              <h3 className="article__heading--secondary">
                 {newsData[3].type === "liveblog" ? (
                   <>
                     <span className="live">{"Live"}</span>
@@ -59,7 +59,7 @@ const HeroMain = (props) => {
                   <span>{`${newsData[3].sectionName} / `}</span>
                 )}
                 {newsData[3].fields.headline}
-              </h2>
+              </h3>
             </div>
           </div>
         </div>

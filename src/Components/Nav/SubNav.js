@@ -75,7 +75,7 @@ const SubNavContainer = styled.nav`
       }
     }
   }
-  @media (min-width: 1300px) {
+  @media (min-width: 1200px) {
     width: 80vw;
   }
 `;

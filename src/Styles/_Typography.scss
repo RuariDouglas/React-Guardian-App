@@ -1,0 +1,54 @@
+.article__heading--primary {
+    font-size: 1.296rem;
+}
+
+.article__heading--secondary {
+    font-size: 1.067rem;
+}
+
+.article__heading--tertiary {}
+
+html {
+    font-size: 100%;
+}
+
+
+/*16px*/
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    line-height: 1.2;
+}
+
+h1 {
+    margin-top: 0;
+    font-size: 1.383rem;
+}
+
+h2 {
+    font-size: 1.296rem;
+}
+
+h3 {
+    font-size: 1.215rem;
+}
+
+h4 {
+    font-size: 1.138rem;
+}
+
+h5 {
+    font-size: 1.067rem;
+}
+
+small,
+.text_small {
+    font-size: 0.937rem;
+}
+
+@media (min-width: 755px) {}
+
+@media (min-width: 960px) {}

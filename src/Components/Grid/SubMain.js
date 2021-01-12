@@ -6,17 +6,17 @@ const SubMain = (props) => {
   return (
     <>
       {!loading && (
-        <div className="splitContainer">
-          <div className="splitLeft">
-            <div className="mainArticle">
-              <div className="imgContainer">
+        <div className="grid grid--3fr-1fr">
+          <div className="grid grid--3fr">
+            <div className="grid__item--span2 article article--primary">
+              <div className="article__img-container">
                 <img src={newsData[0].fields.thumbnail} alt="" />
               </div>
-              <div className="textContainer">
-                <h2>
+              <div className="article__text-container">
+                <h2 className="article__heading--primary">
                   {newsData[0].type === "liveblog" ? (
                     <>
-                      <span className="live">{"Live"}</span>
+                      <span className="article__live-span">{"Live"}</span>
                       <span>{` / `}</span>
                     </>
                   ) : (
@@ -27,15 +27,15 @@ const SubMain = (props) => {
                 </h2>
               </div>
             </div>
-            <div className="subArticleWrapper">
+            <div className="article-wrapper--column">
               {newsData.map((entry, index) => {
                 if (index > 0 && index < 5) {
                   return (
-                    <div className="subArticle">
-                      <h2>
+                    <div className="article article--secondary">
+                      <h3 className="article__heading--secondary">
                         <span>{`${entry.sectionName} / `} </span>
                         {entry.fields.headline}
-                      </h2>
+                      </h3>
                     </div>
                   );
                 }
@@ -43,21 +43,19 @@ const SubMain = (props) => {
             </div>
           </div>
           {/* RIGHT COLUMN */}
-          <div className="splitRight">
-            <div className="subArticleWrapper">
-              {newsData.map((entry, index) => {
-                if (index > 4 && index < 9) {
-                  return (
-                    <div className="subArticle">
-                      <h2>
-                        <span>{`${entry.sectionName} / `} </span>
-                        {entry.fields.headline}
-                      </h2>
-                    </div>
-                  );
-                }
-              })}
-            </div>
+          <div className="article-wrapper--column">
+            {newsData.map((entry, index) => {
+              if (index > 4 && index < 9) {
+                return (
+                  <div className="article article--secondary ">
+                    <h3 className="article__heading--secondary">
+                      <span>{`${entry.sectionName} / `} </span>
+                      {entry.fields.headline}
+                    </h3>
+                  </div>
+                );
+              }
+            })}
           </div>
         </div>
       )}

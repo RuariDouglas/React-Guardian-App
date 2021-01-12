@@ -17,33 +17,6 @@ $quartPad: 0.25rem;
 }
 
 // RESPONSIVE FONTS
-* {
-    line-height: 1.2;
-    h2 {
-        font-size: 1rem;
-    }
-    @media (min-width: 755px) {
-        h2 {
-            font-size: 1.1rem;
-        }
-        .article--secondary {
-            h2 {
-                font-size: 0.9rem;
-            }
-        }
-    }
-    @media (min-width: 960px) {
-        h2 {
-            font-size: 1.3rem;
-        }
-        .subArticle {
-            h2 {
-                font-size: 1rem;
-            }
-        }
-    }
-}
-
 // LAYOUT STYLES
 .altBg {
     background-color: $greyLight;
@@ -104,3 +77,4 @@ button.MuiIconButton-root {
 
 @import "./Article";
 @import "./Grid";
+@import "./Typography";

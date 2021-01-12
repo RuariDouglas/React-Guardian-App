@@ -45,23 +45,15 @@ const Home = () => {
         </aside>
         <main className="col-main">
           <HeroMain newsData={sectionData} loading={loading} />
-          {/* <SubMain newsData={sectionData} loading={loading} /> */}
+          <SubMain newsData={sectionData} loading={loading} />
         </main>
       </div>
       <div className="wrapper">
-        <aside className="leftCol">
-          <h2>CoronaVirus</h2>
+        <aside className="col-left">
+          <Title titleData={titleData} />
         </aside>
-        <main className="mainCol">
+        <main className="col-right">
           <SubAlt newsData={sectionData} loading={loading} />
-        </main>
-      </div>
-      <div className="wrapper">
-        <aside className="leftCol">
-          <h2>CoronaVirus</h2>
-        </aside>
-        <main className="mainCol">
-          <HeroMain newsData={sectionData} loading={loading} />
         </main>
       </div>
     </>
