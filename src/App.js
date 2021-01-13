@@ -4,6 +4,9 @@ import React from "react";
 // PAGES
 import Home from "./Pages/Home";
 import Opinion from "./Pages/Opinion";
+import Sport from "./Pages/Sport";
+import Culture from "./Pages/Culture";
+import Lifestyle from "./Pages/Lifestyle";
 
 // COMPONENTS
 import GlobalStyle from "./Components/GlobalStyled";
@@ -17,17 +20,11 @@ import "./Styles/App.scss";
 
 // MATERIAL UI
 import CssBaseline from "@material-ui/core/CssBaseline";
-import {
-  ThemeProvider,
-  createMuiTheme,
-  responsiveFontSizes,
-} from "@material-ui/core/styles";
-const font = "'Merriweather', serif;";
 
 function App() {
   const location = useLocation();
   return (
-    <ThemeProvider theme={theme}>
+    <>
       <CssBaseline />
       <GlobalStyle />
       <Nav />
@@ -35,11 +32,20 @@ function App() {
         <Route path="/" exact>
           <Home />
         </Route>
-        <Route path="/opinion" exact>
+        <Route path="/commentisfree" exact>
           <Opinion />
         </Route>
+        <Route path="/sport" exact>
+          <Sport />
+        </Route>
+        <Route path="/culture" exact>
+          <Culture />
+        </Route>
+        <Route path="/lifestyle" exact>
+          <Lifestyle />
+        </Route>
       </Switch>
-    </ThemeProvider>
+    </>
   );
 }
 
