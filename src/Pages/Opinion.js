@@ -1,5 +1,6 @@
 // REACT
 import React, { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 // REDUX
 import { loadSection } from "../Redux/Actions/guardianSectionAction";
@@ -8,6 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 // COMPONENTS
 import WeatherApp from "../Components/WeatherApp";
 import Title from "../Components/Title";
+import Article from "../Components/Article";
 // Grid //
 import HeroMain from "../Components/Grid/HeroMain";
 import SubMain from "../Components/Grid/SubMain";
@@ -18,16 +20,13 @@ import { dateFormatter } from "../Functions";
 
 // STYLES
 import styled from "styled-components";
-import { col } from "../Styles/Styles";
-// import { titleAnim } from "../Animations/animation";
 
-const Home = () => {
+const Opinion = () => {
   // API CALLS
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(loadSection("news"));
+    dispatch(loadSection("commentisfree"));
   }, [dispatch]);
-
   const { sectionData, loading } = useSelector((state) => state.guardian);
 
   // TITLE COMPONENT DATA
@@ -36,6 +35,8 @@ const Home = () => {
     mainTitle: "Headlines",
     subTitle: date,
   };
+  const location = useLocation();
+  console.log(location.pathname);
 
   return (
     <>
@@ -79,4 +80,4 @@ const HeadingBg = styled.section`
   width: 100%;
 `;
 
-export default Home;
+export default Opinion;

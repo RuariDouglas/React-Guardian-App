@@ -13,7 +13,7 @@ const MenuLinks = () => {
         <Link to="/#">News</Link>
       </li>
       <li>
-        <Link to="/#">Opinion</Link>
+        <Link to="/Opinion">Opinion</Link>
       </li>
       <li>
         <Link to="/#">Sport</Link>

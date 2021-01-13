@@ -3,6 +3,7 @@ import React from "react";
 
 // PAGES
 import Home from "./Pages/Home";
+import Opinion from "./Pages/Opinion";
 
 // COMPONENTS
 import GlobalStyle from "./Components/GlobalStyled";
@@ -22,21 +23,6 @@ import {
   responsiveFontSizes,
 } from "@material-ui/core/styles";
 const font = "'Merriweather', serif;";
-// theme
-let theme = createMuiTheme({
-  typography: {
-    subtitle1: {
-      fontFamily: "Helvetica, Arial, sans-serif",
-    },
-    subtitle2: {
-      fontFamily: "Helvetica, Arial, sans-serif",
-      color: "#646464",
-      fontSize: 14,
-    },
-    fontFamily: font,
-  },
-});
-theme = responsiveFontSizes(theme);
 
 function App() {
   const location = useLocation();
@@ -45,10 +31,12 @@ function App() {
       <CssBaseline />
       <GlobalStyle />
       <Nav />
-
       <Switch location={location} key={location.pathname}>
-        <Route path="/">
+        <Route path="/" exact>
           <Home />
+        </Route>
+        <Route path="/opinion" exact>
+          <Opinion />
         </Route>
       </Switch>
     </ThemeProvider>
