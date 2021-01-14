@@ -24,6 +24,12 @@ const MenuLinks = () => {
       <li>
         <Link to="/lifestyle">LifeStyle</Link>
       </li>
+      <li>
+        <img
+          src="https://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2010/03/01/poweredbyguardianREV.png"
+          alt="The Guardian"
+        />
+      </li>
     </List>
   );
 };
@@ -38,6 +44,11 @@ const List = styled.ul`
     transition: all 1s ease;
     &:hover {
       background-color: ${col.pLight};
+    }
+  }
+  li {
+    img {
+      width: 75%;
     }
   }
 `;

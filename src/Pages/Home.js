@@ -25,7 +25,7 @@ const Home = () => {
   // API CALLS
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(loadSection("news"));
+    dispatch(loadSection("business"));
   }, [dispatch]);
 
   const { sectionData, loading } = useSelector((state) => state.guardian);

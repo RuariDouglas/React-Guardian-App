@@ -36,7 +36,7 @@ const Nav = () => {
           </MainMenu>
           <Logo>
             <Typography variant="h2">
-              <Link to="/">
+              <Link to="www.theguardian.com">
                 <span>the</span>guardian
               </Link>
             </Typography>

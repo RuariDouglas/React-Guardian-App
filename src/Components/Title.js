@@ -6,24 +6,21 @@ import { col, fontS } from "../Styles/Styles";
 
 const Title = (props) => {
   const { mainTitle, subTitle } = props.titleData;
-  const day = subTitle[0];
-  const dateString = subTitle.slice(1, subTitle.length);
 
   return (
-    <TitleContainer>
-      <h2 className="left-col__title article__heading--primary">{mainTitle}</h2>
-      {subTitle ? (
-        <>
-          <Typography variant="h6">{day}</Typography>
+    <>
+      <TitleContainer>
+        <h2 className="left-col__title article__heading--primary">
+          {mainTitle}
+        </h2>
 
-          <Typography variant="h6">
-            <span>{` ${dateString[0]} ${dateString[1]} ${dateString[2]}`}</span>
-          </Typography>
-        </>
-      ) : (
-        ""
-      )}
-    </TitleContainer>
+        {subTitle && (
+          <h6>
+            <span>{` ${subTitle[0]} ${subTitle[1]} ${subTitle[2]}`}</span>
+          </h6>
+        )}
+      </TitleContainer>
+    </>
   );
 };
 

@@ -7,16 +7,14 @@ import { loadSection } from "../Redux/Actions/guardianSectionAction";
 import { useDispatch, useSelector } from "react-redux";
 
 // COMPONENTS
-import WeatherApp from "../Components/WeatherApp";
 import Title from "../Components/Title";
 import Article from "../Components/Article";
+
 // Grid //
 import HeroMain from "../Components/Grid/HeroMain";
 import SubMain from "../Components/Grid/SubMain";
 import SubAlt from "../Components/Grid/SubAlt";
 import MostViewed from "../Components/Grid/MostViewed";
-
-import { dateFormatter } from "../Functions";
 
 // STYLES
 import styled from "styled-components";
@@ -30,20 +28,17 @@ const Opinion = () => {
   const { sectionData, loading } = useSelector((state) => state.guardian);
 
   // TITLE COMPONENT DATA
-  let date = dateFormatter();
   const titleData = {
-    mainTitle: "Headlines",
-    subTitle: date,
+    mainTitle: "Opinions",
+    subTitle: false,
   };
   const location = useLocation();
-  console.log(location.pathname);
 
   return (
     <>
       <div className="wrapper">
         <aside className="col-left">
           <Title titleData={titleData} />
-          {/* <WeatherApp /> */}
         </aside>
         <main className="col-main">
           <HeroMain newsData={sectionData} loading={loading} />
