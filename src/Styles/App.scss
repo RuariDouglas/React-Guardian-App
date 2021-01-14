@@ -4,95 +4,87 @@ $neutral86: #dcdcdc;
 $neutral60: #999999;
 $neutral20: #333333;
 $nutral7: #121212;
-
 $brandDark: #041f4a;
 $brandMain: #052962;
 $brandPastel: #506991;
-
 $newsMain: #c70000;
 $newsBright: #ff4e36;
 $newsFaded: #fff4f2;
-
 $opinionMain: #e05e00;
 $opinionBright: #ff7f0f;
 $opinionFaded: #fef9f5;
-
 $sportMain: #0084c6;
 $sportBright: #00b2ff;
 $sportFaded: #f1f8fc;
-
 $cultureMain: #a1845c;
 $cultureBright: #eacca0;
 $cultureFaded: #fbf6ef;
-
 $lifestyleMain: #bb3b80;
 $lifestyleBright: #ffabdb;
 $lifestyleFaded: #feeef7;
-
 $highlight: #ffe500;
 $highlightPastel: #fff280;
-
+$highlightDark: #ffbb50;
 $fullPad: 1rem;
 $threeqPad: 0.75rem;
 $halfPad: 0.5rem;
 $quartPad: 0.25rem;
 @mixin flexColumn {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 // RESPONSIVE FONTS
 // LAYOUT STYLES
-
 // SIDENAV
 .shown {
-    left: 0;
-    opacity: 1;
-    transition: all 0.4s ease;
-    position: absolute;
-    z-index: 999;
+  left: 0;
+  opacity: 1;
+  transition: all 0.4s ease;
+  position: absolute;
+  z-index: 999;
 }
 
 .hide {
-    left: -100%;
-    opacity: 0;
-    transition: all 0.4s linear;
-    position: absolute;
-    z-index: 999;
+  left: -100%;
+  opacity: 0;
+  transition: all 0.4s linear;
+  position: absolute;
+  z-index: 999;
 }
 
 // SIDENAV
 .weatherShown {
-    top: 3.5rem;
-    opacity: 1;
-    transition: all 0.4s ease;
-    position: absolute;
-    z-index: 1;
+  top: 3.5rem;
+  opacity: 1;
+  transition: all 0.4s ease;
+  position: absolute;
+  z-index: 1;
 }
 
 .weatherHide {
-    top: -100%;
-    opacity: 0;
-    transition: all 0.4s linear;
-    position: absolute;
+  top: -100%;
+  opacity: 0;
+  transition: all 0.4s linear;
+  position: absolute;
 }
 
 .sansSerif {
-    font-family: Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 // MATERIAL UI OVERRIDES
 button.MuiIconButton-root {
-    background: $highlight;
-    padding: 1rem;
-    height: 2.5rem;
-    width: 2.5rem;
-    align-self: center;
-    padding: 0;
-    color: #000;
-    &:hover {
-        background-color: $highlight;
-    }
+  background: $highlight;
+  padding: 1rem;
+  height: 2.5rem;
+  width: 2.5rem;
+  align-self: center;
+  padding: 0;
+  color: #000;
+  &:hover {
+    background-color: $highlight;
+  }
 }
 
 @import "./Article";

@@ -46,6 +46,11 @@ const Home = () => {
         </aside>
         <main className="col-main">
           <HeroMain newsData={sectionData} loading={loading} />
+        </main>
+      </div>
+      <div className="wrapper">
+        <aside className="col-left"></aside>
+        <main className="col-main">
           <SubMain newsData={sectionData} loading={loading} />
         </main>
       </div>

@@ -9,6 +9,7 @@ img {
 .sport {
   .article {
     border-top: 3px solid $sportMain;
+    background-color: $sportFaded;
     span {
       color: $sportMain;
     }
@@ -18,6 +19,7 @@ img {
 .culture {
   .article {
     border-top: 3px solid $cultureMain;
+    background-color: $cultureFaded;
     span {
       color: $cultureMain;
     }
@@ -76,16 +78,19 @@ img {
 
 .article--padded--bg {
   background-color: $neutral90;
-  padding: $halfPad;
+  padding: $halfPad $halfPad;
 }
 
-.article--secondary {
-}
-
-.article--tertiary {
-}
-
-.article--alt {
+// BG
+.bg--alt {
+  background-color: $neutral90;
+  .article {
+    border-top: 3px solid $highlightDark;
+    background-color: $neutral86;
+    span {
+      color: $highlightDark;
+    }
+  }
 }
 
 .article--overlay--blue {
@@ -160,11 +165,13 @@ img {
     display: block;
   }
   .article__img-container--hero {
-    width: 66.3%;
+    flex-basis: 66%;
+    flex-shrink: 3;
   }
   .article__text-container--hero {
     @include flexColumn;
-    width: 33.3%;
+    flex-basis: 33%;
+    flex-shrink: 1;
     justify-content: space-between;
   }
   .article__img-container--overlay {

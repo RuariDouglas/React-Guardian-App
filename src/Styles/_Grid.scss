@@ -1,8 +1,3 @@
-// BG
-.bg--alt {
-  background-color: $neutral90;
-}
-
 .wrapper {
   margin: 0 auto;
   width: 90vw;
@@ -27,10 +22,11 @@
     width: 100%;
     display: flex;
     height: auto;
+    flex-shrink: 3;
   }
   .col-main {
     flex-shrink: 3;
-    flex-basis: 90%;
+    flex-basis: 100%;
   }
 }
 
@@ -40,6 +36,7 @@
     grid-template-columns: 1fr 4fr;
   }
   .col-left {
+    flex: 2 2 100%;
     height: 100%;
     flex-direction: column;
     align-items: flex-start;
@@ -54,7 +51,7 @@
     }
   }
   .col-main {
-    flex-shrink: 3;
+    flex: 1 1 100%;
     height: 100%;
     display: flex;
     padding-right: $halfPad;

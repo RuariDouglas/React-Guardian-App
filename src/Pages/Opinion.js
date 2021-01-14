@@ -42,23 +42,23 @@ const Opinion = () => {
             <Title titleData={titleData} />
           </aside>
           <main className="col-main">
+            <SubMain newsData={sectionData} loading={loading} />
+          </main>
+        </div>
+
+        <div className="wrapper">
+          <aside className="col-left"></aside>
+          <main className="col-main">
+            <HeroMain newsData={sectionData} loading={loading} />
+          </main>
+        </div>
+        <div className="wrapper">
+          <aside className="col-left"></aside>
+          <main className="col-main">
             <SubAlt newsData={sectionData} loading={loading} />
           </main>
         </div>
       </div>
-      <div className="wrapper">
-        <aside className="col-left"></aside>
-        <main className="col-main">
-          <HeroMain newsData={sectionData} loading={loading} />
-        </main>
-      </div>
-      <div className="wrapper">
-        <aside className="col-left"></aside>
-        <main className="col-main">
-          <SubMain newsData={sectionData} loading={loading} />
-        </main>
-      </div>
-
       <div className="wrapper">
         <aside className="col-left">
           <h2 className="left-col__title article__heading--primary">
