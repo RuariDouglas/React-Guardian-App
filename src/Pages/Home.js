@@ -25,7 +25,7 @@ const Home = () => {
   // API CALLS
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(loadSection("business"));
+    dispatch(loadSection(false));
   }, [dispatch]);
 
   const { sectionData, loading } = useSelector((state) => state.guardian);
@@ -38,7 +38,7 @@ const Home = () => {
   };
 
   return (
-    <>
+    <div className="news">
       <div className="wrapper">
         <aside className="col-left">
           <Title titleData={titleData} />
@@ -71,7 +71,7 @@ const Home = () => {
           <MostViewed newsData={sectionData} loading={loading} />
         </main>
       </div>
-    </>
+    </div>
   );
 };
 

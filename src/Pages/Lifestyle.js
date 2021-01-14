@@ -35,7 +35,7 @@ const Lifestyle = () => {
   const location = useLocation();
 
   return (
-    <>
+    <div className="lifestyle">
       <div className="wrapper">
         <aside className="col-left">
           <Title titleData={titleData} />
@@ -67,7 +67,7 @@ const Lifestyle = () => {
           <MostViewed newsData={sectionData} loading={loading} />
         </main>
       </div>
-    </>
+    </div>
   );
 };
 

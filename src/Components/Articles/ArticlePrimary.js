@@ -1,29 +1,32 @@
 import React from "react";
 
-const ArticleHero = (props) => {
-  const { img, newsData } = props;
+import { useLocation } from "react-router-dom";
+
+const ArticlePrimary = (props) => {
+  const { img, article } = props;
+  const location = useLocation();
+  console.log(location);
   return (
-    <div className="article article--primary article--hero article--padded--bg  grid__item grid__item--span3">
-      <div className="article__img-container article__img-container--hero">
-        <img src={newsData[0].fields.thumbnail} alt="" />
+    <div className="grid__item--span2 article article--padded--bg ">
+      <div className="article__img-container">
+        <img src={article.fields.thumbnail} alt="" />
       </div>
-      <div className="article__text-container--hero">
+      <div className="article__text-container">
         <h2 className="article__heading--primary">
-          {newsData[0].type === "liveblog" ? (
+          {article.type === "liveblog" ? (
             <>
               <span className="article__live-span">{"Live"}</span>
               <span>{` / `}</span>
             </>
           ) : (
-            <span>{`${newsData[0].sectionName} / `}</span>
+            <span>{`${article.sectionName} / `}</span>
           )}
-
-          {newsData[0].fields.headline}
+          {article.fields.headline}
         </h2>
-        <p className="article__trail-text">{newsData[0].fields.headline}</p>
+        <p className="article__trail-text">{article.fields.headline}</p>
       </div>
     </div>
   );
 };
 
-export default ArticleHero;
+export default ArticlePrimary;

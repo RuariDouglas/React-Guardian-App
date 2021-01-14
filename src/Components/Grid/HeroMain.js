@@ -12,18 +12,25 @@ const HeroMain = (props) => {
       {!loading && (
         <div className="grid grid--3fr-1fr">
           <div className="grid grid--3fr">
-            <ArticleHero newsData={newsData} />
+            {newsData.map((article, index) =>
+              index === 0 ? <ArticleHero article={article} /> : ""
+            )}
+
             <div className="grid grid--3fr grid__item--span3">
-              {newsData.map((entry, index) => {
-                if (index > 0 && index < 4) {
-                  return <ArticleTertiary entry={entry} />;
-                }
-              })}
+              {newsData.map((article, index) =>
+                index > 0 && index < 4 ? (
+                  <ArticleTertiary article={article} />
+                ) : (
+                  ""
+                )
+              )}
             </div>
           </div>
           {/* RIGHT COLUMN */}
           <div className="article-wrapper--column">
-            <ArticleSingle img={true} newsData={newsData} />
+            {newsData.map((article, index) =>
+              index === 4 ? <ArticleSingle img={true} article={article} /> : ""
+            )}
           </div>
         </div>
       )}

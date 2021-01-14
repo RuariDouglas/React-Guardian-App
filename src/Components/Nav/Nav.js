@@ -8,7 +8,6 @@ import { useSelector, useDispatch } from "react-redux";
 // COMPONENTS
 import SideNav from "./SideNav";
 import MenuLinks from "./MenuLinks";
-import SubNav from "./SubNav";
 
 // STYLES
 import styled from "styled-components";
@@ -43,7 +42,6 @@ const Nav = () => {
           </Logo>
         </div>
       </NavBg>
-      <SubNav />
     </>
   );
 };

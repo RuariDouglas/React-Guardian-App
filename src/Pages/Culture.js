@@ -35,7 +35,7 @@ const Culture = () => {
   const location = useLocation();
 
   return (
-    <>
+    <div className="culture">
       <div className="wrapper">
         <aside className="col-left">
           <Title titleData={titleData} />
@@ -67,7 +67,7 @@ const Culture = () => {
           <MostViewed newsData={sectionData} loading={loading} />
         </main>
       </div>
-    </>
+    </div>
   );
 };
 

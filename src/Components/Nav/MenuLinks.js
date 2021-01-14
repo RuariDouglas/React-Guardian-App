@@ -42,6 +42,7 @@ const List = styled.ul`
     font-weight: bold;
     font-size: ${fontS.large};
     transition: all 1s ease;
+    height: 100%;
     &:hover {
       background-color: ${col.pLight};
     }

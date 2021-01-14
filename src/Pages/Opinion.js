@@ -35,28 +35,30 @@ const Opinion = () => {
   const location = useLocation();
 
   return (
-    <>
-      <div className="wrapper">
-        <aside className="col-left">
-          <Title titleData={titleData} />
-        </aside>
-        <main className="col-main">
-          <HeroMain newsData={sectionData} loading={loading} />
-          <SubMain newsData={sectionData} loading={loading} />
-        </main>
-      </div>
+    <div className="opinion">
       <div className="bg--alt">
         <div className="wrapper">
           <aside className="col-left">
-            <h2 className="left-col__title article__heading--primary">
-              Coronavirus
-            </h2>
+            <Title titleData={titleData} />
           </aside>
           <main className="col-main">
             <SubAlt newsData={sectionData} loading={loading} />
           </main>
         </div>
       </div>
+      <div className="wrapper">
+        <aside className="col-left"></aside>
+        <main className="col-main">
+          <HeroMain newsData={sectionData} loading={loading} />
+        </main>
+      </div>
+      <div className="wrapper">
+        <aside className="col-left"></aside>
+        <main className="col-main">
+          <SubMain newsData={sectionData} loading={loading} />
+        </main>
+      </div>
+
       <div className="wrapper">
         <aside className="col-left">
           <h2 className="left-col__title article__heading--primary">
@@ -67,7 +69,7 @@ const Opinion = () => {
           <MostViewed newsData={sectionData} loading={loading} />
         </main>
       </div>
-    </>
+    </div>
   );
 };
 

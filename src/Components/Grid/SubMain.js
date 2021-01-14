@@ -1,6 +1,9 @@
 // REACT
 import React from "react";
 
+import ArticlePrimary from "../Articles/ArticlePrimary";
+import ArticleSingle from "../Articles/ArticleSingle";
+
 const SubMain = (props) => {
   const { newsData, loading } = props;
   return (
@@ -8,55 +11,23 @@ const SubMain = (props) => {
       {!loading && (
         <div className="grid grid--3fr-1fr">
           <div className="grid grid--3fr">
-            <div className="grid__item--span2 article article--primary article--padded--bg ">
-              <div className="article__img-container">
-                <img src={newsData[0].fields.thumbnail} alt="" />
-              </div>
-              <div className="article__text-container">
-                <h2 className="article__heading--primary">
-                  {newsData[0].type === "liveblog" ? (
-                    <>
-                      <span className="article__live-span">{"Live"}</span>
-                      <span>{` / `}</span>
-                    </>
-                  ) : (
-                    <span>{`${newsData[0].sectionName} / `}</span>
-                  )}
+            {newsData.map((article, index) =>
+              index === 5 ? <ArticlePrimary article={article} /> : ""
+            )}
 
-                  {newsData[0].fields.headline}
-                </h2>
-                <p className="article__trail-text">
-                  {newsData[0].fields.headline}
-                </p>
-              </div>
-            </div>
             <div className="article-wrapper--column">
-              {newsData.map((entry, index) => {
-                if (index > 0 && index < 4) {
-                  return (
-                    <div className="article article--primary">
-                      <h3 className="article__heading--secondary">
-                        <span>{`${entry.sectionName} / `} </span>
-                        {entry.fields.headline}
-                      </h3>
-                    </div>
-                  );
+              {newsData.map((article, index) => {
+                if (index > 4 && index < 8) {
+                  return <ArticleSingle img={false} article={article} />;
                 }
               })}
             </div>
           </div>
           {/* RIGHT COLUMN */}
           <div className="article-wrapper--column">
-            {newsData.map((entry, index) => {
-              if (index > 4 && index < 9) {
-                return (
-                  <div className="article article--secondary ">
-                    <h3 className="article__heading--secondary">
-                      <span>{`${entry.sectionName} / `} </span>
-                      {entry.fields.headline}
-                    </h3>
-                  </div>
-                );
+            {newsData.map((article, index) => {
+              if (index > 7 && index < 11) {
+                return <ArticleSingle img={false} article={article} />;
               }
             })}
           </div>

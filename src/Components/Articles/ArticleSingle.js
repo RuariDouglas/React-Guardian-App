@@ -1,20 +1,20 @@
 import React from "react";
 
 const ArticleSingle = (props) => {
-  const { img, newsData } = props;
+  const { img, article } = props;
   return (
-    <div className="article article--primary article--padded--bg">
-      {img && <img src={newsData[3].fields.thumbnail} alt="" />}
+    <div className="article article--padded--bg">
+      {img && <img src={article.fields.thumbnail} alt="" />}
       <h3 className="article__heading--secondary">
-        {newsData[3].type === "liveblog" ? (
+        {article.type === "liveblog" ? (
           <>
             <span className="live">{"Live"}</span>
             <span>{` / `}</span>
           </>
         ) : (
-          <span>{`${newsData[3].sectionName} / `}</span>
+          <span>{`${article.sectionName} / `}</span>
         )}
-        {newsData[3].fields.headline}
+        {article.fields.headline}
       </h3>
     </div>
   );

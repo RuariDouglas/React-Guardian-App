@@ -36,7 +36,7 @@ const Sport = () => {
   console.log(location.pathname);
 
   return (
-    <>
+    <div className="sport">
       <div className="wrapper">
         <aside className="col-left">
           <Title titleData={titleData} />
@@ -68,7 +68,7 @@ const Sport = () => {
           <MostViewed newsData={sectionData} loading={loading} />
         </main>
       </div>
-    </>
+    </div>
   );
 };
 
