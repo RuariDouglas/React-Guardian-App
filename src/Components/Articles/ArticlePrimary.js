@@ -7,7 +7,7 @@ const ArticlePrimary = (props) => {
   const location = useLocation();
   console.log(location);
   return (
-    <div className="grid__item--span2 article article--padded--bg ">
+    <div className="grid__item--span2 article article--padded--bg article--w-trailtext">
       <div className="article__img-container">
         <img src={article.fields.thumbnail} alt="" />
       </div>
@@ -23,7 +23,7 @@ const ArticlePrimary = (props) => {
           )}
           {article.fields.headline}
         </h2>
-        <p className="article__trail-text">{article.fields.headline}</p>
+        <p className="article__trail-text">{article.fields.trailText}</p>
       </div>
     </div>
   );

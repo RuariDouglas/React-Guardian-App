@@ -21,7 +21,7 @@ const ArticleHero = (props) => {
 
           {article.fields.headline}
         </h2>
-        <p className="article__trail-text">{article.fields.headline}</p>
+        <p className="article__trail-text">{article.fields.trailtext}</p>
       </div>
     </div>
   );

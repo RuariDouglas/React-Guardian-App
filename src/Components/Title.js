@@ -25,9 +25,15 @@ const Title = (props) => {
 };
 
 const TitleContainer = styled.div`
+  display: flex;
+  align-items: center;
+  h2 {
+    margin-right: 0.5rem;
+  }
   h6 {
     display: inline;
     line-height: 1;
+    margin: 0;
     span {
       color: ${col.title};
     }
@@ -35,8 +41,15 @@ const TitleContainer = styled.div`
     font-size: ${fontS.md};
   }
   @media (min-width: 960px) {
+    flex-direction: column;
+    align-items: flex-start;
+    h2 {
+      margin-bottom: 0;
+    }
+  }
+  @media (max-width: 600px) {
     h6 {
-      display: block;
+      display: none;
     }
   }
 `;

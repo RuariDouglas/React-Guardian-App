@@ -11,7 +11,9 @@ const SubAlt = (props) => {
       {!loading && (
         <div className="grid grid--3fr-1fr">
           <div className="grid grid--3fr">
-            <ArticlePrimaryAlt newsData={newsData} />
+            {newsData.map((article, index) =>
+              index === 11 ? <ArticlePrimaryAlt article={article} /> : ""
+            )}
           </div>
 
           <div className="article-wrapper--column">

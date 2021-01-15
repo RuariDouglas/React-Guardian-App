@@ -100,10 +100,13 @@ const WeatherApp = () => {
 const WeatherContainer = styled.div`
   display: flex;
   flex-direction: column;
+  position: relative;
+  width: 50%;
   h6 {
     line-height: 1;
   }
   @media (min-width: 960px) {
+    width: 100%;
     position: relative;
   }
 `;
@@ -165,8 +168,8 @@ const ForecastList = styled.div`
   display: ${(props) => (props.weatherToggle ? "flex" : "none")};
   box-shadow: 0 5px 2rem rgba(0, 0, 0, 0.4);
   position: absolute;
-  top: 5rem;
   right: 0;
+  top: 3rem;
   text-align: center;
   border-radius: 10px;
   background-color: #eee;

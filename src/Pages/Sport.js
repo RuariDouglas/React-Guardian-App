@@ -11,6 +11,7 @@ import WeatherApp from "../Components/WeatherApp";
 import Title from "../Components/Title";
 import Article from "../Components/Article";
 // Grid //
+import GridTemplate from "../Components/Grid/GridTemplate";
 import HeroMain from "../Components/Grid/HeroMain";
 import SubMain from "../Components/Grid/SubMain";
 import SubAlt from "../Components/Grid/SubAlt";
@@ -37,37 +38,25 @@ const Sport = () => {
 
   return (
     <div className="sport">
-      <div className="wrapper">
-        <aside className="col-left">
-          <Title titleData={titleData} />
-        </aside>
-        <main className="col-main">
-          <HeroMain newsData={sectionData} loading={loading} />
-          <SubMain newsData={sectionData} loading={loading} />
-        </main>
-      </div>
       <div className="bg--alt">
-        <div className="wrapper">
-          <aside className="col-left">
-            <h2 className="left-col__title article__heading--primary">
-              Coronavirus
-            </h2>
-          </aside>
-          <main className="col-main">
-            <SubAlt newsData={sectionData} loading={loading} />
-          </main>
-        </div>
+        <GridTemplate
+          left={<Title titleData={titleData} />}
+          right={<SubAlt newsData={sectionData} loading={loading} />}
+        />
       </div>
-      <div className="wrapper">
-        <aside className="col-left">
-          <h2 className="left-col__title article__heading--primary">
-            Most Viewed
-          </h2>
-        </aside>
-        <main className="col-main">
-          <MostViewed newsData={sectionData} loading={loading} />
-        </main>
-      </div>
+      <GridTemplate
+        left={false}
+        right={<HeroMain newsData={sectionData} loading={loading} />}
+      />
+      <GridTemplate
+        left={false}
+        right={<SubMain newsData={sectionData} loading={loading} />}
+      />
+
+      <GridTemplate
+        left={<h2 className="left-col__title">Most Viewed</h2>}
+        right={<MostViewed newsData={sectionData} loading={loading} />}
+      />
     </div>
   );
 };

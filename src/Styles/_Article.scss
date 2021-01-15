@@ -8,7 +8,7 @@ img {
 // SECTIONS
 .sport {
   .article {
-    border-top: 3px solid $sportMain;
+    border-top: 1px solid $sportMain;
     background-color: $sportFaded;
     span {
       color: $sportMain;
@@ -18,7 +18,7 @@ img {
 
 .culture {
   .article {
-    border-top: 3px solid $cultureMain;
+    border-top: 1px solid $cultureMain;
     background-color: $cultureFaded;
     span {
       color: $cultureMain;
@@ -28,7 +28,7 @@ img {
 
 .lifestyle {
   .article {
-    border-top: 3px solid $lifestyleMain;
+    border-top: 1px solid $lifestyleMain;
     span {
       color: $lifestyleMain;
     }
@@ -37,7 +37,7 @@ img {
 
 .opinion {
   .article {
-    border-top: 3px solid $opinionMain;
+    border-top: 1px solid $opinionMain;
     span {
       color: $opinionMain;
     }
@@ -46,7 +46,7 @@ img {
 
 .news {
   .article {
-    border-top: 3px solid $newsMain;
+    border-top: 1px solid $newsMain;
     span {
       color: $newsMain;
     }
@@ -77,19 +77,19 @@ img {
 }
 
 .article--padded--bg {
-  background-color: $neutral90;
+  background-image: linear-gradient($neutral90, transparent);
   padding: $halfPad $halfPad;
+}
+
+.article--w-trailtext {
+  @include flexColumn;
 }
 
 // BG
 .bg--alt {
   background-color: $neutral90;
   .article {
-    border-top: 3px solid $highlightDark;
-    background-color: $neutral86;
-    span {
-      color: $highlightDark;
-    }
+    background-color: white;
   }
 }
 
