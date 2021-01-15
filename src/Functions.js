@@ -35,3 +35,13 @@ export const dateFormatter = () => {
   let year = date.getFullYear().toString();
   return [dayString, dayNumber, month, year];
 };
+
+export const getPath = (path) => {
+  if (path === "/") {
+    return "home";
+  } else if (path === "/commentisfree") {
+    return "opinion";
+  } else {
+    return "other";
+  }
+};

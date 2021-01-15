@@ -34,9 +34,11 @@ const Opinion = () => {
     subTitle: false,
   };
   const location = useLocation();
+  const pathId = location.pathname.split("/")[2];
 
   return (
     <div className="opinion">
+      {pathId && <Article />}
       <div className="bg--alt">
         <GridTemplate
           left={<Title titleData={titleData} />}

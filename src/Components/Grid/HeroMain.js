@@ -1,5 +1,6 @@
 // REACT
 import React from "react";
+import { Link, useLocation } from "react-router-dom";
 
 import ArticleHero from "../Articles/ArticleHero";
 import ArticleSingle from "../Articles/ArticleSingle";
@@ -13,7 +14,15 @@ const HeroMain = (props) => {
         <div className="grid grid--3fr-1fr">
           <div className="grid grid--3fr">
             {newsData.map((article, index) =>
-              index === 0 ? <ArticleHero article={article} /> : ""
+              index === 0 ? (
+                <ArticleHero
+                  id={article.id}
+                  key={article.id}
+                  article={article}
+                />
+              ) : (
+                ""
+              )
             )}
 
             <div className="grid grid--3fr grid__item--span3">

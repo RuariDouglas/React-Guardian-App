@@ -29,20 +29,20 @@ function App() {
       <GlobalStyle />
       <Nav />
       <Switch location={location} key={location.pathname}>
-        <Route path="/" exact>
-          <Home />
-        </Route>
-        <Route path="/commentisfree" exact>
+        <Route path={["/commentisfree/article/:id", "/commentisfree"]}>
           <Opinion />
         </Route>
-        <Route path="/sport" exact>
+        <Route path={["/sport/article/:id", "/sport"]}>
           <Sport />
         </Route>
-        <Route path="/culture" exact>
+        <Route path={["/culture/article/:id", "/culture"]}>
           <Culture />
         </Route>
-        <Route path="/lifestyle" exact>
+        <Route path={["/lifestyle/article/:id", "/lifestyle"]}>
           <Lifestyle />
+        </Route>
+        <Route path={["/article/:id", "/"]}>
+          <Home />
         </Route>
       </Switch>
     </>

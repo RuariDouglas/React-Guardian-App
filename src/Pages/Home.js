@@ -1,5 +1,6 @@
 // REACT
 import React, { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 // REDUX
 import { loadSection } from "../Redux/Actions/guardianSectionAction";
@@ -8,6 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 // COMPONENTS
 import WeatherApp from "../Components/WeatherApp";
 import Title from "../Components/Title";
+import Article from "../Components/Article";
 // Grid //
 import GridTemplate from "../Components/Grid/GridTemplate";
 import HeroMain from "../Components/Grid/HeroMain";
@@ -37,12 +39,15 @@ const Home = () => {
     mainTitle: "Headlines",
     subTitle: date,
   };
+  const location = useLocation();
+  const pathId = location.pathname.split("/")[2];
 
   return (
     <div className="news">
+      {pathId && <Article />}
       <GridTemplate
         left={<Title titleData={titleData} />}
-        weatherApp={<WeatherApp />}
+        // weatherApp={<WeatherApp />}
         right={<HeroMain newsData={sectionData} loading={loading} />}
       />
       <GridTemplate
