@@ -44,7 +44,7 @@ const Home = () => {
 
   return (
     <div className="news">
-      {pathId && <Article />}
+      {pathId && <Article sectionData={sectionData} />}
       <GridTemplate
         left={<Title titleData={titleData} />}
         // weatherApp={<WeatherApp />}

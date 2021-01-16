@@ -24,7 +24,7 @@ const MenuLinks = () => {
       <li>
         <Link to="/lifestyle">LifeStyle</Link>
       </li>
-      <li>
+      <li className="link-guardian">
         <img
           src="https://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2010/03/01/poweredbyguardianREV.png"
           alt="The Guardian"
@@ -47,9 +47,15 @@ const List = styled.ul`
       background-color: ${col.pLight};
     }
   }
-  li {
+
+  li.link-guardian {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     img {
-      width: 75%;
+      min-width: 5rem;
+      max-width: 6rem;
+      padding: 0.5rem;
     }
   }
 `;

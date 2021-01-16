@@ -29,8 +29,16 @@ const Nav = () => {
         <div className="navContainer">
           <MainMenu>
             <MenuLinks />
-            <IconButton onClick={() => dispatch({ type: "SIDE_NAV_TOGGLE" })}>
-              {!menuToggle ? <MenuIcon /> : <CloseIcon />}
+            <IconButton>
+              {!menuToggle ? (
+                <MenuIcon
+                  onClick={() => dispatch({ type: "SIDE_NAV_TOGGLE" })}
+                />
+              ) : (
+                <CloseIcon
+                  onClick={() => dispatch({ type: "SIDE_NAV_TOGGLE" })}
+                />
+              )}
             </IconButton>
           </MainMenu>
           <Logo>
@@ -104,7 +112,10 @@ const MainMenu = styled.nav`
   @media (min-width: 755px) {
     display: flex;
     align-self: flex-start;
-    border: 1px solid ${col.pLight};
+    border-radius: 10px 10px 0 0;
+    border-top: 1px solid ${col.pLight};
+    border-left: 1px solid ${col.pLight};
+    border-right: 1px solid ${col.pLight};
     width: 100%;
     ul {
       display: flex;

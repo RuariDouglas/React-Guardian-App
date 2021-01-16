@@ -34,9 +34,12 @@ const Culture = () => {
     subTitle: false,
   };
   const location = useLocation();
+  const rootPath = location.pathname.split("/")[1];
+  const articlePath = location.pathname.split("/")[2];
 
   return (
     <div className="culture">
+      {articlePath && <Article rootPath={rootPath} sectionData={sectionData} />}
       <GridTemplate
         left={<Title titleData={titleData} />}
         right={<HeroMain newsData={sectionData} loading={loading} />}

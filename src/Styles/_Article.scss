@@ -5,9 +5,23 @@ img {
   background-repeat: no-repeat;
 }
 
+.grid {
+  a {
+    color: $neutral20;
+    height: 100%;
+  }
+  .grid {
+    a {
+      color: $neutral20;
+      height: 100%;
+    }
+  }
+}
+
 // SECTIONS
 .sport {
   .article {
+    border-radius: 10px 10px 0 0;
     border-top: 1px solid $sportMain;
     background-color: $sportFaded;
     span {
@@ -18,8 +32,8 @@ img {
 
 .culture {
   .article {
+    border-radius: 10px 10px 0 0;
     border-top: 1px solid $cultureMain;
-    background-color: $cultureFaded;
     span {
       color: $cultureMain;
     }
@@ -28,6 +42,7 @@ img {
 
 .lifestyle {
   .article {
+    border-radius: 10px 10px 0 0;
     border-top: 1px solid $lifestyleMain;
     span {
       color: $lifestyleMain;
@@ -37,6 +52,7 @@ img {
 
 .opinion {
   .article {
+    border-radius: 10px 10px 0 0;
     border-top: 1px solid $opinionMain;
     span {
       color: $opinionMain;
@@ -46,6 +62,7 @@ img {
 
 .news {
   .article {
+    border-radius: 10px 10px 0 0;
     border-top: 1px solid $newsMain;
     span {
       color: $newsMain;

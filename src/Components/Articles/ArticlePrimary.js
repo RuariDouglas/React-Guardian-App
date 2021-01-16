@@ -8,7 +8,9 @@ const ArticlePrimary = (props) => {
   const path = location.pathname;
   return (
     <Link
-      to={path === "/" ? `/${article.id}` : `${path}/article/${article.id}`}
+      to={
+        path === "/" ? `article/${article.id}` : `${path}/article/${article.id}`
+      }
       className="grid__item--span2"
     >
       <div className="article article--padded--bg article--w-trailtext">

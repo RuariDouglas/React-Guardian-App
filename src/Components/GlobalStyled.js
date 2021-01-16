@@ -15,7 +15,7 @@ body {
 ol, ul {
 	list-style: none;
 }
-article, aside, details, figcaption, figure, 
+article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }

@@ -34,9 +34,12 @@ const Lifestyle = () => {
     subTitle: false,
   };
   const location = useLocation();
+  const rootPath = location.pathname.split("/")[1];
+  const articlePath = location.pathname.split("/")[2];
 
   return (
     <div className="lifestyle">
+      {articlePath && <Article rootPath={rootPath} sectionData={sectionData} />}
       <div className="bg--alt">
         <GridTemplate
           left={<Title titleData={titleData} />}
