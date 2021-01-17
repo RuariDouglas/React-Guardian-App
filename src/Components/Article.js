@@ -19,7 +19,11 @@ const Article = (props) => {
     const element = e.target;
     if (element.classList.contains("shadow")) {
       document.body.style.overflow = "auto";
-      history.push(`/${rootPath}`);
+      if (rootPath === "/") {
+        history.push(rootPath);
+      } else {
+        history.push(`/${rootPath}`);
+      }
     }
   };
 
@@ -36,15 +40,20 @@ const Article = (props) => {
       {!loading && (
         <Detail onClick={closeArticle} className="shadow">
           <div className="detail__container">
-            <IconButton>
+            <IconButton className="close">
               <CloseIcon onClick={closeArticle} className="shadow" />
             </IconButton>
             {sectionData
               .filter((entry) => entry.id === pathId)
               .map((article) => (
                 <div className="detail__inner-wrapper">
-                  <h3>{article.sectionName}</h3>
+                  <h3 className="detail__section-title">
+                    {article.sectionName}
+                  </h3>
                   <img src={article.fields.thumbnail} alt="" />
+                  <h1 className="detail__heading--primary">
+                    {article.fields.headline}
+                  </h1>
                   <h3>
                     <a
                       target="_blank"
@@ -78,6 +87,14 @@ const Detail = styled.div`
   top: 0;
   left: 0;
   z-index: 5;
+  button.close {
+    position: absolute;
+    right: 1rem;
+    svg.shadow {
+      width: 75%;
+      height: 75%;
+    }
+  }
   .detail__container {
     width: 100%;
     min-height: 100vh;
@@ -110,6 +127,9 @@ const Detail = styled.div`
 
   @media (min-width: 755px) {
     .detail__container {
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60%;
       border-radius: 1rem;
   }
 `;

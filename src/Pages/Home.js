@@ -40,11 +40,12 @@ const Home = () => {
     subTitle: date,
   };
   const location = useLocation();
-  const pathId = location.pathname.split("/")[2];
+  const rootPath = "/";
+  const articlePath = location.pathname.split("/")[2];
 
   return (
     <div className="news">
-      {pathId && <Article sectionData={sectionData} />}
+      {articlePath && <Article rootPath={rootPath} sectionData={sectionData} />}
       <GridTemplate
         left={<Title titleData={titleData} />}
         // weatherApp={<WeatherApp />}
