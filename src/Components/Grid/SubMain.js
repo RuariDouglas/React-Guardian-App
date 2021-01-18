@@ -12,13 +12,28 @@ const SubMain = (props) => {
         <div className="grid grid--3fr-1fr">
           <div className="grid grid--3fr">
             {newsData.map((article, index) =>
-              index === 5 ? <ArticlePrimary article={article} /> : ""
+              index === 5 ? (
+                <ArticlePrimary
+                  id={article.id}
+                  key={article.id}
+                  article={article}
+                />
+              ) : (
+                ""
+              )
             )}
 
             <div className="article-wrapper--column">
               {newsData.map((article, index) => {
                 if (index > 4 && index < 8) {
-                  return <ArticleSingle img={false} article={article} />;
+                  return (
+                    <ArticleSingle
+                      id={article.id}
+                      key={article.id}
+                      img={false}
+                      article={article}
+                    />
+                  );
                 }
               })}
             </div>
@@ -27,7 +42,14 @@ const SubMain = (props) => {
           <div className="article-wrapper--column">
             {newsData.map((article, index) => {
               if (index > 7 && index < 11) {
-                return <ArticleSingle img={false} article={article} />;
+                return (
+                  <ArticleSingle
+                    id={article.id}
+                    key={article.id}
+                    img={false}
+                    article={article}
+                  />
+                );
               }
             })}
           </div>

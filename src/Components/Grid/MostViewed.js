@@ -10,7 +10,11 @@ const MostViewed = (props) => {
             {newsData.map((entry, index) => {
               if (index >= 0 && index < 5) {
                 return (
-                  <li className="most-viewed__list-item">
+                  <li
+                    id={entry.id}
+                    key={entry.id}
+                    className="most-viewed__list-item"
+                  >
                     <p className="most-viewed__index-heading">{index + 1} </p>
                     <h4 className="most-viewed__heading">
                       {entry.fields.headline}
@@ -24,7 +28,11 @@ const MostViewed = (props) => {
             {newsData.map((entry, index) => {
               if (index >= 5 && index < 11) {
                 return (
-                  <li className="most-viewed__list-item">
+                  <li
+                    id={entry.id}
+                    key={entry.id}
+                    className="most-viewed__list-item"
+                  >
                     <p className="most-viewed__index-heading">{index + 1} </p>
                     <h4 className="most-viewed__heading">
                       {entry.fields.headline}

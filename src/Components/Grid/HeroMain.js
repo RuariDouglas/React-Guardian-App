@@ -28,7 +28,11 @@ const HeroMain = (props) => {
             <div className="grid grid--3fr grid__item--span3">
               {newsData.map((article, index) =>
                 index > 0 && index < 4 ? (
-                  <ArticleTertiary article={article} />
+                  <ArticleTertiary
+                    id={article.id}
+                    key={article.id}
+                    article={article}
+                  />
                 ) : (
                   ""
                 )
@@ -38,7 +42,16 @@ const HeroMain = (props) => {
           {/* RIGHT COLUMN */}
           <div className="article-wrapper--column">
             {newsData.map((article, index) =>
-              index === 4 ? <ArticleSingle img={true} article={article} /> : ""
+              index === 4 ? (
+                <ArticleSingle
+                  id={article.id}
+                  key={article.id}
+                  img={true}
+                  article={article}
+                />
+              ) : (
+                ""
+              )
             )}
           </div>
         </div>

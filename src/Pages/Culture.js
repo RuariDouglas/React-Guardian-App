@@ -7,7 +7,6 @@ import { loadSection } from "../Redux/Actions/guardianSectionAction";
 import { useDispatch, useSelector } from "react-redux";
 
 // COMPONENTS
-
 import Title from "../Components/Title";
 import Article from "../Components/Article";
 // Grid //
@@ -16,9 +15,6 @@ import HeroMain from "../Components/Grid/HeroMain";
 import SubMain from "../Components/Grid/SubMain";
 import SubAlt from "../Components/Grid/SubAlt";
 import MostViewed from "../Components/Grid/MostViewed";
-
-// STYLES
-import styled from "styled-components";
 
 const Culture = () => {
   // API CALLS
@@ -61,9 +57,5 @@ const Culture = () => {
     </div>
   );
 };
-
-const HeadingBg = styled.section`
-  width: 100%;
-`;
 
 export default Culture;

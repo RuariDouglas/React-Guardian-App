@@ -17,9 +17,6 @@ import SubMain from "../Components/Grid/SubMain";
 import SubAlt from "../Components/Grid/SubAlt";
 import MostViewed from "../Components/Grid/MostViewed";
 
-// STYLES
-import styled from "styled-components";
-
 const Opinion = () => {
   // API CALLS
   const dispatch = useDispatch();
@@ -61,9 +58,5 @@ const Opinion = () => {
     </div>
   );
 };
-
-const HeadingBg = styled.section`
-  width: 100%;
-`;
 
 export default Opinion;

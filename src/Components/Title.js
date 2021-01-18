@@ -1,7 +1,6 @@
 import React from "react";
 // STYLES
 import styled from "styled-components";
-import Typography from "@material-ui/core/Typography";
 import { col, fontS } from "../Styles/Styles";
 
 const Title = (props) => {

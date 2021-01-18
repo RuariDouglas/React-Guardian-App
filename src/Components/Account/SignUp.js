@@ -1,9 +1,11 @@
 import React, { useRef } from "react";
+import { useAuth } from "../../Contexts/AuthContext";
 
 export default function SignUp() {
   const emailRef = useRef();
   const passwordRef = useRef();
   const passwordConfirmRef = useRef();
+  const { signUp } = useAuth();
   return (
     <>
       Already have an account?

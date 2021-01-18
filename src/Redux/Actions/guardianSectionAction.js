@@ -4,7 +4,7 @@ import { guardianSection, searchAll } from "../../api";
 export const loadSection = (section) => async (dispatch) => {
   try {
     const sectionData =
-      section == false
+      section === false
         ? await axios.get(searchAll())
         : await axios.get(guardianSection(section));
     dispatch({

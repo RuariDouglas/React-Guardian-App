@@ -29,16 +29,8 @@ const Nav = () => {
         <div className="navContainer">
           <MainMenu>
             <MenuLinks />
-            <IconButton>
-              {!menuToggle ? (
-                <MenuIcon
-                  onClick={() => dispatch({ type: "SIDE_NAV_TOGGLE" })}
-                />
-              ) : (
-                <CloseIcon
-                  onClick={() => dispatch({ type: "SIDE_NAV_TOGGLE" })}
-                />
-              )}
+            <IconButton onClick={() => dispatch({ type: "SIDE_NAV_TOGGLE" })}>
+              {!menuToggle ? <MenuIcon /> : <CloseIcon />}
             </IconButton>
           </MainMenu>
           <Logo>
