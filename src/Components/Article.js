@@ -104,25 +104,23 @@ const Detail = styled.div`
     color: black;
     z-index: 10;
     .detail__response {
+      p {
+        line-height: 1.2;
+        margin-bottom: 1rem;
+      }
+      div {
+        display: none;
+      }
+      .is-key-event {
+        display: block;
         p {
-          line-height: 1.2;
-          margin-bottom: 1rem;
-        }
-        div {
-          display: none;
-        }
-        .is-key-event {
-          display: block;
-          p {
-            margin-bottom: 0;
-          }
-        }
-        figure {
-          background-color: red;
+          margin-bottom: 0;
         }
       }
+      figure {
+        background-color: red;
+      }
     }
-
   }
 
   @media (min-width: 755px) {
@@ -131,6 +129,7 @@ const Detail = styled.div`
       transform: translateX(-50%);
       width: 60%;
       border-radius: 1rem;
+    }
   }
 `;
 

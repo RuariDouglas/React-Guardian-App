@@ -7,6 +7,7 @@ import Opinion from "./Pages/Opinion";
 import Sport from "./Pages/Sport";
 import Culture from "./Pages/Culture";
 import Lifestyle from "./Pages/Lifestyle";
+import Account from "./Pages/Account";
 
 // COMPONENTS
 import GlobalStyle from "./Components/GlobalStyled";
@@ -40,6 +41,9 @@ function App() {
         </Route>
         <Route path={["/lifestyle/article/:id", "/lifestyle"]}>
           <Lifestyle />
+        </Route>
+        <Route path={["/signup", "/login"]}>
+          <Account />
         </Route>
         <Route path={["/article/:id", "/"]}>
           <Home />
