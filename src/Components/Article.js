@@ -39,8 +39,8 @@ const Article = (props) => {
       {!loading && (
         <Detail onClick={closeArticle} className="shadow">
           <div className="detail__container">
-            <IconButton className="close">
-              <CloseIcon onClick={closeArticle} className="shadow" />
+            <IconButton onClick={closeArticle} className="shadow close">
+              <CloseIcon />
             </IconButton>
             {sectionData
               .filter((entry) => entry.id === pathId)
@@ -56,6 +56,7 @@ const Article = (props) => {
                   <h3>
                     <a
                       target="_blank"
+                      rel="noreferrer"
                       href="https://www.theguardian.com/profile/scottmurray"
                     >
                       {article.tags[0].webTitle}
@@ -89,9 +90,9 @@ const Detail = styled.div`
   button.close {
     position: absolute;
     right: 1rem;
-    svg.shadow {
-      width: 75%;
-      height: 75%;
+    svg {
+      width: 25%;
+      height: 25%;
     }
   }
   .detail__container {

@@ -1,13 +1,13 @@
 import React from "react";
 
 // COMPONENTS
-import SignUp from "../Components/Account/SignUp";
+import SignUpModal from "../Components/Account/SignUpModal";
 
-export default function Account() {
+export function Account() {
   return (
     <div class="account__wrapper">
-      Already have an account?
-      <SignUp />
+      <SignUpModal />
     </div>
   );
 }
+export default Account;
