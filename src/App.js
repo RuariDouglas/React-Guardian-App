@@ -1,5 +1,12 @@
 // REACT
-import React from "react";
+import React, { useEffect } from "react";
+
+//REDUX
+import { useDispatch } from "react-redux";
+import { stateChange, clearData } from "./Redux/Actions/authAction";
+
+// FIREBASE
+import { auth } from "./firebase";
 
 // PAGES
 import Home from "./Pages/Home";
@@ -23,7 +30,15 @@ import "./Styles/App.scss";
 import CssBaseline from "@material-ui/core/CssBaseline";
 
 function App() {
+  const dispatch = useDispatch();
   const location = useLocation();
+  useEffect(() => {
+    dispatch(clearData());
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      dispatch(stateChange(user));
+    });
+    return unsubscribe;
+  }, [dispatch]);
   return (
     <>
       <CssBaseline />

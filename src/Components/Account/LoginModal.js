@@ -1,50 +1,38 @@
 import React, { useRef, useEffect } from "react";
 
+import { useHistory } from "react-router-dom";
+
 // REDUX
 import { useDispatch, useSelector } from "react-redux";
-import { signUp, clearData } from "../../Redux/Actions/authAction";
+import { login, clearData } from "../../Redux/Actions/authAction";
 
-const SignUpModal = () => {
+const LoginModal = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(clearData());
   }, []);
-  // Refs
   let emailRef = useRef();
   let passwordRef = useRef();
-  let passwordConfirmRef = useRef();
-  // State
   const { currentUser } = useSelector((state) => state.currentUser);
   const { error } = useSelector((state) => state.error);
 
-  const handlesubmit = (e) => {
+  const handlesubmit = async (e) => {
     e.preventDefault();
     let email = emailRef.current.value;
     let password = passwordRef.current.value;
-    let passwordConfirm = passwordConfirmRef.current.value;
-    if (password === passwordConfirm) {
-      console.log("Match");
-      dispatch(signUp(email, password));
-    } else {
-      console.log("No match");
-    }
+    dispatch(login(email, password));
   };
 
   return (
     <>
-      <h2 className="signup__heading"> Already have an account ? Login </h2>
+      <h2 className="signup__heading">Don't have an account? SignUp here...</h2>
       {error && <p>{error}</p>}
 
       <form onSubmit={handlesubmit}>
         <input ref={emailRef} placeholder="Enter your Email" type="email" />
         <input
           ref={passwordRef}
-          placeholder="Enter a password"
-          type="password"
-        />
-        <input
-          ref={passwordConfirmRef}
-          placeholder="Confirm your password"
+          placeholder="Enter your password"
           type="password"
         />
         <button type="submit" className="signup__button">
@@ -55,4 +43,4 @@ const SignUpModal = () => {
   );
 };
 
-export default SignUpModal;
+export default LoginModal;

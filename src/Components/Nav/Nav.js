@@ -4,6 +4,10 @@ import { Link } from "react-router-dom";
 
 // REDUX
 import { useSelector, useDispatch } from "react-redux";
+import { logout } from "../../Redux/Actions/authAction";
+
+// FIREBASE
+import { auth } from "../../firebase";
 
 // COMPONENTS
 import SideNav from "./SideNav";
@@ -21,7 +25,12 @@ import CloseIcon from "@material-ui/icons/Close";
 
 const Nav = () => {
   const menuToggle = useSelector((state) => state.menuToggle);
+  const { email, uid } = useSelector((state) => state.currentUser);
   const dispatch = useDispatch();
+  const logoutHandler = (e) => {
+    e.preventDefault();
+    dispatch(logout());
+  };
   return (
     <>
       <SideNav />
@@ -34,12 +43,30 @@ const Nav = () => {
             </IconButton>
           </MainMenu>
           <Logo>
-            <Typography variant="h2">
-              <Link to="www.theguardian.com">
+            <h2>
+              <Link to="/">
                 <span>the</span>guardian
               </Link>
-            </Typography>
+            </h2>
           </Logo>
+          <AccountList>
+            {email ? (
+              <li>
+                <Link onClick={logoutHandler} to="/">
+                  Logout
+                </Link>
+              </li>
+            ) : (
+              <>
+                <li>
+                  <Link to="/signup">SignUp</Link>
+                </li>
+                <li>
+                  <Link to="/login">Login</Link>
+                </li>
+              </>
+            )}
+          </AccountList>
         </div>
       </NavBg>
     </>
@@ -78,6 +105,7 @@ const NavBg = styled.header`
 
 const Logo = styled.div`
   align-self: flex-end;
+  font-size: 3rem;
   h2 a {
     font-weight: 700;
     color: ${col.white};
@@ -116,6 +144,16 @@ const MainMenu = styled.nav`
       justify-self: flex-end;
       margin-right: 1rem;
     }
+  }
+`;
+
+const AccountList = styled.ul`
+  display: flex;
+  align-self: flex-end;
+  a {
+    color: #fff;
+    text-decoration: underline;
+    padding: 0.5rem 1rem;
   }
 `;
 

@@ -1,26 +1,32 @@
-const initState = {
-  error: "",
-  currentUser: {
-    email: "",
-    password: "",
-  },
+const initUser = {
+  email: "",
+  uid: "",
   loading: true,
 };
+const initError = {
+  error: "",
+};
 
-export const signUpReducer = (state = initState, action) => {
+export const currentUserReducer = (state = initUser, action) => {
   switch (action.type) {
-    case "SIGNUP_USER":
+    case "CURRENT_USER":
       return {
         ...state,
         ...action.payload,
         loading: false,
       };
-    case "SIGNUP_FAILED":
+    default:
+      return { ...state };
+  }
+};
+export const errorReducer = (state = initError, action) => {
+  switch (action.type) {
+    case "ERROR":
       return {
         ...state,
         ...action.payload,
-        loading: true,
       };
+
     default:
       return { ...state };
   }
