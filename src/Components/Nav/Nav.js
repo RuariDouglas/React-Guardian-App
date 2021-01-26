@@ -1,6 +1,7 @@
 // REACT & MISC
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { checkUser } from "../../Functions";
 
 // REDUX
 import { useSelector, useDispatch } from "react-redux";
@@ -24,13 +25,17 @@ import MenuIcon from "@material-ui/icons/Menu";
 import CloseIcon from "@material-ui/icons/Close";
 
 const Nav = () => {
-  const menuToggle = useSelector((state) => state.menuToggle);
-  const { email, uid } = useSelector((state) => state.currentUser);
   const dispatch = useDispatch();
+  const menuToggle = useSelector((state) => state.menuToggle);
+  const { currentUser, userLoading } = useSelector(
+    (state) => state.currentUser
+  );
+
   const logoutHandler = (e) => {
     e.preventDefault();
     dispatch(logout());
   };
+
   return (
     <>
       <SideNav />
@@ -50,22 +55,21 @@ const Nav = () => {
             </h2>
           </Logo>
           <AccountList>
-            {email ? (
-              <li>
-                <Link onClick={logoutHandler} to="/">
-                  Logout
-                </Link>
-              </li>
-            ) : (
-              <>
-                <li>
-                  <Link to="/signup">SignUp</Link>
-                </li>
-                <li>
-                  <Link to="/login">Login</Link>
-                </li>
-              </>
-            )}
+            <li className={checkUser("loggedOut", currentUser, userLoading)}>
+              <Link to="/signup">SignUp</Link>
+            </li>
+            <li className={checkUser("loggedOut", currentUser, userLoading)}>
+              <Link to="/login">Login</Link>
+            </li>
+
+            <li className={checkUser("loggedIn", currentUser, userLoading)}>
+              <Link onClick={logoutHandler} to="/">
+                Logout
+              </Link>
+            </li>
+            <li className={checkUser("loggedIn", currentUser, userLoading)}>
+              {/* <p>Signed In as: {currentUser.email}</p> */}
+            </li>
           </AccountList>
         </div>
       </NavBg>
@@ -150,6 +154,12 @@ const MainMenu = styled.nav`
 const AccountList = styled.ul`
   display: flex;
   align-self: flex-end;
+  li {
+    display: none;
+  }
+  .liShown {
+    display: inline;
+  }
   a {
     color: #fff;
     text-decoration: underline;

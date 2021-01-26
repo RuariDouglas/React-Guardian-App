@@ -1,3 +1,4 @@
+// Date formatter (pages/home.js)
 export const dateFormatter = () => {
   const days = [
     "Sunday",
@@ -43,5 +44,19 @@ export const getPath = (path) => {
     return "opinion";
   } else {
     return "other";
+  }
+};
+
+// Check for displaying Account links (nav.js)
+export const checkUser = (logStatus, currentUser, userLoading) => {
+  if (logStatus === "loggedOut") {
+    if (userLoading && currentUser.email.length === 0) {
+      return "liShown";
+    }
+  }
+  if (logStatus === "loggedIn") {
+    if (!userLoading && currentUser.email.length > 0) {
+      return "liShown";
+    }
   }
 };

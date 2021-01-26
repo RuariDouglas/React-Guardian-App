@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useHistory, useLocation } from "react-router-dom";
 
 // REDUX
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+
+// COMPONENTS
+import CommentsList from "./CommentsList";
 
 // MATERIALUI
 import IconButton from "@material-ui/core/IconButton";
@@ -11,9 +14,17 @@ import CloseIcon from "@material-ui/icons/Close";
 import styled from "styled-components";
 const Article = (props) => {
   const history = useHistory();
-  const { loading } = useSelector((state) => state.guardian);
-  const { rootPath, sectionData } = props;
   const location = useLocation();
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getComments);
+  }, []);
+  // REDUX
+  const { loading } = useSelector((state) => state.guardian);
+  const { currentUser } = useSelector((state) => state.currentUser);
+
+  // COMPONENT
+  const { rootPath, sectionData } = props;
   const closeArticle = (e) => {
     const element = e.target;
     if (element.classList.contains("shadow")) {
@@ -42,6 +53,7 @@ const Article = (props) => {
             <IconButton onClick={closeArticle} className="shadow close">
               <CloseIcon />
             </IconButton>
+
             {sectionData
               .filter((entry) => entry.id === pathId)
               .map((article) => (
@@ -54,13 +66,16 @@ const Article = (props) => {
                     {article.fields.headline}
                   </h1>
                   <h3>
+                    {article.tags.length ? (
+                      <p>{article.tags[0].webTitle}</p>
+                    ) : (
+                      ""
+                    )}
                     <a
                       target="_blank"
                       rel="noreferrer"
                       href="https://www.theguardian.com/profile/scottmurray"
-                    >
-                      {article.tags[0].webTitle}
-                    </a>
+                    ></a>
                   </h3>
                   <p>{article.fields.lastModified}</p>
                   {/* dividing line */}
@@ -71,6 +86,7 @@ const Article = (props) => {
                   ></div>
                 </div>
               ))}
+            <CommentsList />
           </div>
         </Detail>
       )}

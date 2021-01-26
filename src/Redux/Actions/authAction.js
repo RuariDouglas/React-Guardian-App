@@ -15,8 +15,11 @@ const success = (email, uid) => {
   return {
     type: "CURRENT_USER",
     payload: {
-      email: email,
-      uid: uid,
+      currentUser: {
+        email: email,
+        uid: uid,
+      },
+      userLoading: false,
     },
   };
 };
@@ -25,8 +28,11 @@ const resetCurrentUser = () => {
   return {
     type: "CURRENT_USER",
     payload: {
-      email: "",
-      uid: "",
+      currentUser: {
+        email: "",
+        uid: "",
+      },
+      userLoading: true,
     },
   };
 };

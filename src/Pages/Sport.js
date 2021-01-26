@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 // COMPONENTS
 import Title from "../Components/Title";
-import Article from "../Components/Article";
+import Article from "../Components/ArticleDetail/ArticleDetail";
 // Grid //
 import GridTemplate from "../Components/Grid/GridTemplate";
 import HeroMain from "../Components/Grid/HeroMain";
