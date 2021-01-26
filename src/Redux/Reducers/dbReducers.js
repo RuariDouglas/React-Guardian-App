@@ -1,33 +1,14 @@
-const initUser = {
-  currentUser: {
-    email: "",
-    uid: "",
-  },
-  userLoading: true,
-};
-const initError = {
-  error: "",
+const init = {
+  comments: {},
 };
 
-export const currentUserReducer = (state = initUser, action) => {
+export const getCommentsReducer = (state = init, action) => {
   switch (action.type) {
-    case "CURRENT_USER":
+    case "GET_COMMENTS":
       return {
         ...state,
         ...action.payload,
       };
-    default:
-      return { ...state };
-  }
-};
-export const errorReducer = (state = initError, action) => {
-  switch (action.type) {
-    case "ERROR":
-      return {
-        ...state,
-        ...action.payload,
-      };
-
     default:
       return { ...state };
   }

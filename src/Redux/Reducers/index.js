@@ -5,6 +5,7 @@ import { menuToggleReducer, weatherToggleReducer } from "./menuToggleReducer";
 import weatherReducer from "./weatherReducer";
 import guardianReducer from "./guardianReducers";
 import { currentUserReducer, errorReducer } from "./authReducers";
+import { getCommentsReducer } from "./dbReducers";
 
 const allReducers = (history) =>
   combineReducers({
@@ -14,6 +15,7 @@ const allReducers = (history) =>
     weather: weatherReducer,
     guardian: guardianReducer,
     currentUser: currentUserReducer,
+    comments: getCommentsReducer,
     error: errorReducer,
   });
 

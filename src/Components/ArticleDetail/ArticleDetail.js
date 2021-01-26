@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useHistory, useLocation } from "react-router-dom";
 
 // REDUX
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
 // COMPONENTS
 import CommentsList from "./CommentsList";
@@ -15,10 +15,12 @@ import styled from "styled-components";
 const Article = (props) => {
   const history = useHistory();
   const location = useLocation();
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getComments);
-  }, []);
+  const pathUnmodified = location.pathname;
+  const regex = /^\/[a-z]+(\/(article)\/)/g;
+  const pathId = pathUnmodified.match(regex)
+    ? pathUnmodified.replace(regex, "")
+    : pathUnmodified.replace("/article/", "");
+
   // REDUX
   const { loading } = useSelector((state) => state.guardian);
   const { currentUser } = useSelector((state) => state.currentUser);
@@ -36,12 +38,6 @@ const Article = (props) => {
       }
     }
   };
-
-  const pathUnmodified = location.pathname;
-  const regex = /^\/[a-z]+(\/(article)\/)/g;
-  const pathId = pathUnmodified.match(regex)
-    ? pathUnmodified.replace(regex, "")
-    : pathUnmodified.replace("/article/", "");
 
   // location.pathname.replace("/article/", "");
 
