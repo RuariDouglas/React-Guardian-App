@@ -10,6 +10,7 @@ const SignUpModal = () => {
     dispatch(clearData());
   }, []);
   // Refs
+  let nameRef = useRef();
   let emailRef = useRef();
   let passwordRef = useRef();
   let passwordConfirmRef = useRef();
@@ -19,12 +20,14 @@ const SignUpModal = () => {
 
   const handlesubmit = (e) => {
     e.preventDefault();
+
+    let name = nameRef.current.value;
     let email = emailRef.current.value;
     let password = passwordRef.current.value;
     let passwordConfirm = passwordConfirmRef.current.value;
     if (password === passwordConfirm) {
       console.log("Match");
-      dispatch(signUp(email, password));
+      dispatch(signUp(name, email, password));
     } else {
       console.log("No match");
     }
@@ -36,6 +39,7 @@ const SignUpModal = () => {
       {error && <p>{error}</p>}
 
       <form onSubmit={handlesubmit}>
+        <input ref={nameRef} placeholder="Enter your name" type="text" />
         <input ref={emailRef} placeholder="Enter your Email" type="email" />
         <input
           ref={passwordRef}

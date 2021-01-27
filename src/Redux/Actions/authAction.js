@@ -1,5 +1,5 @@
 // FIREBASE
-import { auth } from "../../firebase";
+import { auth, db } from "../../firebase";
 import { push } from "connected-react-router";
 
 const errorHandler = (err) => {
@@ -11,11 +11,12 @@ const errorHandler = (err) => {
   };
 };
 
-const success = (email, uid) => {
+const success = (name, email, uid) => {
   return {
     type: "CURRENT_USER",
     payload: {
       currentUser: {
+        name: name,
         email: email,
         uid: uid,
       },
@@ -29,6 +30,7 @@ const resetCurrentUser = () => {
     type: "CURRENT_USER",
     payload: {
       currentUser: {
+        name: "",
         email: "",
         uid: "",
       },
@@ -36,12 +38,18 @@ const resetCurrentUser = () => {
     },
   };
 };
-
-export const signUp = (email, password) => async (dispatch) => {
+// SEE CHANGESTATE ************************
+export const signUp = (name, email, password) => async (dispatch) => {
   try {
     auth
       .createUserWithEmailAndPassword(email, password)
-      .then((user) => {
+      .then((creds) => {
+        db.collection("users").doc(creds.user.uid).set({
+          name: name,
+          email: email,
+        });
+      })
+      .then((creds) => {
         dispatch(push("/"));
       })
       .catch((err) => {
@@ -69,9 +77,12 @@ export const logout = () => async (dispatch) => {
   } catch {}
 };
 
-export const stateChange = (user) => (dispatch) => {
+export const stateChange = (user) => async (dispatch) => {
   if (user) {
-    dispatch(success(user.email, user.uid));
+    // GET USER FROM DATABASE BASED ON UID, DISPATCH SUCCESS WITH DB.RETRIEVED DETAILS
+    let matchedUser = await db.collection("users").doc(user.uid).get();
+    let name = matchedUser.data().name;
+    dispatch(success(name, user.email, user.uid));
   } else {
     dispatch(resetCurrentUser());
   }

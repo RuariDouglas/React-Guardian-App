@@ -1,3 +1,16 @@
-.article-detail {
-    background-color: turquoise;
+// COMMENTS LIST
+.comments__container {
+    border-top: 1px solid $neutral86;
+    padding-top: $halfPad;
+}
+
+// CREATE COMMENT
+.create-comment__container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.comment {
+    display: flex;
 }

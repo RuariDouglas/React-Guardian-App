@@ -8,6 +8,7 @@ import { getComments } from "../../Redux/Actions/dbAction";
 
 // COMPONENTS
 import Comment from "./Comment";
+import CreateComment from "./CreateComment";
 
 const CommentsList = () => {
   const dispatch = useDispatch();
@@ -20,17 +21,18 @@ const CommentsList = () => {
     dispatch(getComments(articlePath));
   }, []);
   const { comments } = useSelector((state) => state.comments);
-  console.log(comments);
   return (
-    <div className="article-detail">
-      <ul>
+    <div className="comments__container">
+      <CreateComment />
+      <h2>Comments</h2>
+      <ul className="comments__list">
         {comments.map((comment) => {
           return (
             <Comment
               author={comment.author_name}
               uid={comment.author_uid}
-              key={comment.url}
-              id={comment.url}
+              key={comment.author_uid}
+              id={comment.author_uid}
             />
           );
         })}

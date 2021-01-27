@@ -103,8 +103,6 @@ const Detail = styled.div`
     position: absolute;
     right: 1rem;
     svg {
-      width: 25%;
-      height: 25%;
     }
   }
   .detail__container {
