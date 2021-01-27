@@ -2,7 +2,8 @@ import React from "react";
 import { useHistory, useLocation } from "react-router-dom";
 
 // REDUX
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { clearComments } from "../../Redux/Actions/dbAction";
 
 // COMPONENTS
 import CommentsList from "./CommentsList";
@@ -14,6 +15,7 @@ import CloseIcon from "@material-ui/icons/Close";
 import styled from "styled-components";
 const Article = (props) => {
   const history = useHistory();
+  const dispatch = useDispatch();
   const location = useLocation();
   const pathUnmodified = location.pathname;
   const regex = /^\/[a-z]+(\/(article)\/)/g;
@@ -30,6 +32,7 @@ const Article = (props) => {
     const element = e.target;
     if (element.classList.contains("shadow")) {
       document.body.style.overflow = "auto";
+      dispatch(clearComments());
       if (rootPath === "/") {
         history.push(rootPath);
       } else {

@@ -64,7 +64,7 @@ const Nav = () => {
               </Link>
             </li>
             <li className={checkUser("loggedIn", currentUser, userLoading)}>
-              {/* <p>Signed In as: {currentUser.email}</p> */}
+              <p>Signed In as: {currentUser.name}</p>
             </li>
           </AccountList>
         </div>

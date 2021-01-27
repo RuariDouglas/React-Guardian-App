@@ -7,7 +7,7 @@ const MostViewed = (props) => {
       {!loading && (
         <div className="most-viewed">
           <ul className="grid__item--span1 most-viewed__list--left">
-            {newsData.forEach((entry, index) => {
+            {newsData.map((entry, index) => {
               if (index >= 0 && index < 5) {
                 return (
                   <li
@@ -25,7 +25,7 @@ const MostViewed = (props) => {
             })}
           </ul>
           <ul className="grid__item--span1  most-viewed__list--right">
-            {newsData.forEach((entry, index) => {
+            {newsData.map((entry, index) => {
               if (index >= 5 && index < 11) {
                 return (
                   <li

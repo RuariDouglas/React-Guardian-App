@@ -8,6 +8,7 @@ import { db } from "../../firebase";
 const CreateComment = (props) => {
   const commentRef = useRef();
   const { currentUser } = useSelector((state) => state.currentUser);
+  const { comments } = useSelector((state) => state.comments);
   const createCommentHandler = (e) => {
     const authorUid = currentUser.uid;
     const name = currentUser.name;
@@ -18,6 +19,7 @@ const CreateComment = (props) => {
       author_uid: authorUid,
       comment: commentRef.current.value,
       url: url,
+      index: comments.length + 1,
     });
   };
   return (

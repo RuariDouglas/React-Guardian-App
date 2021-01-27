@@ -10,19 +10,39 @@ const commentsDispatch = (comments) => {
     },
   };
 };
+const clearCommentsDispatch = () => {
+  return {
+    type: "CLEAR_COMMENTS",
+    payload: {
+      comments: {},
+      commentsLoading: true,
+    },
+  };
+};
 
 export const getComments = (articlePath) => async (dispatch) => {
   try {
     let commentsArray = [];
-    const retrievedComments = await db
-      .collection("comments")
+    db.collection("comments")
+      .orderBy("index")
       .where("url", "==", articlePath)
-      .get();
-    retrievedComments.docs.forEach((doc) => {
-      let commentDetails = doc.data();
-      commentDetails.commentUid = doc.id;
-      commentsArray.push(commentDetails);
-    });
-    dispatch(commentsDispatch(commentsArray));
+      .onSnapshot((snapshot) => {
+        let changes = snapshot.docChanges();
+        changes.forEach((change) => {
+          if (change.type === "added") {
+            let commentDetails = change.doc.data();
+            commentDetails.commentUid = change.doc.id;
+            commentsArray.unshift(commentDetails);
+          }
+        });
+        dispatch(commentsDispatch(commentsArray));
+      })
+      .catch((err) => console.log(err.message));
+  } catch {}
+};
+
+export const clearComments = () => async (dispatch) => {
+  try {
+    dispatch(clearCommentsDispatch());
   } catch {}
 };

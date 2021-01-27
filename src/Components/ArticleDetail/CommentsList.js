@@ -13,8 +13,8 @@ import CreateComment from "./CreateComment";
 const CommentsList = () => {
   const dispatch = useDispatch();
   const location = useLocation();
-  const { comments, commentsLoading } = useSelector((state) => state.comments);
 
+  const { comments, commentsLoading } = useSelector((state) => state.comments);
   // REDUX
   const articlePath = location.pathname.split("/article/")[1];
   useEffect(() => {
@@ -23,10 +23,10 @@ const CommentsList = () => {
 
   return (
     <>
-      {!commentsLoading && (
-        <div className="comments__container">
-          <CreateComment url={articlePath} />
-          <h2>Comments</h2>
+      <div className="comments__container">
+        <CreateComment url={articlePath} />
+        <h2>Comments</h2>
+        {!commentsLoading && (
           <ul className="comments__list">
             {comments.map((comment) => {
               return (
@@ -40,8 +40,8 @@ const CommentsList = () => {
               );
             })}
           </ul>
-        </div>
-      )}
+        )}
+      </div>
     </>
   );
 };
