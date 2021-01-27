@@ -5,18 +5,20 @@ import { useSelector } from "react-redux";
 // FIREBASE
 import { db } from "../../firebase";
 
-const CreateComment = () => {
+const CreateComment = (props) => {
   const commentRef = useRef();
   const { currentUser } = useSelector((state) => state.currentUser);
   const createCommentHandler = (e) => {
-    let commenterUid = currentUser.uid;
-    let name = currentUser.name;
+    const authorUid = currentUser.uid;
+    const name = currentUser.name;
+    const url = props.url;
     e.preventDefault();
-    db.collections("comments").add({
-      name: currentUser.name,
+    db.collection("comments").add({
+      author: name,
+      author_uid: authorUid,
       comment: commentRef.current.value,
+      url: url,
     });
-    console.log(commentRef.current.value);
   };
   return (
     <div className="create-comment__container">

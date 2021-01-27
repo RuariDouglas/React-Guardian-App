@@ -1,14 +1,11 @@
 // REACT & MISC
-import React, { useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { checkUser } from "../../Functions";
 
 // REDUX
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../../Redux/Actions/authAction";
-
-// FIREBASE
-import { auth } from "../../firebase";
 
 // COMPONENTS
 import SideNav from "./SideNav";
@@ -19,7 +16,6 @@ import styled from "styled-components";
 import { col } from "../../Styles/Styles";
 
 // MATERIAL UI
-import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import CloseIcon from "@material-ui/icons/Close";

@@ -1,7 +1,5 @@
 import React, { useRef, useEffect } from "react";
 
-import { useHistory } from "react-router-dom";
-
 // REDUX
 import { useDispatch, useSelector } from "react-redux";
 import { login, clearData } from "../../Redux/Actions/authAction";
@@ -10,10 +8,9 @@ const LoginModal = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(clearData());
-  }, []);
+  }, [dispatch]);
   let emailRef = useRef();
   let passwordRef = useRef();
-  const { currentUser } = useSelector((state) => state.currentUser);
   const { error } = useSelector((state) => state.error);
 
   const handlesubmit = async (e) => {

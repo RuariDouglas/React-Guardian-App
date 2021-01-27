@@ -8,12 +8,7 @@ const Comment = (props) => {
       </div>
       <div className="comment__text-container">
         <p>{props.author}</p>
-        <p>
-          Mid-way through the decade, and where are we? On the up, on the whole.
-          Developments in technology like clockwork motors and commercially
-          viable disc recordings mean that the volume of surviving recordings is
-          increasing exponentially.
-        </p>
+        <p>{props.comment}</p>
       </div>
     </li>
   );

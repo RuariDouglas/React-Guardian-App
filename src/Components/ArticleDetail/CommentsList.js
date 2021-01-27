@@ -13,31 +13,36 @@ import CreateComment from "./CreateComment";
 const CommentsList = () => {
   const dispatch = useDispatch();
   const location = useLocation();
+  const { comments, commentsLoading } = useSelector((state) => state.comments);
 
   // REDUX
-  const articlePath = "exampleUrl";
-  // const articlePath = location.pathname.split("/article/")[1];
+  const articlePath = location.pathname.split("/article/")[1];
   useEffect(() => {
     dispatch(getComments(articlePath));
-  }, []);
-  const { comments } = useSelector((state) => state.comments);
+  }, [dispatch]);
+
   return (
-    <div className="comments__container">
-      <CreateComment />
-      <h2>Comments</h2>
-      <ul className="comments__list">
-        {comments.map((comment) => {
-          return (
-            <Comment
-              author={comment.author_name}
-              uid={comment.author_uid}
-              key={comment.author_uid}
-              id={comment.author_uid}
-            />
-          );
-        })}
-      </ul>
-    </div>
+    <>
+      {!commentsLoading && (
+        <div className="comments__container">
+          <CreateComment url={articlePath} />
+          <h2>Comments</h2>
+          <ul className="comments__list">
+            {comments.map((comment) => {
+              return (
+                <Comment
+                  author={comment.author}
+                  comment={comment.comment}
+                  authorUid={comment.author_uid}
+                  key={comment.commentUid}
+                  id={comment.commentUid}
+                />
+              );
+            })}
+          </ul>
+        </div>
+      )}
+    </>
   );
 };
 

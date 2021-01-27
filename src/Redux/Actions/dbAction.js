@@ -6,6 +6,7 @@ const commentsDispatch = (comments) => {
     type: "GET_COMMENTS",
     payload: {
       comments: comments,
+      commentsLoading: false,
     },
   };
 };
@@ -13,16 +14,15 @@ const commentsDispatch = (comments) => {
 export const getComments = (articlePath) => async (dispatch) => {
   try {
     let commentsArray = [];
-    db.collection("comments")
+    const retrievedComments = await db
+      .collection("comments")
       .where("url", "==", articlePath)
-      .get()
-      .then((snapshot) => {
-        snapshot.docs.forEach((doc) => {
-          commentsArray.push(doc.data());
-        });
-      })
-      .then(() => {
-        dispatch(commentsDispatch(commentsArray));
-      });
+      .get();
+    retrievedComments.docs.forEach((doc) => {
+      let commentDetails = doc.data();
+      commentDetails.commentUid = doc.id;
+      commentsArray.push(commentDetails);
+    });
+    dispatch(commentsDispatch(commentsArray));
   } catch {}
 };

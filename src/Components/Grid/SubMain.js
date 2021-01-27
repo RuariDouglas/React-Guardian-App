@@ -11,7 +11,7 @@ const SubMain = (props) => {
       {!loading && (
         <div className="grid grid--3fr-1fr">
           <div className="grid grid--3fr">
-            {newsData.map((article, index) =>
+            {newsData.forEach((article, index) =>
               index === 5 ? (
                 <ArticlePrimary
                   id={article.id}
@@ -24,7 +24,7 @@ const SubMain = (props) => {
             )}
 
             <div className="article-wrapper--column">
-              {newsData.map((article, index) => {
+              {newsData.forEach((article, index) => {
                 if (index > 4 && index < 8) {
                   return (
                     <ArticleSingle
@@ -40,7 +40,7 @@ const SubMain = (props) => {
           </div>
           {/* RIGHT COLUMN */}
           <div className="article-wrapper--column">
-            {newsData.map((article, index) => {
+            {newsData.forEach((article, index) => {
               if (index > 7 && index < 11) {
                 return (
                   <ArticleSingle

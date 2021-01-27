@@ -8,14 +8,13 @@ const SignUpModal = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(clearData());
-  }, []);
+  }, [dispatch]);
   // Refs
   let nameRef = useRef();
   let emailRef = useRef();
   let passwordRef = useRef();
   let passwordConfirmRef = useRef();
   // State
-  const { currentUser } = useSelector((state) => state.currentUser);
   const { error } = useSelector((state) => state.error);
 
   const handlesubmit = (e) => {

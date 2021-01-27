@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useHistory, useLocation } from "react-router-dom";
 
 // REDUX
@@ -23,7 +23,6 @@ const Article = (props) => {
 
   // REDUX
   const { loading } = useSelector((state) => state.guardian);
-  const { currentUser } = useSelector((state) => state.currentUser);
 
   // COMPONENT
   const { rootPath, sectionData } = props;
@@ -53,7 +52,11 @@ const Article = (props) => {
             {sectionData
               .filter((entry) => entry.id === pathId)
               .map((article) => (
-                <div className="detail__inner-wrapper">
+                <div
+                  id={article.id}
+                  key={article.id}
+                  className="detail__inner-wrapper"
+                >
                   <h3 className="detail__section-title">
                     {article.sectionName}
                   </h3>
@@ -71,7 +74,9 @@ const Article = (props) => {
                       target="_blank"
                       rel="noreferrer"
                       href="https://www.theguardian.com/profile/scottmurray"
-                    ></a>
+                    >
+                      Author's profile CHANGE ME
+                    </a>
                   </h3>
                   <p>{article.fields.lastModified}</p>
                   {/* dividing line */}

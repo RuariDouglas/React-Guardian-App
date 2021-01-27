@@ -1,5 +1,6 @@
 const init = {
   comments: {},
+  commentsLoading: true,
 };
 
 export const getCommentsReducer = (state = init, action) => {
