@@ -14,13 +14,18 @@ const CreateComment = (props) => {
     const name = currentUser.name;
     const url = props.url;
     e.preventDefault();
-    db.collection("comments").add({
-      author: name,
-      author_uid: authorUid,
-      comment: commentRef.current.value,
-      url: url,
-      index: comments.length + 1,
-    });
+    db.collection("comments")
+      .add({
+        author: name,
+        author_uid: authorUid,
+        comment: commentRef.current.value,
+        url: url,
+        index: comments.length + 1,
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+    commentRef.current.value = "";
   };
   return (
     <div className="create-comment__container">

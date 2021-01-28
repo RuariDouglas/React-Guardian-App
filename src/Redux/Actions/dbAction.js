@@ -1,5 +1,6 @@
 // FIREBASE
 import { db } from "../../firebase";
+import { push } from "connected-react-router";
 
 const commentsDispatch = (comments) => {
   return {
@@ -26,18 +27,30 @@ export const getComments = (articlePath) => async (dispatch) => {
     db.collection("comments")
       .orderBy("index")
       .where("url", "==", articlePath)
-      .onSnapshot((snapshot) => {
-        let changes = snapshot.docChanges();
-        changes.forEach((change) => {
-          if (change.type === "added") {
-            let commentDetails = change.doc.data();
-            commentDetails.commentUid = change.doc.id;
-            commentsArray.unshift(commentDetails);
-          }
-        });
-        dispatch(commentsDispatch(commentsArray));
-      })
-      .catch((err) => console.log(err.message));
+      .onSnapshot(
+        (snapshot) => {
+          let changes = snapshot.docChanges();
+          changes.map((comment) => {
+            if (comment.type === "removed") {
+              const index = commentsArray.findIndex((v) => {
+                return v.commentUid === comment.doc.id;
+              });
+              if (index > -1) {
+                commentsArray.splice(index, index + 1);
+              }
+            } else if (comment.type === "added") {
+              let commentDetails = {};
+              commentDetails = comment.doc.data();
+              commentDetails.commentUid = comment.doc.id;
+              commentsArray.unshift(commentDetails);
+            }
+          });
+          dispatch(commentsDispatch(commentsArray));
+        },
+        (err) => {
+          console.log(err.message);
+        }
+      );
   } catch {}
 };
 

@@ -15,6 +15,9 @@ const CommentsList = () => {
   const location = useLocation();
 
   const { comments, commentsLoading } = useSelector((state) => state.comments);
+  const { currentUser, userLoading } = useSelector(
+    (state) => state.currentUser
+  );
   // REDUX
   const articlePath = location.pathname.split("/article/")[1];
   useEffect(() => {
@@ -24,7 +27,9 @@ const CommentsList = () => {
   return (
     <>
       <div className="comments__container">
-        <CreateComment url={articlePath} />
+        {currentUser.name && !userLoading && (
+          <CreateComment url={articlePath} />
+        )}
         <h2>Comments</h2>
         {!commentsLoading && (
           <ul className="comments__list">
@@ -34,6 +39,7 @@ const CommentsList = () => {
                   author={comment.author}
                   comment={comment.comment}
                   authorUid={comment.author_uid}
+                  commentUid={comment.commentUid}
                   key={comment.commentUid}
                   id={comment.commentUid}
                 />

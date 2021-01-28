@@ -11,10 +11,7 @@ export const getCommentsReducer = (state = init, action) => {
         ...action.payload,
       };
     case "CLEAR_COMMENTS":
-      return {
-        ...state,
-        ...action.payload,
-      };
+      return init;
     default:
       return { ...state };
   }
