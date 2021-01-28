@@ -22,27 +22,30 @@ const clearCommentsDispatch = () => {
 };
 
 export const getComments = (articlePath) => async (dispatch) => {
+  let commentsArray = [];
+
   try {
-    let commentsArray = [];
     db.collection("comments")
       .orderBy("index")
       .where("url", "==", articlePath)
       .onSnapshot(
         (snapshot) => {
           let changes = snapshot.docChanges();
-          changes.map((comment) => {
-            if (comment.type === "removed") {
-              const index = commentsArray.findIndex((v) => {
-                return v.commentUid === comment.doc.id;
-              });
+          changes.map((change) => {
+            const index = commentsArray.findIndex(
+              (v) => v.commentUid === commentDetails.commentUid
+            );
+            let commentDetails = {};
+            commentDetails = change.doc.data();
+            commentDetails.commentUid = change.doc.id;
+            if (change.type === "added") commentsArray.unshift(commentDetails);
+            else if (change.type === "modified") {
               if (index > -1) {
                 commentsArray.splice(index, index + 1);
+                commentsArray.unshift(commentDetails);
               }
-            } else if (comment.type === "added") {
-              let commentDetails = {};
-              commentDetails = comment.doc.data();
-              commentDetails.commentUid = comment.doc.id;
-              commentsArray.unshift(commentDetails);
+            } else if (change.type === "removed") {
+              if (index > -1) commentsArray.splice(index, index + 1);
             }
           });
           dispatch(commentsDispatch(commentsArray));

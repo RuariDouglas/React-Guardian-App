@@ -38,11 +38,11 @@ const persistedState = loadFromLocalStorage();
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(
   allReducers(history),
-  persistedState,
+  // persistedState,
   composeEnhancer(applyMiddleware(routerMiddleware(history), thunk))
 );
 
 // This allows us to update the local storage everytime there is a state change.
-store.subscribe(() => saveToLocalStorage(store.getState()));
+// store.subscribe(() => saveToLocalStorage(store.getState()));
 
 export default store;

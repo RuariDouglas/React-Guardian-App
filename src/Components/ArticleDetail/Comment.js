@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 // FIREBASE
 import { db } from "../../firebase";
 // REDUX
@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 
 const Comment = (props) => {
   const [toggle, setToggle] = useState(false);
+  const editInputRef = useRef();
   const { author, comment, commentUid, authorUid } = props;
   const { currentUser, userLoading } = useSelector(
     (state) => state.currentUser
@@ -19,14 +20,17 @@ const Comment = (props) => {
     db.collection("comments")
       .doc(commentUid)
       .delete()
-      .then(() => {
-        console.log(`Comment: was deleted`);
-      })
+      .then(() => {})
       .catch((err) => console.log(err.message));
   };
   const editSubmit = (e) => {
     e.preventDefault();
-    console.log("working");
+    db.collection("comments")
+      .doc(commentUid)
+      .update({
+        comment: `Edited: ${editInputRef.current.value}`,
+      })
+      .then(() => setToggle(!toggle));
   };
   return (
     <li className="comment">
@@ -49,9 +53,10 @@ const Comment = (props) => {
         {!toggle ? (
           <p>{comment}</p>
         ) : (
-          <form onSubmit={editSubmit} action="">
+          <form onSubmit={editSubmit}>
             <textarea
-              vale={comment}
+              ref={editInputRef}
+              defaultValue={comment}
               name="editComment"
               id=""
               cols="30"

@@ -20,7 +20,7 @@ const CreateComment = (props) => {
         author_uid: authorUid,
         comment: commentRef.current.value,
         url: url,
-        index: comments.length + 1,
+        index: comments.length + 1 || 0,
       })
       .catch((err) => {
         console.log(err.message);
