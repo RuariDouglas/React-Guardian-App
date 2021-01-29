@@ -6,7 +6,7 @@ const GridTemplate = (props) => {
       <aside className="col-left">
         {props.left && props.left}
 
-        {props.weatherApp}
+        {props.weatherApp && props.weatherApp}
       </aside>
       <main className="col-main">{props.right}</main>
     </div>

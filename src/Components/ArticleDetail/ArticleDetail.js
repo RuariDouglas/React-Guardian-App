@@ -1,18 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useHistory, useLocation } from "react-router-dom";
-
 // REDUX
 import { useSelector, useDispatch } from "react-redux";
 import { clearComments } from "../../Redux/Actions/dbAction";
-
 // COMPONENTS
 import CommentsList from "./CommentsList";
-
 // MATERIALUI
 import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
-
 import styled from "styled-components";
+
 const Article = (props) => {
   const history = useHistory();
   const dispatch = useDispatch();
@@ -22,11 +19,11 @@ const Article = (props) => {
   const pathId = pathUnmodified.match(regex)
     ? pathUnmodified.replace(regex, "")
     : pathUnmodified.replace("/article/", "");
-
-  // REDUX
+  // Redux
   const { loading } = useSelector((state) => state.guardian);
+  const menuToggle = useSelector((state) => state.menuToggle);
 
-  // COMPONENT
+  // Components
   const { rootPath, sectionData } = props;
   const closeArticle = (e) => {
     const element = e.target;
@@ -40,8 +37,9 @@ const Article = (props) => {
       }
     }
   };
-
-  // location.pathname.replace("/article/", "");
+  useEffect(() => {
+    return menuToggle ? dispatch({ type: "SIDE_NAV_TOGGLE" }) : "";
+  }, [dispatch]);
 
   return (
     <>

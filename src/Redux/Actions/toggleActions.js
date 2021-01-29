@@ -3,9 +3,3 @@ export const menuToggleAction = () => {
     type: "SIDE_NAV_TOGGLE",
   };
 };
-
-export const weatherToggleAction = () => {
-  return {
-    type: "WEATHER_TOGGLE",
-  };
-};

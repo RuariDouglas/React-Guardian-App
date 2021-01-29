@@ -1,5 +1,5 @@
 // REACT
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 // REDUX
 import { useSelector, useDispatch } from "react-redux";
@@ -14,19 +14,19 @@ import { col } from "../Styles/Styles";
 // APP
 const WeatherApp = () => {
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(loadWeather("london"));
-  }, [dispatch]);
+  const inputRef = useRef();
+  const [weatherToggle, setWeatherToggle] = useState(false);
   const { weatherData, forecastData, loading } = useSelector(
     (state) => state.weather
   );
+  useEffect(() => {
+    dispatch(loadWeather("london"));
+  }, [dispatch]);
   // Weather search input
-  const inputRef = useRef();
   const sendResult = (e) => {
     e.preventDefault();
     dispatch(loadWeather(inputRef.current.value));
   };
-  const weatherToggle = useSelector((state) => state.weatherToggle);
 
   return (
     <WeatherContainer>
@@ -50,7 +50,7 @@ const WeatherApp = () => {
               <div className="weatherToggle">
                 <DownAngle
                   className={`${weatherToggle ? "rotate" : ""}`}
-                  onClick={() => dispatch({ type: "WEATHER_TOGGLE" })}
+                  onClick={() => setWeatherToggle(!weatherToggle)}
                 />
               </div>
             </div>

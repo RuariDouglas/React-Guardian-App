@@ -8,9 +8,7 @@ const Comment = (props) => {
   const [toggle, setToggle] = useState(false);
   const editInputRef = useRef();
   const { author, comment, commentUid, authorUid } = props;
-  const { currentUser, userLoading } = useSelector(
-    (state) => state.currentUser
-  );
+  const { currentUser } = useSelector((state) => state.currentUser);
 
   const editClick = (e) => {
     setToggle(!toggle);

@@ -1,49 +1,49 @@
 // REACT
 import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
-
 // REDUX
-import { loadSection } from "../Redux/Actions/guardianSectionAction";
 import { useDispatch, useSelector } from "react-redux";
-
+import { loadSection } from "../Redux/Actions/guardianSectionAction";
 // COMPONENTS
-// import WeatherApp from "../Components/WeatherApp";
 import Title from "../Components/Title";
+import WeatherApp from "../Components/WeatherApp";
 import Article from "../Components/ArticleDetail/ArticleDetail";
-// Grid //
+// Grid
 import GridTemplate from "../Components/Grid/GridTemplate";
+import MostViewed from "../Components/Grid/MostViewed";
 import HeroMain from "../Components/Grid/HeroMain";
 import SubMain from "../Components/Grid/SubMain";
 import SubAlt from "../Components/Grid/SubAlt";
-import MostViewed from "../Components/Grid/MostViewed";
-
+// FUNC
 import { dateFormatter } from "../Functions";
 
 const Home = () => {
-  // API CALLS
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(loadSection(false));
-  }, [dispatch]);
-
+  const location = useLocation();
+  const menuToggle = useSelector((state) => state.menuToggle);
   const { sectionData, loading } = useSelector((state) => state.guardian);
-
-  // TITLE COMPONENT DATA
+  const articlePath = location.pathname.split("/")[2];
+  const rootPath = "/";
+  // Title Component
   let date = dateFormatter();
   const titleData = {
     mainTitle: "Headlines",
     subTitle: date,
   };
-  const location = useLocation();
-  const rootPath = "/";
-  const articlePath = location.pathname.split("/")[2];
+  // Close Sidenav
+  const closeMenu = (e) =>
+    menuToggle ? dispatch({ type: "SIDE_NAV_TOGGLE" }) : "";
+  // Get news Data
+  useEffect(() => {
+    dispatch(loadSection(false));
+  }, [dispatch]);
 
   return (
-    <div className="news">
+    <div className="news" onClick={closeMenu}>
       {articlePath && <Article rootPath={rootPath} sectionData={sectionData} />}
       <GridTemplate
         left={<Title titleData={titleData} />}
-        // weatherApp={<WeatherApp />}
+        weatherApp={<WeatherApp />}
         right={<HeroMain newsData={sectionData} loading={loading} />}
       />
       <GridTemplate

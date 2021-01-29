@@ -1,6 +1,5 @@
 // FIREBASE
 import { db } from "../../firebase";
-import { push } from "connected-react-router";
 
 const commentsDispatch = (comments) => {
   return {
@@ -23,7 +22,6 @@ const clearCommentsDispatch = () => {
 
 export const getComments = (articlePath) => async (dispatch) => {
   let commentsArray = [];
-
   try {
     db.collection("comments")
       .orderBy("index")

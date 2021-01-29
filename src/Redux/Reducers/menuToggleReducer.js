@@ -6,11 +6,3 @@ export const menuToggleReducer = (state = false, action) => {
       return state;
   }
 };
-export const weatherToggleReducer = (state = false, action) => {
-  switch (action.type) {
-    case "WEATHER_TOGGLE":
-      return !state;
-    default:
-      return state;
-  }
-};

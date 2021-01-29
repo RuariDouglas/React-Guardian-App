@@ -1,40 +1,41 @@
 // REACT
 import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
-
 // REDUX
-import { loadSection } from "../Redux/Actions/guardianSectionAction";
 import { useDispatch, useSelector } from "react-redux";
-
+import { loadSection } from "../Redux/Actions/guardianSectionAction";
 // COMPONENTS
 import Title from "../Components/Title";
 import Article from "../Components/ArticleDetail/ArticleDetail";
 // Grid //
 import GridTemplate from "../Components/Grid/GridTemplate";
+import MostViewed from "../Components/Grid/MostViewed";
 import HeroMain from "../Components/Grid/HeroMain";
 import SubMain from "../Components/Grid/SubMain";
 import SubAlt from "../Components/Grid/SubAlt";
-import MostViewed from "../Components/Grid/MostViewed";
 
 const Lifestyle = () => {
-  // API CALLS
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(loadSection("lifeandstyle"));
-  }, [dispatch]);
+  const location = useLocation();
+  const rootPath = location.pathname.split("/")[1];
+  const articlePath = location.pathname.split("/")[2];
+  const menuToggle = useSelector((state) => state.menuToggle);
   const { sectionData, loading } = useSelector((state) => state.guardian);
-
-  // TITLE COMPONENT DATA
+  // Title Component Data
   const titleData = {
     mainTitle: "Lifestyle",
     subTitle: false,
   };
-  const location = useLocation();
-  const rootPath = location.pathname.split("/")[1];
-  const articlePath = location.pathname.split("/")[2];
+  // Close Sidenav
+  const closeMenu = (e) =>
+    menuToggle ? dispatch({ type: "SIDE_NAV_TOGGLE" }) : "";
+  // Get news data
+  useEffect(() => {
+    dispatch(loadSection("lifeandstyle"));
+  }, [dispatch]);
 
   return (
-    <div className="lifestyle">
+    <div className="lifestyle" onClick={closeMenu}>
       {articlePath && <Article rootPath={rootPath} sectionData={sectionData} />}
       <div className="bg--alt">
         <GridTemplate
