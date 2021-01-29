@@ -1,4 +1,5 @@
 import React, { useRef, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 // REDUX
 import { useDispatch, useSelector } from "react-redux";
@@ -22,7 +23,9 @@ const LoginModal = () => {
 
   return (
     <>
-      <h2 className="signup__heading">Don't have an account? SignUp here...</h2>
+      <h2 className="signup__heading">
+        Don't have an account?<Link to="/signup"> SignUp</Link>
+      </h2>
       {error && <p>{error}</p>}
 
       <form onSubmit={handlesubmit}>

@@ -1,6 +1,6 @@
 :root {
-  font-size: 16px;
-  color: $neutral97;
+    font-size: 16px;
+    color: $neutral97;
 }
 
 h1,
@@ -9,62 +9,63 @@ h3,
 h4,
 h5,
 h6 {
-  margin-top: $quartPad;
-  margin-bottom: $fullPad;
-  line-height: 1.2;
-  span {
-    color: $newsMain;
-    font-weight: 900;
-  }
+    margin-top: $quartPad;
+    margin-bottom: $fullPad;
+    line-height: 1.2;
+    span {
+        color: $newsMain;
+        font-weight: 900;
+    }
 }
 
 .article__heading--primary {
-  font-size: 1.296rem;
+    font-size: 1.296rem;
+    letter-spacing: -0.9px;
 }
 
 .article__heading--secondary {
-  font-size: 1rem;
+    font-size: 1rem;
+    letter-spacing: -0.9px;
 }
 
 .article__heading--tertiary {
-  font-size: 0.833rem;
-  font-weight: 500;
+    font-size: 0.833rem;
+    font-weight: 500;
 }
 
 .detail__heading--primary {
-  font-size: 2rem;
+    font-size: 2rem;
 }
 
 .detail__section-title {
-  font-size: 2rem;
+    font-size: 2rem;
 }
 
 .meta {
-  font-size: 0.937rem;
+    font-size: 0.937rem;
 }
 
 .left-col__title {
-  font-weight: 900;
-  position: relative;
-  margin-bottom: $halfPad;
-  font-size: 1.6rem;
+    font-weight: 900;
+    position: relative;
+    margin-bottom: $halfPad;
+    font-size: 1.6rem;
 }
 
 @media (max-width: 755px) {
-  .article__heading--tertiary {
-    font-size: 1rem;
-    font-weight: 500;
-  }
+    .article__heading--tertiary {
+        font-size: 1rem;
+        font-weight: 500;
+    }
 }
 
-@media (min-width: 755px) {
-}
+@media (min-width: 755px) {}
 
 @media (min-width: 960px) {
-  :root {
-    font-size: 18px;
-  }
-  .left-col__title {
-    font-weight: 900;
-  }
+     :root {
+        font-size: 18px;
+    }
+    .left-col__title {
+        font-weight: 900;
+    }
 }

@@ -8,6 +8,7 @@ const GlobalStyle = createGlobalStyle`
     font-size: 100%;
     vertical-align: baseline;
     font-family: 'Merriweather', serif;
+
 }
 body {
 	line-height: 1;

@@ -1,4 +1,5 @@
 import React, { useRef, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 // REDUX
 import { useDispatch, useSelector } from "react-redux";
@@ -6,9 +7,6 @@ import { signUp, clearData } from "../../Redux/Actions/authAction";
 
 const SignUpModal = () => {
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(clearData());
-  }, [dispatch]);
   // Refs
   let nameRef = useRef();
   let emailRef = useRef();
@@ -16,10 +14,8 @@ const SignUpModal = () => {
   let passwordConfirmRef = useRef();
   // State
   const { error } = useSelector((state) => state.error);
-
   const handlesubmit = (e) => {
     e.preventDefault();
-
     let name = nameRef.current.value;
     let email = emailRef.current.value;
     let password = passwordRef.current.value;
@@ -28,13 +24,23 @@ const SignUpModal = () => {
       console.log("Match");
       dispatch(signUp(name, email, password));
     } else {
-      console.log("No match");
+      dispatch({
+        type: "ERROR",
+        payload: {
+          error: "Passwords don't match",
+        },
+      });
     }
   };
 
+  useEffect(() => {
+    dispatch(clearData());
+  }, [dispatch]);
   return (
     <>
-      <h2 className="signup__heading"> Already have an account ? Login </h2>
+      <h2 className="signup__heading">
+        Already have an account ?<Link to="/login"> Login</Link>
+      </h2>
       {error && <p>{error}</p>}
 
       <form onSubmit={handlesubmit}>

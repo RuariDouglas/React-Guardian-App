@@ -58,7 +58,7 @@ export const signUp = (name, email, password) => async (dispatch) => {
   } catch {}
 };
 
-export const login = (email, password) => async (dispatch) => {
+export const login = (email, password, error) => async (dispatch) => {
   try {
     auth
       .signInWithEmailAndPassword(email, password)
