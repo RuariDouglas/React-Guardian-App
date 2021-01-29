@@ -1,7 +1,6 @@
 // REACT & MISC
 import React from "react";
 import { Link } from "react-router-dom";
-import { checkUser } from "../../Functions";
 
 // REDUX
 import { useSelector, useDispatch } from "react-redux";
@@ -10,6 +9,7 @@ import { logout } from "../../Redux/Actions/authAction";
 // COMPONENTS
 import SideNav from "./SideNav";
 import MenuLinks from "./MenuLinks";
+import AccountLinks from "./AccountLinks";
 
 // STYLES
 import styled from "styled-components";
@@ -23,15 +23,6 @@ import CloseIcon from "@material-ui/icons/Close";
 const Nav = () => {
   const dispatch = useDispatch();
   const menuToggle = useSelector((state) => state.menuToggle);
-  const { currentUser, userLoading } = useSelector(
-    (state) => state.currentUser
-  );
-
-  const logoutHandler = (e) => {
-    e.preventDefault();
-    dispatch(logout());
-  };
-
   return (
     <>
       <SideNav />
@@ -50,23 +41,9 @@ const Nav = () => {
               </Link>
             </h2>
           </Logo>
-          <AccountList>
-            <li className={checkUser("loggedOut", currentUser, userLoading)}>
-              <Link to="/signup">SignUp</Link>
-            </li>
-            <li className={checkUser("loggedOut", currentUser, userLoading)}>
-              <Link to="/login">Login</Link>
-            </li>
-
-            <li className={checkUser("loggedIn", currentUser, userLoading)}>
-              <Link onClick={logoutHandler} to="/">
-                Logout
-              </Link>
-            </li>
-            <li className={checkUser("loggedIn", currentUser, userLoading)}>
-              <p>Signed In as: {currentUser.name}</p>
-            </li>
-          </AccountList>
+          <div className="accountLinks">
+            <AccountLinks />
+          </div>
         </div>
       </NavBg>
     </>
@@ -81,9 +58,12 @@ const NavBg = styled.header`
     width: 90vw;
     margin: 0 auto;
     display: flex;
+    justify-content: flex-start;
+    flex-direction: row-reverse;
     padding: 1rem;
-    justify-content: space-between;
-    align-items: center;
+    .accountLinks {
+      display: none;
+    }
   }
   @media (max-width: 340px) {
     .navContainer {
@@ -92,20 +72,52 @@ const NavBg = styled.header`
   }
   @media (min-width: 755px) {
     .navContainer {
-      padding: 1rem 0 0;
+      padding: 0 0 0;
       flex-direction: column-reverse;
+      justify-content: flex-start;
+      .accountLinks {
+        display: flex;
+        align-self: flex-end;
+        font-weight: bold;
+        border-radius: 0 0 10px 10px;
+        border-bottom: 1px solid ${col.pLight};
+        border-left: 1px solid ${col.pLight};
+        border-right: 1px solid ${col.pLight};
+        font-size: 80%;
+        ul {
+          display: flex;
+          width: 150px;
+          justify-content: space-evenly;
+          align-items: center;
+          #accountName {
+            svg {
+              height: 25px;
+              width: 25px;
+              margin: 0.25rem;
+            }
+            p {
+              font-weight: 300;
+              color: ${col.pLight};
+            }
+          }
+          a:hover {
+            color: #fff;
+          }
+        }
+      }
     }
   }
   @media (min-width: 1200px) {
     .navContainer {
       width: 80vw;
+      max-width: 1200px;
     }
   }
 `;
 
 const Logo = styled.div`
-  align-self: flex-end;
   font-size: 3rem;
+  margin-right: 1rem;
   h2 a {
     font-weight: 700;
     color: ${col.white};
@@ -117,7 +129,14 @@ const Logo = styled.div`
     }
   }
   @media (min-width: 755px) {
-    margin-bottom: 1rem;
+    margin-right: 0;
+    align-self: flex-end;
+    display: flex;
+  }
+  @media (max-width: 500px) {
+    h2 {
+      font-size: 2.3rem;
+    }
   }
 `;
 const MainMenu = styled.nav`
@@ -144,22 +163,6 @@ const MainMenu = styled.nav`
       justify-self: flex-end;
       margin-right: 1rem;
     }
-  }
-`;
-
-const AccountList = styled.ul`
-  display: flex;
-  align-self: flex-end;
-  li {
-    display: none;
-  }
-  .liShown {
-    display: inline;
-  }
-  a {
-    color: #fff;
-    text-decoration: underline;
-    padding: 0.5rem 1rem;
   }
 `;
 

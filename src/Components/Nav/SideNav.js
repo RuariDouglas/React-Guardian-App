@@ -6,6 +6,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 // COMPONENTS
 import MenuLinks from "./MenuLinks";
+import AccountLinks from "./AccountLinks";
 
 // STYLES
 import styled from "styled-components";
@@ -25,6 +26,9 @@ const SideNav = () => {
           <CloseIcon />
         </IconButton>
         <SideMenu>
+          <div className="accountLinks">
+            <AccountLinks />
+          </div>
           <MenuLinks />
         </SideMenu>
       </SideNavContainer>
@@ -57,6 +61,32 @@ const SideMenu = styled.nav`
   ul {
     li {
       border-bottom: 1px solid ${col.pLight};
+    }
+  }
+  .accountLinks {
+    display: flex;
+    align-self: flex-end;
+    padding: 0.5rem;
+    font-weight: bold;
+    border-bottom: 1px solid ${col.pLight};
+    svg {
+      height: 40px;
+      width: 40px;
+      margin-right: 0.25rem;
+    }
+    p {
+      color: ${col.pLight};
+    }
+    ul {
+      display: flex;
+      width: 100%;
+      justify-content: space-evenly;
+      li {
+        border-bottom: none;
+        a:hover {
+          color: #fff;
+        }
+      }
     }
   }
 `;

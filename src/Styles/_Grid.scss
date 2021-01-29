@@ -1,94 +1,95 @@
 .wrapper {
-  margin: 0 auto;
-  width: 90vw;
-  padding: $halfPad 0;
+    margin: 0 auto;
+    width: 90vw;
+    padding: $halfPad 0;
 }
 
 .col-left {
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-  align-items: center;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .col-main {
-  @include flexColumn;
-  width: 100%;
-  height: 100%;
+    @include flexColumn;
+    width: 100%;
+    height: 100%;
 }
 
 @media (min-width: 755px) {
-  .col-left {
-    width: 100%;
-    display: flex;
-    height: auto;
-    flex-shrink: 3;
-  }
-  .col-main {
-    flex-shrink: 3;
-    flex-basis: 100%;
-  }
+    .col-left {
+        width: 100%;
+        display: flex;
+        height: auto;
+        flex-shrink: 3;
+    }
+    .col-main {
+        flex-shrink: 3;
+        flex-basis: 100%;
+    }
 }
 
 @media (min-width: 960px) {
-  .wrapper {
-    display: grid;
-    grid-template-columns: 1fr 4fr;
-    grid-column-gap: $fullPad;
-  }
-  .col-left {
-    flex: 2 2 100%;
-    height: 100%;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    position: relative;
-  }
-  .col-main {
-    flex: 1 1 100%;
-    height: 100%;
-    display: flex;
-    padding-right: $halfPad;
-    border-right: 1px solid $neutral86;
-  }
+    .wrapper {
+        display: grid;
+        grid-template-columns: 0.7fr 4fr;
+        grid-column-gap: $fullPad;
+    }
+    .col-left {
+        flex: 2 2 100%;
+        height: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        position: relative;
+    }
+    .col-main {
+        flex: 1 1 100%;
+        height: 100%;
+        display: flex;
+        padding-right: $halfPad;
+        border-right: 1px solid $neutral86;
+    }
 }
 
 @media (min-width: 1200px) {
-  .wrapper {
-    display: grid;
-    grid-template-columns: 1fr 4fr;
-    width: 80vw;
-  }
+    .wrapper {
+        display: grid;
+        grid-template-columns: 0.7fr 4fr;
+        width: 80vw;
+        max-width: 1200px;
+    }
 }
 
 // MAIN GRID STYLES (Featured in Home.js)
 @media (min-width: 755px) {
-  .grid {
-    display: grid;
-    width: 100%;
-  }
-  .grid--2fr-2fr {
-    grid-template-columns: 2fr 2fr;
-    grid-column-gap: $halfPad;
-  }
-  .grid--3fr-1fr {
-    grid-template-columns: 3fr 1fr;
-    grid-column-gap: $halfPad;
-  }
-  .grid--3fr {
-    grid-template-columns: repeat(3, 3fr);
-    grid-gap: $halfPad;
-  }
-  .grid__item {
-    display: flex;
-  }
-  .grid__item--span2 {
-    grid-column: span 2;
-  }
-  .grid__item--span1 {
-    grid-column: span 1;
-  }
-  .grid__item--span3 {
-    grid-column: span 3;
-  }
+    .grid {
+        display: grid;
+        width: 100%;
+    }
+    .grid--2fr-2fr {
+        grid-template-columns: 2fr 2fr;
+        grid-column-gap: $halfPad;
+    }
+    .grid--3fr-1fr {
+        grid-template-columns: 3fr 1fr;
+        grid-column-gap: $halfPad;
+    }
+    .grid--3fr {
+        grid-template-columns: repeat(3, 3fr);
+        grid-gap: $halfPad;
+    }
+    .grid__item {
+        display: flex;
+    }
+    .grid__item--span2 {
+        grid-column: span 2;
+    }
+    .grid__item--span1 {
+        grid-column: span 1;
+    }
+    .grid__item--span3 {
+        grid-column: span 3;
+    }
 }

@@ -118,7 +118,6 @@ const CurrentWeather = styled.div`
     display: flex;
     align-items: center;
     flex-direction: row;
-
     .iconContainer {
       height: 40px;
       width: 65px;
@@ -148,7 +147,7 @@ const CurrentWeather = styled.div`
     .currentWeatherContainer {
       .iconContainer {
         width: 70px;
-        height: 70px;
+        height: 56px;
         img {
           height: 90px;
           width: 90px;
@@ -202,7 +201,7 @@ const ForecastList = styled.div`
       }
       input {
         width: 100%;
-        padding: 0.5rem 1rem;
+        padding: 0.3rem 1rem;
         border: 1px solid ${col.greyLight};
         border-radius: 2rem;
         transition: all 0.3s ease;
@@ -250,7 +249,7 @@ const ForecastList = styled.div`
     width: 100%;
     display: flex;
     box-shadow: none;
-    padding: 1rem 0;
+    padding: 0.5rem 0;
     position: relative;
     top: 0;
     background-color: transparent;
