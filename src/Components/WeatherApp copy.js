@@ -42,7 +42,10 @@ const WeatherApp = () => {
                 />
               </div>
               <div className="textContainer">
-                <p>{Math.round(Number(weatherData.main.temp))}ºC</p>
+                <TypoGraphy variant="subtitle2">Now</TypoGraphy>
+                <TypoGraphy variant="subtitle1">
+                  {Math.round(Number(weatherData.main.temp))}ºC
+                </TypoGraphy>
               </div>
               <div className="weatherToggle">
                 <DownAngle
@@ -67,7 +70,9 @@ const WeatherApp = () => {
                 {forecastData.map((entry) => {
                   return (
                     <li key={uuidv4()} className="forecastItem">
-                      <p>{entry.dt_txt.substr(-8, 5)}</p>
+                      <TypoGraphy variant="subtitle2">
+                        {entry.dt_txt.substr(-8, 5)}
+                      </TypoGraphy>
                       <div className="iconContainer">
                         <img
                           src={`http://openweathermap.org/img/wn/${entry.weather[0].icon}@2x.png`}
@@ -76,7 +81,9 @@ const WeatherApp = () => {
                         />
                       </div>
                       <div className="textContainer">
-                        <p>{Math.round(Number(entry.main.temp))}ºC</p>
+                        <TypoGraphy variant="subtitle1">
+                          {Math.round(Number(entry.main.temp))}ºC
+                        </TypoGraphy>
                       </div>
                     </li>
                   );
@@ -95,8 +102,6 @@ const WeatherContainer = styled.div`
   flex-direction: column;
   position: relative;
   width: 50%;
-  height: 100%;
-  padding: 0.5rem 0;
   h6 {
     line-height: 1;
   }
@@ -111,25 +116,20 @@ const CurrentWeather = styled.div`
   justify-content: flex-end;
   .currentWeatherContainer {
     display: flex;
-    width: inherit;
     align-items: center;
     flex-direction: row;
-    border: 1px solid ${col.brandMain};
-    color: ${col.brandMain};
-    font-weight: 900;
     .iconContainer {
-      height: 35px;
-      width: 55px;
+      height: 40px;
+      width: 65px;
       position: relative;
       margin-right: 0.2rem;
-      background-color: ${col.brandMain};
       img {
         position: absolute;
         transform: translate(-50%, -50%);
         left: 50%;
         top: 50%;
-        height: 55px;
-        width: 55px;
+        height: 75px;
+        width: 75px;
       }
     }
     .weatherToggle {
@@ -140,19 +140,22 @@ const CurrentWeather = styled.div`
     }
   }
   @media (min-width: 960px) {
-    justify-content: flex-start;
+    margin-top: 1rem;
+    border-top: 1px solid ${col.greyLight};
+    justify-content: center;
+    padding: 0;
     .currentWeatherContainer {
-      width: 100%;
       .iconContainer {
-        width: 50%;
+        width: 70px;
+        height: 56px;
+        img {
+          height: 90px;
+          width: 90px;
+        }
       }
-      .textContainer {
-        width: 50%;
-        text-align: center;
-      }
-      .weatherToggle {
-        display: none;
-      }
+    }
+    .weatherToggle {
+      display: none;
     }
   }
 `;
@@ -162,13 +165,13 @@ const ForecastList = styled.div`
   flex-direction: column;
   padding: 1rem;
   display: ${(props) => (props.weatherToggle ? "flex" : "none")};
-  box-shadow: 0 5px 1rem rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 2rem rgba(0, 0, 0, 0.4);
   position: absolute;
   right: 0;
-  top: 2.7rem;
+  top: 3rem;
   text-align: center;
-  background-color: ${col.neutral100};
-  border: 1px solid ${col.brandMain};
+  border-radius: 10px;
+  background-color: #eee;
   .searchContainer {
     form {
       width: 100%;
@@ -199,7 +202,7 @@ const ForecastList = styled.div`
       input {
         width: 100%;
         padding: 0.3rem 1rem;
-        border: 1px solid ${col.brandMain};
+        border: 1px solid ${col.greyLight};
         border-radius: 2rem;
         transition: all 0.3s ease;
         &:focus,
@@ -219,15 +222,10 @@ const ForecastList = styled.div`
         display: flex;
         flex-direction: column;
         align-items: center;
-        color: ${col.brandMain};
-        font-weight: 900;
-      }
-      li > p {
-        font-weight: 300;
       }
       li:nth-of-type(2) {
-        border-right: 1px solid ${col.brandMain};
-        border-left: 1px solid ${col.brandMain};
+        border-right: 1px solid ${col.greyLight};
+        border-left: 1px solid ${col.greyLight};
       }
     }
     .iconContainer {
@@ -245,27 +243,26 @@ const ForecastList = styled.div`
       }
     }
   }
-
+  @media (min-width: 960px) {
+    border-radius: 0;
+    border-top: 1px solid ${col.greyLight};
+    width: 100%;
+    display: flex;
+    box-shadow: none;
+    padding: 0.5rem 0;
+    position: relative;
+    top: 0;
+    background-color: transparent;
+    .forecastContainer {
+      justify-content: space-between;
+    }
+    .searchContainer > div {
+      width: 100%;
+    }
+  }
   @media (max-width: 500px) {
     width: 100%;
     border-radius: none;
-  }
-  @media (min-width: 960px) {
-    top: 2.5rem;
-    left: 0;
-    padding: 0.25rem;
-    display: flex;
-    box-shadow: none;
-    .forecastContainer {
-      ul {
-        li:nth-of-type(2) {
-          border-color: ${col.neutral86};
-        }
-        li > p {
-          font-size: 0.8rem;
-        }
-      }
-    }
   }
 `;
 

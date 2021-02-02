@@ -63,11 +63,16 @@ const List = styled.ul`
     transition: all 1s ease;
     height: 100%;
     &:hover {
-      background-color: ${col.pLight};
+      background-color: ${col.brandPastel};
+    }
+  }
+  @media (min-width: 960px) {
+    a {
+      padding: 0.5rem 0.5rem;
     }
   }
 
-  li.link-guardian {
+  /* li.link-guardian {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -76,7 +81,7 @@ const List = styled.ul`
       max-width: 6rem;
       padding: 0.5rem;
     }
-  }
+  } */
 `;
 
 export default MenuLinks;

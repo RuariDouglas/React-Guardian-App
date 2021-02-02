@@ -1,10 +1,10 @@
 // REACT & MISC
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useRef, useState } from "react";
+import { Link, useHistory } from "react-router-dom";
 
 // REDUX
 import { useSelector, useDispatch } from "react-redux";
-import { logout } from "../../Redux/Actions/authAction";
+import { loadSearch } from "../../Redux/Actions/guardianSectionAction";
 
 // COMPONENTS
 import SideNav from "./SideNav";
@@ -12,158 +12,100 @@ import MenuLinks from "./MenuLinks";
 import AccountLinks from "./AccountLinks";
 
 // STYLES
-import styled from "styled-components";
-import { col } from "../../Styles/Styles";
+import logo from "../../Images/logo.png";
 
 // MATERIAL UI
-import IconButton from "@material-ui/core/IconButton";
+import ArrowForwardIcon from "@material-ui/icons/ArrowForwardIos";
 import MenuIcon from "@material-ui/icons/Menu";
+import SearchIcon from "@material-ui/icons/Search";
 import CloseIcon from "@material-ui/icons/Close";
 
 const Nav = () => {
   const dispatch = useDispatch();
+  const history = useHistory();
+  const searchRef = useRef();
   const menuToggle = useSelector((state) => state.menuToggle);
+  const [searchToggle, setSearchToggle] = useState(false);
+
+  const revealSearch = () => {
+    setSearchToggle(!searchToggle);
+  };
+
+  const searchHandler = (e) => {
+    e.preventDefault();
+    history.push(`/search?=${searchRef.current.value}`);
+    dispatch(loadSearch(searchRef.current.value));
+    searchRef.current.value = "";
+  };
+
   return (
     <>
       <SideNav />
-      <NavBg>
-        <div className="navContainer">
-          <MainMenu>
-            <MenuLinks />
-            <IconButton onClick={() => dispatch({ type: "SIDE_NAV_TOGGLE" })}>
-              {!menuToggle ? <MenuIcon /> : <CloseIcon />}
-            </IconButton>
-          </MainMenu>
-          <Logo>
-            <h2>
-              <Link to="/">
-                <span>the</span>guardian
-              </Link>
-            </h2>
-          </Logo>
-          <div className="accountLinks">
+      <div className="nav__bg">
+        <div className="nav__container">
+          {/* Account Links */}
+          <div className="nav__account-links">
             <AccountLinks />
           </div>
+          {/* Top Nav Section */}
+          <div className="nav__top-wrapper">
+            {/* Support Links */}
+            <div className="nav__support-links">
+              <h4>Support us in 2021</h4>
+              <p>Power vital, open, independent journalism</p>
+              <div className="support-links__wrapper">
+                <Link className="support-link">
+                  Subscribe <ArrowForwardIcon className="forward-icon" />
+                </Link>
+                <Link className="support-link">
+                  Contribute <ArrowForwardIcon className="forward-icon" />
+                </Link>
+              </div>
+            </div>
+            {/* Logo */}
+            <div className="nav__logo-wrapper">
+              <Link to="/">
+                <img src={logo} alt="The Guardian Logo" />
+              </Link>
+            </div>
+          </div>
+
+          {/* Bottom Nav Section */}
+          <div className="nav__bottom-wrapper">
+            <nav className="nav__menu-links">
+              <MenuLinks />
+            </nav>
+            <div className="nav__misc-links">
+              {/* Search the Guardian input */}
+              <div className="nav__search-form-wrapper">
+                <form onSubmit={searchHandler} className="nav__search-form">
+                  <SearchIcon className="search-icon" />
+                  <input
+                    className="search-form__input"
+                    ref={searchRef}
+                    placeholder="Search the Guardian"
+                    type="text"
+                  />
+                </form>
+              </div>
+              <div className="line"></div>
+              {menuToggle ? (
+                <CloseIcon
+                  onClick={() => dispatch({ type: "SIDE_NAV_TOGGLE" })}
+                  className="close-icon"
+                />
+              ) : (
+                <MenuIcon
+                  onClick={() => dispatch({ type: "SIDE_NAV_TOGGLE" })}
+                  className="menu-icon"
+                />
+              )}
+            </div>
+          </div>
         </div>
-      </NavBg>
+      </div>
     </>
   );
 };
-
-const NavBg = styled.header`
-  position: relative;
-  z-index: 1;
-  background: ${col.primary};
-  .navContainer {
-    width: 90vw;
-    margin: 0 auto;
-    display: flex;
-    justify-content: flex-start;
-    flex-direction: row-reverse;
-    padding: 1rem;
-    .accountLinks {
-      display: none;
-    }
-  }
-  @media (max-width: 340px) {
-    .navContainer {
-      padding: 1rem 0;
-    }
-  }
-  @media (min-width: 755px) {
-    .navContainer {
-      padding: 0 0 0;
-      flex-direction: column-reverse;
-      justify-content: flex-start;
-      .accountLinks {
-        display: flex;
-        align-self: flex-end;
-        font-weight: bold;
-        border-radius: 0 0 10px 10px;
-        border-bottom: 1px solid ${col.pLight};
-        border-left: 1px solid ${col.pLight};
-        border-right: 1px solid ${col.pLight};
-        font-size: 80%;
-        ul {
-          display: flex;
-          width: 150px;
-          justify-content: space-evenly;
-          align-items: center;
-          #accountName {
-            svg {
-              height: 25px;
-              width: 25px;
-              margin: 0.25rem;
-            }
-            p {
-              font-weight: 300;
-              color: ${col.pLight};
-            }
-          }
-          a:hover {
-            color: #fff;
-          }
-        }
-      }
-    }
-  }
-  @media (min-width: 1200px) {
-    .navContainer {
-      width: 80vw;
-      max-width: 1200px;
-    }
-  }
-`;
-
-const Logo = styled.div`
-  font-size: 3rem;
-  margin-right: 1rem;
-  h2 a {
-    font-weight: 700;
-    color: ${col.white};
-    letter-spacing: -1px;
-    font-family: Georgia, "Times New Roman", Times, serif;
-    span {
-      font-family: Georgia, "Times New Roman", Times, serif;
-      color: ${col.pLight};
-    }
-  }
-  @media (min-width: 755px) {
-    margin-right: 0;
-    align-self: flex-end;
-    display: flex;
-  }
-  @media (max-width: 500px) {
-    h2 {
-      font-size: 2.3rem;
-    }
-  }
-`;
-const MainMenu = styled.nav`
-  display: flex;
-  justify-content: space-between;
-  ul {
-    display: none;
-    li {
-      border-right: 1px solid ${col.pLight};
-    }
-  }
-  @media (min-width: 755px) {
-    display: flex;
-    align-self: flex-start;
-    border-radius: 10px 10px 0 0;
-    border-top: 1px solid ${col.pLight};
-    border-left: 1px solid ${col.pLight};
-    border-right: 1px solid ${col.pLight};
-    width: 100%;
-    ul {
-      display: flex;
-    }
-    button {
-      justify-self: flex-end;
-      margin-right: 1rem;
-    }
-  }
-`;
 
 export default Nav;

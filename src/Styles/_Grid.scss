@@ -1,7 +1,6 @@
 .wrapper {
     margin: 0 auto;
     width: 90vw;
-    padding: $halfPad 0;
 }
 
 .col-left {
@@ -33,8 +32,7 @@
 @media (min-width: 960px) {
     .wrapper {
         display: grid;
-        grid-template-columns: 0.7fr 4fr;
-        grid-column-gap: $fullPad;
+        grid-template-columns: 1fr 4fr;
     }
     .col-left {
         flex: 2 2 100%;
@@ -43,20 +41,22 @@
         align-items: flex-start;
         justify-content: flex-start;
         position: relative;
+        padding: 0 $halfPad;
+        border-right: 1px solid $neutral86;
     }
     .col-main {
         flex: 1 1 100%;
         height: 100%;
         display: flex;
-        padding-right: $halfPad;
         border-right: 1px solid $neutral86;
+        padding: $halfPad;
     }
 }
 
 @media (min-width: 1200px) {
     .wrapper {
         display: grid;
-        grid-template-columns: 0.7fr 4fr;
+        grid-template-columns: 1fr 4fr;
         width: 80vw;
         max-width: 1200px;
     }

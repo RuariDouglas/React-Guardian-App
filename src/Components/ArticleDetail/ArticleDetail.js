@@ -27,7 +27,10 @@ const Article = (props) => {
   const { rootPath, sectionData } = props;
   const closeArticle = (e) => {
     const element = e.target;
-    if (element.classList.contains("shadow")) {
+    if (
+      element.classList.contains("shadow") ||
+      element.classList.contains("close")
+    ) {
       document.body.style.overflow = "auto";
       dispatch(clearComments());
       if (rootPath === "/") {
@@ -46,8 +49,8 @@ const Article = (props) => {
       {!loading && (
         <Detail onClick={closeArticle} className="shadow">
           <div className="detail__container">
-            <IconButton onClick={closeArticle} className="shadow close">
-              <CloseIcon />
+            <IconButton onClick={closeArticle} className="close">
+              <CloseIcon className="close" />
             </IconButton>
 
             {sectionData

@@ -30,19 +30,23 @@ export const getComments = (articlePath) => async (dispatch) => {
         (snapshot) => {
           let changes = snapshot.docChanges();
           changes.map((change) => {
-            const index = commentsArray.findIndex(
-              (v) => v.commentUid === commentDetails.commentUid
-            );
             let commentDetails = {};
+
             commentDetails = change.doc.data();
             commentDetails.commentUid = change.doc.id;
             if (change.type === "added") commentsArray.unshift(commentDetails);
             else if (change.type === "modified") {
+              const index = commentsArray.findIndex(
+                (v) => v.commentUid === commentDetails.commentUid
+              );
               if (index > -1) {
                 commentsArray.splice(index, index + 1);
                 commentsArray.unshift(commentDetails);
               }
             } else if (change.type === "removed") {
+              const index = commentsArray.findIndex(
+                (v) => v.commentUid === commentDetails.commentUid
+              );
               if (index > -1) commentsArray.splice(index, index + 1);
             }
           });

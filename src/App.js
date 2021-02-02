@@ -10,6 +10,7 @@ import { auth } from "./firebase";
 
 // PAGES
 import Home from "./Pages/Home";
+import Search from "./Pages/Search";
 import Opinion from "./Pages/Opinion";
 import Sport from "./Pages/Sport";
 import Culture from "./Pages/Culture";
@@ -59,6 +60,9 @@ function App() {
         </Route>
         <Route path={["/signup", "/login"]}>
           <Account />
+        </Route>
+        <Route path={["search/:search", "/search"]}>
+          <Search />
         </Route>
         <Route path={["/article/:id", "/"]}>
           <Home />

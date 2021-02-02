@@ -10,7 +10,6 @@ import { logout } from "../../Redux/Actions/authAction";
 // STYLES
 import { col, fontS } from "../../Styles/Styles";
 import styled from "styled-components";
-import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import { AccountCircle } from "@material-ui/icons";
 
 const AccountLinks = () => {
@@ -47,7 +46,9 @@ const AccountLinks = () => {
             className={checkUser("loggedIn", currentUser, userLoading)}
           >
             <AccountCircle style={{ color: col.pLight }} />
-            <p>{currentUser.name}</p>
+            <p>
+              Welcome: <strong>{currentUser.name}</strong>
+            </p>
           </li>
           <li className={checkUser("loggedIn", currentUser, userLoading)}>
             <Link onClick={logoutHandler} to="/">
@@ -61,7 +62,7 @@ const AccountLinks = () => {
 };
 
 const AccountList = styled.ul`
-  display: flex;
+  /* display: flex;
   align-items: center;
   padding: ${(props) => (props.currentUser.email ? 0 : ".5rem")};
   li {
@@ -69,15 +70,18 @@ const AccountList = styled.ul`
   }
   .liShown {
     display: inline;
+    color: ${col.pLight};
+    font-size: 1rem;
     a {
       text-decoration: none;
       color: ${col.pLight};
+      font-family: "Archivo", sans-serif;
     }
   }
   #accountName {
     display: flex;
     align-items: center;
-  }
+  } */
 `;
 
 export default AccountLinks;
