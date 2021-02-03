@@ -41,7 +41,7 @@
         align-items: flex-start;
         justify-content: flex-start;
         position: relative;
-        padding: 0 $halfPad;
+        padding: 0 $halfPad 0 $fullPad;
         border-right: 1px solid $neutral86;
     }
     .col-main {

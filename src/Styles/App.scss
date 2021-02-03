@@ -3,10 +3,12 @@ $neutral97: #f6f6f6;
 $neutral90: #eee;
 $neutral86: #dcdcdc;
 $neutral60: #999999;
+$neutral46: #767676;
 $neutral20: #333333;
-$nutral7: #121212;
+$neutral7: #121212;
 $brandDark: #041f4a;
 $brandMain: #052962;
+$brandMid: #172f56;
 $brandPastel: #506991;
 $newsMain: #c70000;
 $newsBright: #ff4e36;
@@ -74,22 +76,9 @@ $quartPad: 0.25rem;
     font-family: Arial, Helvetica, sans-serif;
 }
 
-// MATERIAL UI OVERRIDES
-button.MuiIconButton-root {
-    background: $highlight;
-    padding: 1rem;
-    height: 2rem;
-    width: 2rem;
-    align-self: center;
-    padding: 0;
-    color: #000;
-    &:hover {
-        background-color: $highlight;
-    }
-}
-
 @import "./Grid";
 @import "./Article";
+@import "./ArticleDetail";
 @import "./Account";
 @import "./Typography";
 @import "./ArticleDetail";

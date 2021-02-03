@@ -37,6 +37,14 @@ export const dateFormatter = () => {
   return [dayString, dayNumber, month, year];
 };
 
+export const guardianDateFormatter = (unformattedDate) => {
+  const year = unformattedDate.substr(0, 4);
+  const month = unformattedDate.substr(5, 2);
+  const day = unformattedDate.substr(8, 2);
+  const time = unformattedDate.substr(11, 5);
+  return `${day}/${month}/${year} @ ${time}`;
+};
+
 export const getPath = (path) => {
   if (path === "/") {
     return "home";

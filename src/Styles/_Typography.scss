@@ -9,8 +9,6 @@ h3,
 h4,
 h5,
 h6 {
-    margin-top: $quartPad;
-    margin-bottom: $fullPad;
     line-height: 1.2;
     span {
         color: $newsMain;
@@ -18,8 +16,31 @@ h6 {
     }
 }
 
-p {
+p,
+p>span {
     font-family: "Archivo", sans-serif;
+}
+
+// ARTICLE
+.article {
+    a {
+        color: $neutral20;
+    }
+}
+
+.article__section-title {
+    text-transform: uppercase;
+    font-weight: 900;
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+}
+
+.article__section-title--hero {
+    font-size: 1rem;
+}
+
+.article__section-title-tertiary {
+    margin-bottom: 0.25rem;
 }
 
 .article__heading--primary {
@@ -37,12 +58,36 @@ p {
     font-weight: 500;
 }
 
+.article__trail-text {
+    font-size: 0.75rem;
+}
+
+// ARTICLE DETAIL
 .detail__heading--primary {
     font-size: 2rem;
 }
 
 .detail__section-title {
-    font-size: 2rem;
+    font-size: 1.2rem;
+    font-family: "Archivo", sans-serif;
+    text-transform: uppercase;
+    margin-top: 0.5rem;
+}
+
+@media (min-width: 1200px) {
+    .detail__heading--primary {
+        font-size: 1.8rem;
+    }
+    .detail__section-title {
+        font-size: 1rem;
+    }
+}
+
+// COMMENTS
+.comments__heading {
+    color: $neutral100;
+    font-size: 1.296rem;
+    padding: 1rem;
 }
 
 .meta {
@@ -63,7 +108,11 @@ p {
     }
 }
 
-@media (min-width: 755px) {}
+@media (min-width: 755px) {
+    .acrticle__section-title {
+        margin-top: 0;
+    }
+}
 
 @media (min-width: 960px) {
      :root {

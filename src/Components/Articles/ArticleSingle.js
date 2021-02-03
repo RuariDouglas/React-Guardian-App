@@ -12,19 +12,17 @@ const ArticleSingle = (props) => {
         path === "/" ? `article/${article.id}` : `${path}/article/${article.id}`
       }
     >
-      <div className="article article--padded--bg">
+      <div className="article">
         {img && <img src={article.fields.thumbnail} alt="" />}
-        <h3 className="article__heading--secondary">
-          {article.type === "liveblog" ? (
-            <>
-              <span className="live">{"Live"}</span>
-              <span>{` / `}</span>
-            </>
-          ) : (
-            <span>{`${article.sectionName} / `}</span>
-          )}
-          {article.fields.headline}
-        </h3>
+        <div className="article__text-container">
+          <p className="article__section-title">
+            <span>{article.sectionName}</span>
+          </p>
+          <div className="article__line"></div>
+          <h3 className="article__heading--secondary">
+            {article.fields.headline}
+          </h3>
+        </div>
       </div>
     </Link>
   );

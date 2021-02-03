@@ -30,8 +30,8 @@ const CreateComment = (props) => {
   return (
     <div className="create-comment__container">
       <form onSubmit={createCommentHandler} action="">
-        <textarea ref={commentRef} name="" id="" cols="30" rows="10"></textarea>
-        <button type="submit">Submit</button>
+        <textarea ref={commentRef} className="create-comment__input"></textarea>
+        <button type="submit">Leave Comment</button>
       </form>
     </div>
   );

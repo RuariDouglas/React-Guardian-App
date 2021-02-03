@@ -1,6 +1,6 @@
 // REACT
 import React, { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 
 // REDUX
 import { useDispatch, useSelector } from "react-redux";
@@ -9,6 +9,8 @@ import { getComments } from "../../Redux/Actions/dbAction";
 // COMPONENTS
 import Comment from "./Comment";
 import CreateComment from "./CreateComment";
+// STYLES
+import logo from "../../Images/logo.png";
 
 const CommentsList = () => {
   const dispatch = useDispatch();
@@ -27,10 +29,10 @@ const CommentsList = () => {
   return (
     <>
       <div className="comments__container">
+        <h2 className="comments__heading">Comments</h2>
         {currentUser.name && !userLoading && (
           <CreateComment url={articlePath} />
         )}
-        <h2>Comments</h2>
         {!commentsLoading && (
           <ul className="comments__list">
             {comments.map((comment) => {
@@ -47,6 +49,11 @@ const CommentsList = () => {
             })}
           </ul>
         )}
+        <div className="comment__footer">
+          <Link to="/">
+            <img src={logo} alt="The Guardian Logo" />
+          </Link>
+        </div>
       </div>
     </>
   );

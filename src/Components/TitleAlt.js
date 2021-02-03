@@ -69,6 +69,9 @@ const TitleContainer = styled.div`
     p {
       color: #6e6d6c;
     }
+    & > p {
+      border-bottom: 1px solid ${col.neutral86};
+    }
     h6 {
       margin: 0;
       font-weight: 700;
@@ -78,6 +81,8 @@ const TitleContainer = styled.div`
   @media (min-width: 960px) {
     flex-direction: column;
     align-items: flex-start;
+    width: 100%;
+    margin-top: 0.5rem;
     .subtitleContainer {
       display: flex;
       flex-direction: column-reverse;

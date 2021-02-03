@@ -13,20 +13,16 @@ const ArticlePrimary = (props) => {
       }
       className="grid__item--span2"
     >
-      <div className="article article--padded--bg article--w-trailtext">
+      <div className="article article--w-trailtext">
         <div className="article__img-container">
           <img src={article.fields.thumbnail} alt="" />
         </div>
         <div className="article__text-container">
+          <p className="article__section-title article__section-title--hero">
+            <span>{article.sectionName}</span>
+          </p>
+          <div className="article__line"></div>
           <h2 className="article__heading--primary">
-            {article.type === "liveblog" ? (
-              <>
-                <span className="article__live-span">{"Live"}</span>
-                <span>{` / `}</span>
-              </>
-            ) : (
-              <span>{`${article.sectionName} / `}</span>
-            )}
             {article.fields.headline}
           </h2>
           <p className="article__trail-text">{article.fields.trailText}</p>

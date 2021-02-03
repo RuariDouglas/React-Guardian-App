@@ -143,6 +143,10 @@ const CurrentWeather = styled.div`
     justify-content: flex-start;
     .currentWeatherContainer {
       width: 100%;
+      border-color: ${col.neutral86};
+
+      background-color: ${col.neutral97};
+      border-bottom: none;
       .iconContainer {
         width: 50%;
       }
@@ -162,13 +166,14 @@ const ForecastList = styled.div`
   flex-direction: column;
   padding: 1rem;
   display: ${(props) => (props.weatherToggle ? "flex" : "none")};
-  box-shadow: 0 5px 1rem rgba(0, 0, 0, 0.2);
+  /* box-shadow: 0 5px 1rem rgba(0, 0, 0, 0.2); */
   position: absolute;
   right: 0;
   top: 2.7rem;
   text-align: center;
-  background-color: ${col.neutral100};
   border: 1px solid ${col.brandMain};
+  background-color: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
   .searchContainer {
     form {
       width: 100%;
@@ -256,10 +261,12 @@ const ForecastList = styled.div`
     padding: 0.25rem;
     display: flex;
     box-shadow: none;
+    border-color: ${col.neutral86};
+    border-top: none;
     .forecastContainer {
       ul {
         li:nth-of-type(2) {
-          border-color: ${col.neutral86};
+          border-color: ${col.neutral90};
         }
         li > p {
           font-size: 0.8rem;

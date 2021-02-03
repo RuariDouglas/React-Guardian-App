@@ -12,11 +12,15 @@ const ArticleTertiary = (props) => {
         path === "/" ? `article/${article.id}` : `${path}/article/${article.id}`
       }
     >
-      <div className="article article--padded--bg">
-        <h4 className="article__heading--tertiary">
-          <span>{`${article.sectionName} / `} </span>
-          {article.fields.headline}
-        </h4>
+      <div className="article article--tertiary">
+        <div className="article__text-container">
+          <p className="article__section-title article__section-title-tertiary">
+            <span>{article.sectionName}</span>
+          </p>
+          <h2 className="article__heading--tertiary">
+            {article.fields.headline}
+          </h2>
+        </div>
       </div>
     </Link>
   );

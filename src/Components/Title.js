@@ -42,6 +42,9 @@ const TitleContainer = styled.div`
   @media (min-width: 960px) {
     flex-direction: column;
     align-items: flex-start;
+    margin-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    width: 100%;
     h2 {
       margin-bottom: 0;
     }

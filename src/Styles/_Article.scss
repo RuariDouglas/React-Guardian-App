@@ -26,6 +26,9 @@ img {
         span {
             color: $sportMain;
         }
+        .article__line {
+            background-color: $sportMain;
+        }
     }
 }
 
@@ -34,6 +37,9 @@ img {
         border-top: 1px solid $cultureMain;
         span {
             color: $cultureMain;
+        }
+        .article__line {
+            background-color: $cultureMain;
         }
     }
 }
@@ -44,6 +50,9 @@ img {
         span {
             color: $lifestyleMain;
         }
+        .article__line {
+            background-color: $lifestyleMain;
+        }
     }
 }
 
@@ -53,6 +62,9 @@ img {
         span {
             color: $opinionMain;
         }
+        .article__line {
+            background-color: $opinionMain;
+        }
     }
 }
 
@@ -61,6 +73,9 @@ img {
         border-top: 1px solid $newsMain;
         span {
             color: $newsMain;
+        }
+        .article__line {
+            background-color: $newsMain;
         }
     }
 }
@@ -82,6 +97,7 @@ img {
 .article {
     justify-self: stretch;
     height: 100%;
+    background-color: $neutral97;
 }
 
 .article--primary {
@@ -89,7 +105,6 @@ img {
 }
 
 .article--padded--bg {
-    background-image: linear-gradient($neutral90, transparent);
     padding: $halfPad $halfPad;
 }
 
@@ -97,20 +112,23 @@ img {
     @include flexColumn;
 }
 
+.article__text-container--hero {
+    padding: 0 0.5rem 0.5rem;
+}
+
+.article__text-container--single {
+    padding: 0 0.5rem;
+}
+
+.article__text-container {
+    padding: 0 0.5rem 0.5rem;
+}
+
 // BG
 .bg--alt {
     background-color: $neutral90;
     .article {
         background-color: white;
-    }
-}
-
-.article--overlay--blue {
-    background-color: $brandMain;
-    padding: 0 $halfPad;
-    color: #fff;
-    span {
-        color: $newsBright;
     }
 }
 
@@ -162,6 +180,12 @@ img {
 }
 
 @media (min-width: 755px) {
+    .article__line {
+        width: 25%;
+        height: 2px;
+        background-color: $newsMain;
+        margin: 0.25rem 0 0.5rem;
+    }
     .article--hero {
         width: 100%;
         display: flex;
@@ -169,13 +193,23 @@ img {
         justify-content: space-between;
         height: min-content;
     }
+    .article--tertiary {
+        padding: 0 0;
+    }
+    .article--w-trailtext {
+        @include flexColumn;
+        padding-bottom: 0.5rem;
+    }
     .article__text-container {
         @include flexColumn;
-        justify-content: space-between;
+        justify-content: flex-start;
         height: 100%;
+        padding: 0 0.5rem 0.5rem;
     }
     .article__trail-text {
         display: block;
+        margin-top: 0.5rem;
+        justify-self: flex-end;
     }
     .article__img-container--hero {
         flex-basis: 66%;
@@ -185,7 +219,8 @@ img {
         @include flexColumn;
         flex-basis: 33%;
         flex-shrink: 1;
-        justify-content: space-between;
+        justify-content: flex-start;
+        padding: 0 0.5rem;
     }
     .article__img-container--overlay {
         position: relative;

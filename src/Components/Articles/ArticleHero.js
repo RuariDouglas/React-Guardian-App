@@ -13,21 +13,24 @@ const ArticleHero = (props) => {
       }
       className="grid__item grid__item--span3"
     >
-      <div className="article article--hero article--padded--bg ">
+      <div className="article article--hero ">
         <div className="article__img-container article__img-container--hero">
-          <img src={article.fields.thumbnail} alt="" />
+          {article.fields.thumbnail ? (
+            <img
+              className="detail__img"
+              src={article.fields.thumbnail}
+              alt=""
+            />
+          ) : (
+            ""
+          )}
         </div>
         <div className="article__text-container--hero">
+          <p className="article__section-title ">
+            <span>{article.sectionName}</span>
+          </p>
+          <div className="article__line"></div>
           <h2 className="article__heading--primary">
-            {article.type === "liveblog" ? (
-              <>
-                <span className="article__live-span">{"Live"}</span>
-                <span>{` / `}</span>
-              </>
-            ) : (
-              <span>{`${article.sectionName} / `}</span>
-            )}
-
             {article.fields.headline}
           </h2>
           <p className="article__trail-text">{article.fields.trailtext}</p>
