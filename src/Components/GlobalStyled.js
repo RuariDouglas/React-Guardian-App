@@ -8,6 +8,7 @@ const GlobalStyle = createGlobalStyle`
     font-size: 100%;
     vertical-align: baseline;
     font-family: 'Merriweather', serif;
+
 }
 body {
 	line-height: 1;
@@ -19,8 +20,9 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
-a {
+a, button {
     text-decoration: none;
+    cursor: pointer;
 
 }
 textarea:focus, input:focus{

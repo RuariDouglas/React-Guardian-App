@@ -166,7 +166,7 @@ const ForecastList = styled.div`
   flex-direction: column;
   padding: 1rem;
   display: ${(props) => (props.weatherToggle ? "flex" : "none")};
-  /* box-shadow: 0 5px 1rem rgba(0, 0, 0, 0.2); */
+  box-shadow: 0 1rem 2rem 0 rgba(5, 41, 98, 0.8);
   position: absolute;
   right: 0;
   top: 2.7rem;
@@ -263,10 +263,11 @@ const ForecastList = styled.div`
     box-shadow: none;
     border-color: ${col.neutral86};
     border-top: none;
+    background-color: transparent;
     .forecastContainer {
       ul {
         li:nth-of-type(2) {
-          border-color: ${col.neutral90};
+          border-color: ${col.brandMid};
         }
         li > p {
           font-size: 0.8rem;

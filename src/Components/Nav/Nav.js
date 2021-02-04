@@ -51,8 +51,8 @@ const Nav = () => {
           <div className="nav__top-wrapper">
             {/* Support Links */}
             <div className="nav__support-links">
-              <h4>Support us in 2021</h4>
-              <p>Power vital, open, independent journalism</p>
+              <h4>Support me in 2021</h4>
+              <p>Frontend developer ready to work</p>
               <div className="support-links__wrapper">
                 <Link className="support-link">
                   Subscribe <ArrowForwardIcon className="forward-icon" />

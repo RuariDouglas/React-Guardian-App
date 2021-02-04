@@ -35,11 +35,12 @@ const TitleAlt = (props) => {
 };
 
 const TitleContainer = styled.div`
-  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-flow: row wrap;
+  padding: 0.5rem 0;
+  width: 100%;
   .maintitleContainer {
     justify-self: flex-start;
   }
@@ -69,9 +70,7 @@ const TitleContainer = styled.div`
     p {
       color: #6e6d6c;
     }
-    & > p {
-      border-bottom: 1px solid ${col.neutral86};
-    }
+
     h6 {
       margin: 0;
       font-weight: 700;
@@ -101,6 +100,19 @@ const TitleContainer = styled.div`
         position: absolute;
         bottom: 0;
         left: 5px;
+      }
+    }
+    h2 {
+      margin-bottom: 0;
+      width: 100%;
+      &::after {
+        content: "";
+        margin-top: 0.25rem;
+        margin-bottom: 0.5rem;
+        height: 2px;
+        width: 100%;
+        display: block;
+        background-color: #333;
       }
     }
   }

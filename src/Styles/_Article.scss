@@ -20,9 +20,11 @@ img {
 
 // SECTIONS
 .sport {
+    .left-col__title::after {
+        margin-top: 0.3rem;
+    }
     .article {
-        border-top: 1px solid $sportMain;
-        background-color: $sportFaded;
+        border-top: 2px solid $sportMain;
         span {
             color: $sportMain;
         }
@@ -34,7 +36,7 @@ img {
 
 .culture {
     .article {
-        border-top: 1px solid $cultureMain;
+        border-top: 2px solid $cultureMain;
         span {
             color: $cultureMain;
         }
@@ -45,8 +47,11 @@ img {
 }
 
 .lifestyle {
+    .left-col__title::after {
+        margin-top: 0.3rem;
+    }
     .article {
-        border-top: 1px solid $lifestyleMain;
+        border-top: 2px solid $lifestyleMain;
         span {
             color: $lifestyleMain;
         }
@@ -58,7 +63,7 @@ img {
 
 .opinion {
     .article {
-        border-top: 1px solid $opinionMain;
+        border-top: 2px solid $opinionMain;
         span {
             color: $opinionMain;
         }
@@ -70,7 +75,7 @@ img {
 
 .news {
     .article {
-        border-top: 1px solid $newsMain;
+        border-top: 2px solid $newsMain;
         span {
             color: $newsMain;
         }
@@ -92,6 +97,12 @@ img {
     width: 100%;
     justify-content: space-between;
     height: 100%;
+    a {
+        margin-bottom: 0.5rem;
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
 }
 
 .article {
@@ -165,6 +176,11 @@ img {
     display: flex;
     align-items: center;
     border-bottom: 1px solid $neutral86;
+    p,
+    h4 {
+        color: $neutral7;
+        font-family: "Merriweather", Georgia;
+    }
 }
 
 .most-viewed__index-heading {

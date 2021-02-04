@@ -9,6 +9,7 @@ export const col = {
   nutral7: "#121212",
   brandDark: "#041f4a",
   brandMain: "#052962",
+  $brandMid: "#172f56",
   brandPastel: "#506991",
   newsMain: "#c70000",
   newsBright: "#ff4e36",

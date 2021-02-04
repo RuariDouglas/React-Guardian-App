@@ -179,7 +179,7 @@
     }
     // BOTTOM SECTION
     .nav__bottom-wrapper {
-        border-top: 1px solid $brandPastel;
+        background-color: $brandDark;
     }
     // TOP SECTION
     .nav__top-wrapper {
@@ -258,14 +258,14 @@
             }
         }
     }
+    .nav__misc-links {
+        margin-right: 0.5rem;
+    }
 }
 
 @media (min-width: 1200px) {
     .nav__container {
         width: 80vw;
         max-width: 1200px;
-    }
-    .nav__misc-links {
-        margin-right: 0.5rem;
     }
 }

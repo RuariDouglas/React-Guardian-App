@@ -23,11 +23,8 @@ const LoginModal = () => {
 
   return (
     <>
-      <h2 className="signup__heading">
-        Don't have an account?<Link to="/signup"> SignUp</Link>
-      </h2>
       {error && <p>{error}</p>}
-
+      <h2>Login</h2>
       <form onSubmit={handlesubmit}>
         <input ref={emailRef} placeholder="Enter your Email" type="email" />
         <input
@@ -35,9 +32,14 @@ const LoginModal = () => {
           placeholder="Enter your password"
           type="password"
         />
-        <button type="submit" className="signup__button">
-          Submit
-        </button>
+        <div className="form__container">
+          <p className="signup__heading">
+            Don't have an account? <Link to="/signup">SignUp</Link>
+          </p>
+          <button type="submit" className="signup__button">
+            Submit
+          </button>
+        </div>
       </form>
     </>
   );

@@ -42,20 +42,21 @@ const Opinion = () => {
   return (
     <div className="opinion" onClick={closeMenu}>
       {articlePath && <Article rootPath={rootPath} sectionData={sectionData} />}
+
+      <GridTemplate
+        left={<TitleAlt titleData={titleData} />}
+        right={<SubMain newsData={sectionData} loading={loading} />}
+      />
       <div className="bg--alt">
-        <GridTemplate
-          left={<TitleAlt titleData={titleData} />}
-          right={<SubMain newsData={sectionData} loading={loading} />}
-        />
         <GridTemplate
           left={false}
           right={<HeroMain newsData={sectionData} loading={loading} />}
         />
-        <GridTemplate
-          left={false}
-          right={<SubAlt newsData={sectionData} loading={loading} />}
-        />
       </div>
+      <GridTemplate
+        left={false}
+        right={<SubAlt newsData={sectionData} loading={loading} />}
+      />
       <GridTemplate
         left={<h2 className="left-col__title">Most Viewed</h2>}
         right={<MostViewed newsData={sectionData} loading={loading} />}

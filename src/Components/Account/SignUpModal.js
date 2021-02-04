@@ -38,13 +38,10 @@ const SignUpModal = () => {
   }, [dispatch]);
   return (
     <>
-      <h2 className="signup__heading">
-        Already have an account ?<Link to="/login"> Login</Link>
-      </h2>
       {error && <p>{error}</p>}
-
+      <h2>SignUp</h2>
       <form onSubmit={handlesubmit}>
-        <input ref={nameRef} placeholder="Enter your name" type="text" />
+        <input ref={nameRef} placeholder="Enter a username" type="text" />
         <input ref={emailRef} placeholder="Enter your Email" type="email" />
         <input
           ref={passwordRef}
@@ -56,9 +53,14 @@ const SignUpModal = () => {
           placeholder="Confirm your password"
           type="password"
         />
-        <button type="submit" className="signup__button">
-          Submit
-        </button>
+        <div className="form__container">
+          <p className="signup__heading">
+            Already have an account ?<Link to="/login"> Login</Link>
+          </p>
+          <button type="submit" className="signup__button">
+            Submit
+          </button>
+        </div>
       </form>
     </>
   );

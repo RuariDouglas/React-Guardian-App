@@ -26,6 +26,7 @@ const Title = (props) => {
 const TitleContainer = styled.div`
   display: flex;
   align-items: center;
+  padding-top: 0.5rem;
   h2 {
     margin-right: 0.5rem;
   }
@@ -42,11 +43,19 @@ const TitleContainer = styled.div`
   @media (min-width: 960px) {
     flex-direction: column;
     align-items: flex-start;
-    margin-top: 0.5rem;
-    padding-bottom: 0.5rem;
     width: 100%;
+
     h2 {
       margin-bottom: 0;
+      width: 100%;
+      &::after {
+        content: "";
+        margin-bottom: 0.5rem;
+        height: 2px;
+        width: 100%;
+        display: block;
+        background-color: #333;
+      }
     }
   }
   @media (max-width: 600px) {

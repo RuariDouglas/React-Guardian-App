@@ -1,6 +1,7 @@
 .wrapper {
     margin: 0 auto;
     width: 90vw;
+    padding: 0.5rem 0;
 }
 
 .col-left {
@@ -21,11 +22,9 @@
         width: 100%;
         display: flex;
         height: auto;
-        flex-shrink: 3;
     }
     .col-main {
-        flex-shrink: 3;
-        flex-basis: 100%;
+        width: 100%;
     }
 }
 
@@ -41,15 +40,12 @@
         align-items: flex-start;
         justify-content: flex-start;
         position: relative;
-        padding: 0 $halfPad 0 $fullPad;
-        border-right: 1px solid $neutral86;
+        padding: 0 $fullPad;
     }
     .col-main {
         flex: 1 1 100%;
         height: 100%;
         display: flex;
-        border-right: 1px solid $neutral86;
-        padding: $halfPad;
     }
 }
 
