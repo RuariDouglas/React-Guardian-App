@@ -39,6 +39,69 @@
     display: none;
 }
 
+// UNIQUE LINK STYLING
+.menu__link {
+    position: relative;
+    &::after {
+        position: absolute;
+        content: "";
+        display: block;
+        height: 2px;
+        width: 0;
+        opacity: 0;
+        bottom: 0;
+        transition: width 1s ease;
+    }
+    &:hover::after {
+        opacity: 1;
+        width: 100%;
+    }
+}
+
+.current {
+    position: relative;
+    &::after {
+        position: absolute;
+        content: "";
+        display: block;
+        height: 2px;
+        width: 100%;
+        opacity: 1;
+        bottom: 0;
+    }
+}
+
+.menu__link-news,
+.current {
+    &::after {
+        background-color: $newsBright;
+    }
+}
+
+.menu__link-sport {
+    &::after {
+        background-color: $sportBright;
+    }
+}
+
+.menu__link-culture {
+    &::after {
+        background-color: $cultureBright;
+    }
+}
+
+.menu__link-lifestyle {
+    &::after {
+        background-color: $lifestyleBright;
+    }
+}
+
+.menu__link-opinion {
+    &::after {
+        background-color: $opinionBright;
+    }
+}
+
 // Misc Links
 .nav__misc-links {
     display: flex;

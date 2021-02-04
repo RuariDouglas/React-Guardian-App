@@ -63,12 +63,12 @@ img {
 
 .opinion {
     .article {
-        border-top: 2px solid $opinionMain;
+        border-top: 2px solid $opinionBright;
         span {
-            color: $opinionMain;
+            color: $opinionBright;
         }
         .article__line {
-            background-color: $opinionMain;
+            background-color: $opinionBright;
         }
     }
 }

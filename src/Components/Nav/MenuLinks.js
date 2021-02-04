@@ -1,6 +1,7 @@
 // REACT
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import { motion } from "framer-motion";
 
 // REDUX
 import { useSelector, useDispatch } from "react-redux";
@@ -11,6 +12,8 @@ import styled from "styled-components";
 
 const MenuLinks = () => {
   const dispatch = useDispatch();
+  const { pathname } = useLocation();
+  console.log(pathname);
   const menuToggle = useSelector((state) => state.menuToggle);
   const closeMenu = (e) => {
     return menuToggle ? dispatch({ type: "SIDE_NAV_TOGGLE" }) : "";
@@ -18,27 +21,47 @@ const MenuLinks = () => {
 
   return (
     <List>
-      <li>
+      <li
+        className={`menu__link menu__link-news ${
+          pathname === "/" ? "current" : ""
+        }`}
+      >
         <Link onClick={closeMenu} to="/#">
           News
         </Link>
       </li>
-      <li>
+      <li
+        className={`menu__link menu__link-opinion ${
+          pathname === "/commentisfree" ? "current" : ""
+        }`}
+      >
         <Link onClick={closeMenu} to="/commentisfree">
           Opinion
         </Link>
       </li>
-      <li>
+      <li
+        className={`menu__link menu__link-sport ${
+          pathname === "/sport" ? "current" : ""
+        }`}
+      >
         <Link onClick={closeMenu} to="/sport">
           Sport
         </Link>
       </li>
-      <li>
+      <li
+        className={`menu__link menu__link-culture ${
+          pathname === "/culture" ? "current" : ""
+        }`}
+      >
         <Link onClick={closeMenu} to="/culture">
           Culture
         </Link>
       </li>
-      <li>
+      <li
+        className={`menu__link menu__link-lifestyle ${
+          pathname === "/lifestyle" ? "current" : ""
+        }`}
+      >
         <Link onClick={closeMenu} to="/lifestyle">
           LifeStyle
         </Link>
@@ -62,10 +85,8 @@ const List = styled.ul`
     font-size: ${fontS.large};
     transition: all 1s ease;
     height: 100%;
-    &:hover {
-      background-color: ${col.brandPastel};
-    }
   }
+
   @media (min-width: 960px) {
     a {
       padding: 0.5rem 1rem;

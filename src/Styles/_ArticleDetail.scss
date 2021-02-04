@@ -234,6 +234,17 @@
     clear: both;
 }
 
+.comments__login-signup-p {
+    padding-left: 1rem;
+    margin-bottom: 0.5rem;
+    color: $neutral90;
+    a {
+        color: $highlight;
+        font-weight: 900;
+        text-decoration: underline;
+    }
+}
+
 // CREATE COMMENT
 .create-comment__container {
     padding: 1rem;

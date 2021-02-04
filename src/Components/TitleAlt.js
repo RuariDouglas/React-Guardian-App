@@ -81,7 +81,7 @@ const TitleContainer = styled.div`
     flex-direction: column;
     align-items: flex-start;
     width: 100%;
-    margin-top: 0.5rem;
+    padding-bottom: 0;
     .subtitleContainer {
       display: flex;
       flex-direction: column-reverse;
