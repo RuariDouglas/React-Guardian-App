@@ -9,7 +9,7 @@ import Title from "../Components/Title";
 import Article from "../Components/ArticleDetail/ArticleDetail";
 // GRID
 import GridTemplate from "../Components/Grid/GridTemplate";
-import MostViewed from "../Components/Grid/MostViewed";
+import List from "../Components/Grid/List";
 import HeroMain from "../Components/Grid/HeroMain";
 import SubMain from "../Components/Grid/SubMain";
 import SubAlt from "../Components/Grid/SubAlt";
@@ -38,6 +38,10 @@ const Culture = () => {
       {articlePath && <Article rootPath={rootPath} sectionData={sectionData} />}
       <GridTemplate
         left={<Title titleData={titleData} />}
+        right={<List newsData={sectionData} loading={loading} />}
+      />
+      <GridTemplate
+        left={false}
         right={<HeroMain newsData={sectionData} loading={loading} />}
       />
       <GridTemplate
@@ -50,10 +54,6 @@ const Culture = () => {
           right={<SubAlt newsData={sectionData} loading={loading} />}
         />
       </div>
-      <GridTemplate
-        left={<h2 className="left-col__title">Most Viewed</h2>}
-        right={<MostViewed newsData={sectionData} loading={loading} />}
-      />
     </div>
   );
 };

@@ -1,64 +1,26 @@
 // REACT
 import React from "react";
 
-import ArticlePrimary from "../Articles/ArticlePrimary";
 import ArticleSingle from "../Articles/ArticleSingle";
-
+// ANIMATIONS
+import { motion } from "framer-motion";
+import { pageAnimation } from "../../Animations/animation";
 const SearchResults = (props) => {
   const { newsData, loading } = props;
+
   return (
     <>
       {!loading && (
-        <div className="grid grid--3fr-1fr">
-          <div className="grid grid--3fr">
-            <div className="article-wrapper--column">
-              {newsData.map((article, index) => {
-                if (index >= 0 && index <= 4) {
-                  return (
-                    <ArticleSingle
-                      id={article.id}
-                      key={article.id}
-                      img={true}
-                      article={article}
-                    />
-                  );
-                }
-              })}
-            </div>
-            <div className="article-wrapper--column">
-              {newsData.map((article, index) => {
-                if (index >= 5 && index <= 9) {
-                  return (
-                    <ArticleSingle
-                      id={article.id}
-                      key={article.id}
-                      img={true}
-                      article={article}
-                    />
-                  );
-                }
-              })}
-            </div>
-
-            <div className="article-wrapper--column">
-              {newsData.map((article, index) => {
-                if (index >= 10 && index <= 14) {
-                  return (
-                    <ArticleSingle
-                      id={article.id}
-                      key={article.id}
-                      img={true}
-                      article={article}
-                    />
-                  );
-                }
-              })}
-            </div>
-          </div>
-          {/* RIGHT COLUMN */}
-          <div className="article-wrapper--column">
+        <>
+          <motion.div
+            className="grid grid--4fr"
+            exit="exit"
+            variants={pageAnimation}
+            initial="hidden"
+            animate="show"
+          >
             {newsData.map((article, index) => {
-              if (index >= 15 && index <= 19) {
+              if (index >= 0 && index <= 3) {
                 return (
                   <ArticleSingle
                     id={article.id}
@@ -69,8 +31,68 @@ const SearchResults = (props) => {
                 );
               }
             })}
-          </div>
-        </div>
+          </motion.div>
+          <motion.div
+            className="grid grid--4fr"
+            exit="exit"
+            variants={pageAnimation}
+            initial="hidden"
+            animate="show"
+          >
+            {newsData.map((article, index) => {
+              if (index >= 4 && index <= 7) {
+                return (
+                  <ArticleSingle
+                    id={article.id}
+                    key={article.id}
+                    img={true}
+                    article={article}
+                  />
+                );
+              }
+            })}
+          </motion.div>
+          <motion.div
+            className="grid grid--4fr"
+            exit="exit"
+            variants={pageAnimation}
+            initial="hidden"
+            animate="show"
+          >
+            {newsData.map((article, index) => {
+              if (index >= 8 && index <= 11) {
+                return (
+                  <ArticleSingle
+                    id={article.id}
+                    key={article.id}
+                    img={true}
+                    article={article}
+                  />
+                );
+              }
+            })}
+          </motion.div>
+          <motion.div
+            className="grid grid--4fr"
+            exit="exit"
+            variants={pageAnimation}
+            initial="hidden"
+            animate="show"
+          >
+            {newsData.map((article, index) => {
+              if (index >= 12 && index <= 15) {
+                return (
+                  <ArticleSingle
+                    id={article.id}
+                    key={article.id}
+                    img={true}
+                    article={article}
+                  />
+                );
+              }
+            })}
+          </motion.div>
+        </>
       )}
     </>
   );

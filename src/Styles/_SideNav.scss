@@ -79,6 +79,12 @@
             li {
                 border-bottom: 1px solid $brandPastel;
                 width: 100%;
+                &:hover {
+                    border-color: transparent;
+                }
+            }
+            .current {
+                border-color: transparent;
             }
             .link-guardian {
                 padding: 0.5rem 1rem;

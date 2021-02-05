@@ -3,16 +3,24 @@ import React from "react";
 
 import ArticleSingle from "../Articles/ArticleSingle";
 import ArticlePrimaryAlt from "../Articles/ArticlePrimaryAlt";
-
+// ANIMATIONS
+import { motion } from "framer-motion";
+import { pageAnimation } from "../../Animations/animation";
 const SubAlt = (props) => {
   const { newsData, loading } = props;
   return (
     <>
       {!loading && (
-        <div className="grid grid--3fr-1fr">
+        <motion.div
+          className="grid grid--3fr-1fr"
+          exit="exit"
+          variants={pageAnimation}
+          initial="hidden"
+          animate="show"
+        >
           <div className="grid grid--3fr">
             {newsData.map((article, index) =>
-              index === 11 ? (
+              index === 10 ? (
                 <ArticlePrimaryAlt
                   id={article.id}
                   key={article.id}
@@ -26,7 +34,7 @@ const SubAlt = (props) => {
 
           <div className="article-wrapper--column">
             {newsData.map((article, index) =>
-              index > 12 && index < 15 ? (
+              index >= 11 && index <= 12 ? (
                 <ArticleSingle
                   id={article.id}
                   key={article.id}
@@ -38,7 +46,7 @@ const SubAlt = (props) => {
               )
             )}
           </div>
-        </div>
+        </motion.div>
       )}
     </>
   );

@@ -33,8 +33,8 @@ const Nav = () => {
 
   const searchHandler = (e) => {
     e.preventDefault();
-    history.push(`/search?=${searchRef.current.value}`);
     dispatch(loadSearch(searchRef.current.value));
+    history.push(`/search?=${searchRef.current.value}`);
     searchRef.current.value = "";
   };
 
@@ -54,12 +54,12 @@ const Nav = () => {
               <h4>Support me in 2021</h4>
               <p>Frontend developer ready to work</p>
               <div className="support-links__wrapper">
-                <Link className="support-link">
+                <a to="#" className="support-link">
                   Subscribe <ArrowForwardIcon className="forward-icon" />
-                </Link>
-                <Link className="support-link">
+                </a>
+                <a to="#" className="support-link">
                   Contribute <ArrowForwardIcon className="forward-icon" />
-                </Link>
+                </a>
               </div>
             </div>
             {/* Logo */}

@@ -25,7 +25,10 @@ const ArticlePrimaryAlt = (props) => {
           <h2 className="article__heading--primary">
             {article.fields.headline}
           </h2>
-          <p className="article__trail-text">{article.fields.trailText}</p>
+          <div
+            className="detail__response"
+            dangerouslySetInnerHTML={{ __html: article.fields.trailText }}
+          ></div>
         </div>
       </div>
     </Link>

@@ -10,10 +10,12 @@ import CommentsList from "./CommentsList";
 import CloseIcon from "@material-ui/icons/Close";
 import TwitterIcon from "@material-ui/icons/Twitter";
 
-const Article = (props) => {
+const ArticleDetail = (props) => {
   const history = useHistory();
   const dispatch = useDispatch();
   const location = useLocation();
+  const sectionData = props.sectionData;
+
   const pathUnmodified = location.pathname;
   const regex = /^\/[a-z]+(\/(article)\/)/g;
   const pathId = pathUnmodified.match(regex)
@@ -24,7 +26,6 @@ const Article = (props) => {
   const menuToggle = useSelector((state) => state.menuToggle);
 
   // Components
-  const { rootPath, sectionData } = props;
   const closeArticle = (e) => {
     const element = e.target;
     if (
@@ -33,11 +34,7 @@ const Article = (props) => {
     ) {
       document.body.style.overflow = "auto";
       dispatch(clearComments());
-      if (rootPath === "/") {
-        history.push(rootPath);
-      } else {
-        history.push(`/${rootPath}`);
-      }
+      history.goBack();
     }
   };
   useEffect(() => {
@@ -109,4 +106,4 @@ const Article = (props) => {
   );
 };
 
-export default Article;
+export default ArticleDetail;

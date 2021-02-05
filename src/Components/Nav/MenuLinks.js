@@ -1,21 +1,19 @@
 // REACT
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import { motion } from "framer-motion";
 
 // REDUX
 import { useSelector, useDispatch } from "react-redux";
 
 // STYLES
-import { col, fontS } from "../../Styles/Styles";
+import { fontS } from "../../Styles/Styles";
 import styled from "styled-components";
 
 const MenuLinks = () => {
   const dispatch = useDispatch();
   const { pathname } = useLocation();
-  console.log(pathname);
   const menuToggle = useSelector((state) => state.menuToggle);
-  const closeMenu = (e) => {
+  const closeMenu = async (e) => {
     return menuToggle ? dispatch({ type: "SIDE_NAV_TOGGLE" }) : "";
   };
 

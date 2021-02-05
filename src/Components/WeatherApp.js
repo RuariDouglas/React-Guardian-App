@@ -96,7 +96,7 @@ const WeatherContainer = styled.div`
   position: relative;
   width: 50%;
   height: 100%;
-  padding: 0.5rem 0;
+  padding: 0.5rem 0 !important;
   h6 {
     line-height: 1;
   }
@@ -143,7 +143,6 @@ const CurrentWeather = styled.div`
     justify-content: flex-start;
     .currentWeatherContainer {
       width: 100%;
-      border-color: ${col.neutral86};
 
       background-color: ${col.neutral97};
       border-bottom: none;
@@ -261,7 +260,6 @@ const ForecastList = styled.div`
     padding: 0.25rem;
     display: flex;
     box-shadow: none;
-    border-color: ${col.neutral86};
     border-top: none;
     background-color: transparent;
     .forecastContainer {

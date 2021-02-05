@@ -33,7 +33,10 @@ const ArticleHero = (props) => {
           <h2 className="article__heading--primary">
             {article.fields.headline}
           </h2>
-          <p className="article__trail-text">{article.fields.trailtext}</p>
+          <div
+            className="article__trail-text"
+            dangerouslySetInnerHTML={{ __html: article.fields.trailText }}
+          ></div>
         </div>
       </div>
     </Link>

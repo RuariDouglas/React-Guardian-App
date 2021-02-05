@@ -18,7 +18,6 @@ export const loadSection = (section) => async (dispatch) => {
 
 export const loadSearch = (searchTerm) => async (dispatch) => {
   try {
-    console.log(searchTerm);
     const sectionData = await axios.get(searchSpecific(searchTerm));
     dispatch({
       type: "FETCH_SECTION",

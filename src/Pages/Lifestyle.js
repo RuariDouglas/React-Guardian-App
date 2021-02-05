@@ -9,7 +9,7 @@ import Title from "../Components/Title";
 import Article from "../Components/ArticleDetail/ArticleDetail";
 // Grid //
 import GridTemplate from "../Components/Grid/GridTemplate";
-import MostViewed from "../Components/Grid/MostViewed";
+import ListOpinions from "../Components/Grid/ListOpinions";
 import HeroMain from "../Components/Grid/HeroMain";
 import SubMain from "../Components/Grid/SubMain";
 import SubAlt from "../Components/Grid/SubAlt";
@@ -37,25 +37,26 @@ const Lifestyle = () => {
   return (
     <div className="lifestyle" onClick={closeMenu}>
       {articlePath && <Article rootPath={rootPath} sectionData={sectionData} />}
-      <div className="bg--alt">
-        <GridTemplate
-          left={<Title titleData={titleData} />}
-          right={<SubAlt newsData={sectionData} loading={loading} />}
-        />
-      </div>
+
+      <GridTemplate
+        left={<Title titleData={titleData} />}
+        right={<SubAlt newsData={sectionData} loading={loading} />}
+      />
+
       <GridTemplate
         left={false}
         right={<HeroMain newsData={sectionData} loading={loading} />}
       />
-      <GridTemplate
-        left={false}
-        right={<SubMain newsData={sectionData} loading={loading} />}
-      />
-
-      <GridTemplate
-        left={<h2 className="left-col__title">Most Viewed</h2>}
-        right={<MostViewed newsData={sectionData} loading={loading} />}
-      />
+      <div className="bg--alt">
+        <GridTemplate
+          left={false}
+          right={<SubMain newsData={sectionData} loading={loading} />}
+        />
+        <GridTemplate
+          left={false}
+          right={<ListOpinions newsData={sectionData} loading={loading} />}
+        />
+      </div>
     </div>
   );
 };

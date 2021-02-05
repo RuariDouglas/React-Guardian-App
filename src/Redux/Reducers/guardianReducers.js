@@ -11,6 +11,8 @@ const guardianReducer = (state = initState, action) => {
         ...action.payload,
         loading: false,
       };
+    case "CLEAR_SECTION":
+      return initState;
     default:
       return { ...state };
   }

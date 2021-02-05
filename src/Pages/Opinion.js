@@ -13,6 +13,7 @@ import MostViewed from "../Components/Grid/MostViewed";
 import HeroMain from "../Components/Grid/HeroMain";
 import SubMain from "../Components/Grid/SubMain";
 import SubAlt from "../Components/Grid/SubAlt";
+import ListOpinions from "../Components/Grid/ListOpinions";
 
 const Opinion = () => {
   const dispatch = useDispatch();
@@ -21,6 +22,7 @@ const Opinion = () => {
   const articlePath = location.pathname.split("/")[2];
   const menuToggle = useSelector((state) => state.menuToggle);
   const { sectionData, loading } = useSelector((state) => state.guardian);
+
   // Title Component
   const titleData = {
     mainTitle: "Opinions",
@@ -52,15 +54,21 @@ const Opinion = () => {
           left={false}
           right={<HeroMain newsData={sectionData} loading={loading} />}
         />
+        <GridTemplate
+          left={false}
+          right={<ListOpinions newsData={sectionData} loading={loading} />}
+        />
       </div>
       <GridTemplate
         left={false}
         right={<SubAlt newsData={sectionData} loading={loading} />}
       />
-      <GridTemplate
-        left={<h2 className="left-col__title">Most Viewed</h2>}
-        right={<MostViewed newsData={sectionData} loading={loading} />}
-      />
+      <div className="bg--alt">
+        <GridTemplate
+          left={<h2 className="left-col__title">Most Viewed</h2>}
+          right={<MostViewed newsData={sectionData} loading={loading} />}
+        />
+      </div>
     </div>
   );
 };

@@ -30,14 +30,15 @@ const CommentsList = () => {
     <>
       <div className="comments__container">
         <h2 className="comments__heading">Comments</h2>
-        {currentUser.name && !userLoading ? (
+        <CreateComment url={articlePath} />
+        {/* {currentUser.name && !userLoading ? (
           <CreateComment url={articlePath} />
         ) : (
           <p className="comments__login-signup-p">
             Please <Link to="/login">login</Link> or{" "}
             <Link to="/signup">Sign Up</Link> to leave a comment
           </p>
-        )}
+        )} */}
         {!commentsLoading && (
           <ul className="comments__list">
             {comments.map((comment) => {

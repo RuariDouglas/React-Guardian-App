@@ -1,4 +1,7 @@
 import React from "react";
+// ANIMATIONS
+import { pageAnimation } from "../../Animations/animation";
+import { motion } from "framer-motion";
 
 const GridTemplate = (props) => {
   return (

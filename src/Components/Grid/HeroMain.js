@@ -1,16 +1,25 @@
 // REACT
 import React from "react";
-
+// ARTICLES
 import ArticleHero from "../Articles/ArticleHero";
 import ArticleSingle from "../Articles/ArticleSingle";
 import ArticleTertiary from "../Articles/ArticleTertiary";
+// ANIMATIONS
+import { motion } from "framer-motion";
+import { pageAnimation } from "../../Animations/animation";
 
 const HeroMain = (props) => {
   const { newsData, loading } = props;
   return (
     <>
       {!loading && (
-        <div className="grid grid--3fr-1fr">
+        <motion.div
+          className="grid grid--3fr-1fr"
+          exit="exit"
+          variants={pageAnimation}
+          initial="hidden"
+          animate="show"
+        >
           <div className="grid grid--3fr">
             {newsData.map((article, index) =>
               index === 0 ? (
@@ -53,7 +62,7 @@ const HeroMain = (props) => {
               )
             )}
           </div>
-        </div>
+        </motion.div>
       )}
     </>
   );

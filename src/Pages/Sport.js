@@ -13,6 +13,7 @@ import MostViewed from "../Components/Grid/MostViewed";
 import HeroMain from "../Components/Grid/HeroMain";
 import SubMain from "../Components/Grid/SubMain";
 import SubAlt from "../Components/Grid/SubAlt";
+import List from "../Components/Grid/List";
 
 const Sport = () => {
   const dispatch = useDispatch();
@@ -51,10 +52,9 @@ const Sport = () => {
         left={false}
         right={<SubMain newsData={sectionData} loading={loading} />}
       />
-
       <GridTemplate
-        left={<h2 className="left-col__title">Most Viewed</h2>}
-        right={<MostViewed newsData={sectionData} loading={loading} />}
+        left={false}
+        right={<List newsData={sectionData} loading={loading} />}
       />
     </div>
   );

@@ -14,6 +14,10 @@ import MostViewed from "../Components/Grid/MostViewed";
 import HeroMain from "../Components/Grid/HeroMain";
 import SubMain from "../Components/Grid/SubMain";
 import SubAlt from "../Components/Grid/SubAlt";
+import List from "../Components/Grid/List";
+// ANIMATIONS
+import { pageAnimation } from "../Animations/animation";
+import { motion } from "framer-motion";
 // FUNC
 import { dateFormatter } from "../Functions";
 
@@ -22,8 +26,9 @@ const Home = () => {
   const location = useLocation();
   const menuToggle = useSelector((state) => state.menuToggle);
   const { sectionData, loading } = useSelector((state) => state.guardian);
-  const articlePath = location.pathname.split("/")[2];
-  const rootPath = "/";
+  const articlePath = location.pathname.split("/")[1];
+
+  const rootPath = location.pathname;
   // Title Component
   let date = dateFormatter();
   const titleData = {
@@ -37,10 +42,11 @@ const Home = () => {
   useEffect(() => {
     dispatch(loadSection(false));
   }, [dispatch]);
-
   return (
     <div className="news" onClick={closeMenu}>
-      {articlePath && <Article rootPath={rootPath} sectionData={sectionData} />}
+      {articlePath.includes("article") && (
+        <Article rootPath={rootPath} sectionData={sectionData} />
+      )}
       <GridTemplate
         left={<Title titleData={titleData} />}
         weatherApp={<WeatherApp />}
@@ -54,7 +60,12 @@ const Home = () => {
           left={false}
           right={<SubAlt newsData={sectionData} loading={loading} />}
         />
+        <GridTemplate
+          left={false}
+          right={<List newsData={sectionData} loading={loading} />}
+        />
       </div>
+
       <GridTemplate
         left={<h2 className="left-col__title">Most Viewed</h2>}
         right={<MostViewed newsData={sectionData} loading={loading} />}
