@@ -63,11 +63,10 @@ function App() {
           <Route path={["search/:search", "/search"]}>
             <Search />
           </Route>
-          {/* <Route path={/[^(\/$)|(article)]/} component={ErrorDefault} /> */}
-
-          <Route path={["/article/:id", "/"]}>
+          <Route path={/(^\/$)|(^\/article)/}>
             <Home />
           </Route>
+          <Route path="*" component={ErrorDefault} />
         </Switch>
       </AnimatePresence>
     </>
