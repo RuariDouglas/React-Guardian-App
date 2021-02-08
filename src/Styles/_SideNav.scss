@@ -12,6 +12,11 @@
     flex-direction: column;
     .side-icon {
         align-self: flex-end;
+        transition: all 0.5s;
+        cursor: pointer;
+        &:hover {
+            opacity: 0.5;
+        }
     }
     button {
         align-self: flex-end;

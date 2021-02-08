@@ -116,8 +116,12 @@
     .search-icon,
     .close-icon {
         cursor: pointer;
+        transition: all 0.8s;
         path {
             fill: $neutral100;
+        }
+        &:hover {
+            opacity: 0.5;
         }
     }
 }
@@ -260,7 +264,7 @@
         h4 {
             margin: 0;
             color: $highlight;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
         }
         display: flex;
         flex-direction: column;

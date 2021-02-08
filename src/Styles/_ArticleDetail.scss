@@ -1,5 +1,6 @@
 // SINGLE ARTICLE
 .detail {
+    cursor: pointer;
     width: 100%;
     height: 100%;
     overflow-y: scroll;
@@ -10,9 +11,8 @@
     top: 0;
     left: 0;
     z-index: 5;
-    button.close {
-        position: absolute;
-        right: 1rem;
+    .close {
+        right: -1rem;
     }
 }
 
@@ -28,6 +28,7 @@
 .detail__container {
     padding: 1rem;
     position: relative;
+    cursor: default;
     .close {
         margin-right: auto;
     }
@@ -231,6 +232,7 @@
 // COMMENTS LIST
 .comments__container {
     background-color: $brandDark;
+    cursor: default;
     clear: both;
 }
 
@@ -258,16 +260,17 @@
             font-family: "Archivo", sans-serif;
         }
         button {
-            width: 9rem;
-            background: $highlight;
             font-family: "Archivo", sans-serif;
             font-weight: 900;
             font-size: 0.8rem;
-            color: $neutral7;
-            border-radius: 20px;
+            color: $highlight;
+            background-color: transparent;
             outline: none;
             border: none;
-            margin-top: 0.25rem;
+            transition: 0.5s all;
+            &:hover {
+                color: $highlightDark;
+            }
         }
     }
 }
@@ -291,6 +294,11 @@
     margin-top: 0.25rem;
     padding: 0.5rem;
     min-height: 5rem;
+    &:focus-within,
+    &:focus,
+    &:active {
+        border: 1px solid $highlight;
+    }
 }
 
 .comment__edit-comment-button {
@@ -336,8 +344,11 @@
     flex-direction: column;
     flex-wrap: wrap;
     width: 75%;
-    textarea {
-        font-family: "Archivo", sans-serif;
+    form {
+        display: flex;
+        textarea {
+            font-family: "Archivo", sans-serif;
+        }
     }
 }
 

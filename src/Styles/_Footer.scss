@@ -1,0 +1,15 @@
+.footer {
+    background-color: $brandDark;
+    justify-content: flex-end;
+    .wrapper {
+        display: flex;
+        justify-content: flex-end;
+    }
+    .footer__wrapper {
+        justify-content: flex-end;
+    }
+}
+
+.footer__wrapper {
+    width: 80vw;
+}

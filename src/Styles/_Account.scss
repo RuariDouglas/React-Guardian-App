@@ -5,7 +5,7 @@
     flex-direction: column;
     margin: 2rem auto;
     max-width: 30rem;
-    height: auto;
+    height: 100vh;
     form {
         width: 100%;
         @include flexColumn;
@@ -42,7 +42,9 @@
         font-weight: 900;
         color: $neutral90;
         transition: all 0.4s ease;
-        &:hover {}
+        &:hover {
+            opacity: 0.9;
+        }
     }
     h2 {
         font-size: 2rem;
