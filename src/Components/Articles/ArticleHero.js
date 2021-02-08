@@ -13,7 +13,7 @@ const ArticleHero = (props) => {
       }
       className="grid__item grid__item--span3"
     >
-      <div className="article article--hero ">
+      <div className="article article--hero">
         <div className="article__img-container article__img-container--hero">
           {article.fields.thumbnail ? (
             <img

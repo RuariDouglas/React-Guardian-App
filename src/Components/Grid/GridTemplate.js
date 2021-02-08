@@ -6,11 +6,17 @@ import { motion } from "framer-motion";
 const GridTemplate = (props) => {
   return (
     <div className="wrapper">
-      <aside className="col-left">
+      <motion.aside
+        className="col-left"
+        exit="exit"
+        variants={pageAnimation}
+        initial="hidden"
+        animate="show"
+      >
         {props.left && props.left}
 
         {props.weatherApp && props.weatherApp}
-      </aside>
+      </motion.aside>
       <main className="col-main">{props.right}</main>
     </div>
   );

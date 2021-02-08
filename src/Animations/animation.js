@@ -34,38 +34,14 @@ export const articleAnimation = {
     },
   },
 };
-// export const pageAnimation = {
-//   hidden: {
-//     opacity: 0,
-//     y: 50,
-//     rotation: 0.06,
-//   },
-//   show: {
-//     opacity: 1,
-//     y: 0,
-//     rotation: 0.06,
-//     transition: {
-//       duration: 2,
-//       when: "beforeChildren",
-//       staggerChildren: 4,
-//     },
-//   },
-//   exit: {
-//     opacity: 0,
-//     rotation: 0.06,
-//     transition: {
-//       duration: 1,
-//     },
-//   },
-// };
 
 export const titleAnim = {
-  hidden: { y: 200, rotation: 0.06 },
+  hidden: { y: 100, rotation: 0.06 },
   show: {
     rotation: 0.06,
     y: 0,
     transition: {
-      duration: 0.75,
+      duration: 1,
       ease: "easeOut",
     },
   },

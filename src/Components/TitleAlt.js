@@ -1,7 +1,6 @@
 import React from "react";
 // STYLES
 import styled from "styled-components";
-import { col, fontS } from "../Styles/Styles";
 
 const TitleAlt = (props) => {
   const { mainTitle, subTitle } = props.titleData;
@@ -23,9 +22,11 @@ const TitleAlt = (props) => {
                 <p>{tagline}</p>
                 <h6>{subTag}</h6>
               </div>
-              <div className="imgContainer">
-                <img src={url} alt="CP Scott Photo" />
-              </div>
+              {url && (
+                <div className="imgContainer">
+                  <img src={url} alt="CP Scott Photo" />
+                </div>
+              )}
             </div>
           </>
         )}
@@ -72,7 +73,7 @@ const TitleContainer = styled.div`
     }
 
     h6 {
-      margin: 0;
+      margin-top: 0.25rem;
       font-weight: 700;
     }
   }

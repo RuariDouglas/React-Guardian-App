@@ -5,7 +5,7 @@ import { useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { loadSection } from "../Redux/Actions/guardianSectionAction";
 // COMPONENTS
-import Title from "../Components/Title";
+import TitleAlt from "../Components/TitleAlt";
 import Article from "../Components/ArticleDetail/ArticleDetail";
 // Grid //
 import GridTemplate from "../Components/Grid/GridTemplate";
@@ -24,7 +24,11 @@ const Lifestyle = () => {
   // Title Component Data
   const titleData = {
     mainTitle: "Lifestyle",
-    subTitle: false,
+    subTitle: {
+      tagline: `"Turns out there isn't much interesting to say about 'lifestyle'"`,
+      subTag: "Me, Ruari",
+      url: false,
+    },
   };
   // Close Sidenav
   const closeMenu = (e) =>
@@ -39,7 +43,7 @@ const Lifestyle = () => {
       {articlePath && <Article rootPath={rootPath} sectionData={sectionData} />}
 
       <GridTemplate
-        left={<Title titleData={titleData} />}
+        left={<TitleAlt titleData={titleData} />}
         right={<SubAlt newsData={sectionData} loading={loading} />}
       />
 

@@ -28,7 +28,7 @@ const Home = () => {
   const { sectionData, loading } = useSelector((state) => state.guardian);
   const articlePath = location.pathname.split("/")[1];
 
-  const rootPath = location.pathname;
+  const rootPath = "/";
   // Title Component
   let date = dateFormatter();
   const titleData = {

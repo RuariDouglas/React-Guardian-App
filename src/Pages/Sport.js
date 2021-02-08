@@ -5,11 +5,10 @@ import { useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { loadSection } from "../Redux/Actions/guardianSectionAction";
 // COMPONENTS
-import Title from "../Components/Title";
+import TitleAlt from "../Components/TitleAlt";
 import Article from "../Components/ArticleDetail/ArticleDetail";
 // GRID
 import GridTemplate from "../Components/Grid/GridTemplate";
-import MostViewed from "../Components/Grid/MostViewed";
 import HeroMain from "../Components/Grid/HeroMain";
 import SubMain from "../Components/Grid/SubMain";
 import SubAlt from "../Components/Grid/SubAlt";
@@ -25,7 +24,11 @@ const Sport = () => {
   // Title Component
   const titleData = {
     mainTitle: "Sport",
-    subTitle: false,
+    subTitle: {
+      tagline: `“Often it isn't the mountains ahead that wear you out, it's the little pebble in your shoe.”`,
+      subTag: "Mohammed Ali",
+      url: false,
+    },
   };
   // Close Sidenav
   const closeMenu = (e) =>
@@ -40,7 +43,7 @@ const Sport = () => {
       {articlePath && <Article rootPath={rootPath} sectionData={sectionData} />}
       <div className="bg--alt">
         <GridTemplate
-          left={<Title titleData={titleData} />}
+          left={<TitleAlt titleData={titleData} />}
           right={<SubAlt newsData={sectionData} loading={loading} />}
         />
       </div>

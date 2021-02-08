@@ -10,12 +10,10 @@ import CommentsList from "./CommentsList";
 import CloseIcon from "@material-ui/icons/Close";
 import TwitterIcon from "@material-ui/icons/Twitter";
 
-const ArticleDetail = (props) => {
+const Article = (props) => {
   const history = useHistory();
   const dispatch = useDispatch();
   const location = useLocation();
-  const sectionData = props.sectionData;
-
   const pathUnmodified = location.pathname;
   const regex = /^\/[a-z]+(\/(article)\/)/g;
   const pathId = pathUnmodified.match(regex)
@@ -24,8 +22,8 @@ const ArticleDetail = (props) => {
   // Redux
   const { loading } = useSelector((state) => state.guardian);
   const menuToggle = useSelector((state) => state.menuToggle);
-
   // Components
+  const { rootPath, sectionData } = props;
   const closeArticle = (e) => {
     const element = e.target;
     if (
@@ -34,7 +32,13 @@ const ArticleDetail = (props) => {
     ) {
       document.body.style.overflow = "auto";
       dispatch(clearComments());
-      history.goBack();
+      if (rootPath === "/") {
+        history.push(rootPath);
+      } else if (rootPath === "search") {
+        history.goBack();
+      } else {
+        history.push(`/${rootPath}`);
+      }
     }
   };
   useEffect(() => {
@@ -106,4 +110,4 @@ const ArticleDetail = (props) => {
   );
 };
 
-export default ArticleDetail;
+export default Article;

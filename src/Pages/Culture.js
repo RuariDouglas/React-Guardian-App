@@ -5,7 +5,7 @@ import { useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { loadSection } from "../Redux/Actions/guardianSectionAction";
 // COMPONENTS
-import Title from "../Components/Title";
+import TitleAlt from "../Components/TitleAlt";
 import Article from "../Components/ArticleDetail/ArticleDetail";
 // GRID
 import GridTemplate from "../Components/Grid/GridTemplate";
@@ -24,7 +24,11 @@ const Culture = () => {
   // Title Component
   const titleData = {
     mainTitle: "Culture",
-    subTitle: false,
+    subTitle: {
+      tagline: `"A nation's culture resides in the hearts and in the soul of its people."`,
+      subTag: "Mahatma Gandhi",
+      url: false,
+    },
   };
   // Close Sidenav
   const closeMenu = (e) =>
@@ -37,7 +41,7 @@ const Culture = () => {
     <div className="culture" onClick={closeMenu}>
       {articlePath && <Article rootPath={rootPath} sectionData={sectionData} />}
       <GridTemplate
-        left={<Title titleData={titleData} />}
+        left={<TitleAlt titleData={titleData} />}
         right={<List newsData={sectionData} loading={loading} />}
       />
       <GridTemplate

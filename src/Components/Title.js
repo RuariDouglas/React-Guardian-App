@@ -2,6 +2,9 @@ import React from "react";
 // STYLES
 import styled from "styled-components";
 import { col, fontS } from "../Styles/Styles";
+// ANIMATIONS
+import { motion } from "framer-motion";
+import { pageAnimation } from "../Animations/animation";
 
 const Title = (props) => {
   const { mainTitle, subTitle } = props.titleData;
@@ -9,9 +12,15 @@ const Title = (props) => {
   return (
     <>
       <TitleContainer>
-        <h2 className="left-col__title article__heading--primary">
+        <motion.h2
+          className="left-col__title article__heading--primary"
+          exit="exit"
+          variants={pageAnimation}
+          initial="hidden"
+          animate="show"
+        >
           {mainTitle}
-        </h2>
+        </motion.h2>
 
         {subTitle && (
           <h6>

@@ -32,7 +32,13 @@ const List = (props) => {
               }
             })}
           </motion.div>
-          <motion.div className="grid grid--4fr">
+          <motion.div
+            className="grid grid--4fr"
+            exit="exit"
+            variants={pageAnimation}
+            initial="hidden"
+            animate="show"
+          >
             {newsData.map((article, index) => {
               if (index >= 17 && index <= 20) {
                 return (

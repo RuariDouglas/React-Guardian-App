@@ -16,7 +16,7 @@ import Account from "./Pages/Account";
 // COMPONENTS
 import GlobalStyle from "./Components/GlobalStyled";
 import Nav from "./Components/Nav/Nav";
-import ArticleDetail from "./Components/ArticleDetail/ArticleDetail";
+import Footer from "./Components/Footer";
 // ROUTER
 import { Switch, Route, useLocation } from "react-router-dom";
 // STYLES
@@ -69,6 +69,7 @@ function App() {
           <Route path="*" component={ErrorDefault} />
         </Switch>
       </AnimatePresence>
+      <Footer />
     </>
   );
 }
