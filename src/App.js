@@ -25,7 +25,7 @@ import "./Styles/App.scss";
 import { AnimatePresence } from "framer-motion";
 // MATERIAL UI
 import CssBaseline from "@material-ui/core/CssBaseline";
-import ErrorDefault from "./Components/404";
+import ErrorPage from "./Pages/Error";
 
 function App() {
   const dispatch = useDispatch();
@@ -66,7 +66,7 @@ function App() {
           <Route path={/(^\/$)|(^\/article)/}>
             <Home />
           </Route>
-          <Route path="*" component={ErrorDefault} />
+          <Route path="*" component={ErrorPage} />
         </Switch>
       </AnimatePresence>
       <Footer />
