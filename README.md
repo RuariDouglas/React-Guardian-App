@@ -1,7 +1,6 @@
 # Guadian Lite React News App
 A react news app utilising the Guardian News and Open Weather Map API hosted on firebase.
-https://open-platform.theguardian.com/documentation/
-https://openweathermap.org/
+https://the-guardian-app-faeb0.web.app/
 
 ## About the Build
 Besides enjoying the content, I found the Guardians extensive documentation and support a great resource to use for this project. The idea was to create a 'Lite' version of the Guardian's current website, displaying predominantly just the headlines for each category with built-in search functionality, user authentication and CRUD functionality for comments on articles.
