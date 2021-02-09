@@ -34,8 +34,9 @@ function loadFromLocalStorage() {
     return undefined;
   }
 }
+// window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ||
 const persistedState = loadFromLocalStorage();
-const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const composeEnhancer = compose;
 const store = createStore(
   allReducers(history),
   persistedState,
