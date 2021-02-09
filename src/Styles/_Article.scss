@@ -320,6 +320,10 @@ img {
     .most-viewed__list-item {
         min-height: 5rem;
         height: 100%;
+        transition: all 0.5s;
+        &:hover {
+            box-shadow: 0 0 2rem rgba(23, 47, 86, 0.2);
+        }
     }
 }
 
