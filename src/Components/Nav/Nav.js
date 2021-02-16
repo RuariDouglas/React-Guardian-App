@@ -54,11 +54,19 @@ const Nav = () => {
               <h4>Support me in 2021</h4>
               <p>Frontend developer ready to work</p>
               <div className="support-links__wrapper">
-                <a to="#" className="support-link">
-                  Subscribe <ArrowForwardIcon className="forward-icon" />
+                <a
+                  href="https://drive.google.com/file/d/1_032i59LL2YuEzrqsB_xjjI0X5klaRYr/view"
+                  className="support-link"
+                  target="_blank"
+                >
+                  View my CV <ArrowForwardIcon className="forward-icon" />
                 </a>
-                <a to="#" className="support-link">
-                  Contribute <ArrowForwardIcon className="forward-icon" />
+                <a
+                  to="https://www.linkedin.com/in/ruari-douglas-82312271/"
+                  className="support-link"
+                  target="_blank"
+                >
+                  My Linkedin <ArrowForwardIcon className="forward-icon" />
                 </a>
               </div>
             </div>

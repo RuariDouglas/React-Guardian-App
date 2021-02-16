@@ -26,15 +26,21 @@ const LoginModal = () => {
       {error && <p>{error}</p>}
       <h2>Login</h2>
       <form onSubmit={handlesubmit}>
-        <input ref={emailRef} placeholder="Enter your Email" type="email" />
+        <input
+          value="test@test.com"
+          ref={emailRef}
+          placeholder="Enter your Email"
+          type="email"
+        />
         <input
           ref={passwordRef}
           placeholder="Enter your password"
+          value="testtest"
           type="password"
         />
         <div className="form__container">
           <p className="signup__heading">
-            Don't have an account? <Link to="/signup">SignUp</Link>
+            Please use the pre-filled information to access.
           </p>
           <button type="submit" className="signup__button">
             Submit

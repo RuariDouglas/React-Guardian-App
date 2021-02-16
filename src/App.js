@@ -57,7 +57,7 @@ function App() {
           <Route path={["/lifestyle/article/:id", "/lifestyle"]}>
             <Lifestyle />
           </Route>
-          <Route path={["/signup", "/login"]}>
+          <Route path="/login">
             <Account />
           </Route>
           <Route path={["search/:search", "/search"]}>

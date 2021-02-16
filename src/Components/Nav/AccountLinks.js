@@ -28,11 +28,7 @@ const AccountLinks = () => {
 
   return (
     <AccountList currentUser={currentUser}>
-      <li className={checkUser("loggedOut", currentUser, userLoading)}>
-        <Link onClick={closeMenu} to="/signup">
-          SignUp
-        </Link>
-      </li>
+      <li className={checkUser("loggedOut", currentUser, userLoading)}></li>
       <li className={checkUser("loggedOut", currentUser, userLoading)}>
         <Link onClick={closeMenu} to="/login">
           Login

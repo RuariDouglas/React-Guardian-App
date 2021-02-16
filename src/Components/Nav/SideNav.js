@@ -24,15 +24,23 @@ const SideNav = () => {
           onClick={() => dispatch({ type: "SIDE_NAV_TOGGLE" })}
         />
         <div className="nav__support-links">
-          <h4>Support us in 2021</h4>
-          <p>Power vital, open, independent journalism</p>
+          <h4>Support me in 2021</h4>
+          <p>Frontend Developer ready to work</p>
           <div className="support-links__wrapper">
-            <Link className="support-link">
-              Subscribe <ArrowForwardIcon className="forward-icon" />
-            </Link>
-            <Link className="support-link">
-              Contribute <ArrowForwardIcon className="forward-icon" />
-            </Link>
+            <a
+              className="support-link"
+              href="https://drive.google.com/file/d/1_032i59LL2YuEzrqsB_xjjI0X5klaRYr/view"
+              target="_blank"
+            >
+              View my CV <ArrowForwardIcon className="forward-icon" />
+            </a>
+            <a
+              className="support-link"
+              href="https://www.linkedin.com/in/ruari-douglas-82312271/"
+              target="_blank"
+            >
+              My Linkedin <ArrowForwardIcon className="forward-icon" />
+            </a>
           </div>
         </div>
         <div className="sidenav__menu">

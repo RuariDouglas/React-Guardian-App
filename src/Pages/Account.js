@@ -18,7 +18,7 @@ export function Account() {
       initial="hidden"
       animate="show"
     >
-      {rootPath === "signup" ? <SignUpModal /> : <LoginModal />}
+      <LoginModal />
     </motion.div>
   );
 }

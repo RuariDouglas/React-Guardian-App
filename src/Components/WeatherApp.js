@@ -59,7 +59,7 @@ const WeatherApp = () => {
                 <button>
                   <SearchIcon />
                 </button>
-                <input ref={inputRef} type="text" />
+                <input value="London" ref={inputRef} type="text" />
               </form>
             </div>
             <div className="forecastContainer">
