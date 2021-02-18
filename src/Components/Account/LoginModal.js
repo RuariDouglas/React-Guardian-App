@@ -27,7 +27,7 @@ const LoginModal = () => {
       <h2>Login</h2>
       <form onSubmit={handlesubmit}>
         <input
-          value="test@test.com"
+          value="demouser@demo.com"
           ref={emailRef}
           placeholder="Enter your Email"
           type="email"
@@ -35,7 +35,7 @@ const LoginModal = () => {
         <input
           ref={passwordRef}
           placeholder="Enter your password"
-          value="testtest"
+          value="DizzeeRascal"
           type="password"
         />
         <div className="form__container">

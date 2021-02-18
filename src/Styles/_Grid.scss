@@ -80,7 +80,7 @@
     .grid--3fr {
         grid-template-columns: repeat(3, 1fr);
         grid-gap: $halfPad;
-        grid-auto-rows: min-content;
+        grid-auto-rows: auto;
     }
     .grid--4fr {
         grid-template-columns: repeat(4, 1fr);
