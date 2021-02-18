@@ -70,17 +70,21 @@
     .grid--2fr-2fr {
         grid-template-columns: 2fr 2fr;
         grid-column-gap: $halfPad;
+        grid-auto-rows: min-content;
     }
     .grid--3fr-1fr {
         grid-template-columns: 3fr 1fr;
         grid-column-gap: $halfPad;
+        grid-auto-rows: min-content;
     }
     .grid--3fr {
         grid-template-columns: repeat(3, 1fr);
         grid-gap: $halfPad;
+        grid-auto-rows: min-content;
     }
     .grid--4fr {
         grid-template-columns: repeat(4, 1fr);
+        grid-auto-rows: min-content;
         grid-gap: $halfPad;
         margin-bottom: $halfPad;
     }
