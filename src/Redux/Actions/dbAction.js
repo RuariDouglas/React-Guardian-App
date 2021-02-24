@@ -31,7 +31,6 @@ export const getComments = (articlePath) => async (dispatch) => {
           let changes = snapshot.docChanges();
           changes.map((change) => {
             let commentDetails = {};
-
             commentDetails = change.doc.data();
             commentDetails.commentUid = change.doc.id;
             if (change.type === "added") commentsArray.unshift(commentDetails);

@@ -59,7 +59,7 @@ const WeatherApp = () => {
                 <button>
                   <SearchIcon />
                 </button>
-                <input value="London" ref={inputRef} type="text" />
+                <input placeholder="London" ref={inputRef} type="text" />
               </form>
             </div>
             <div className="forecastContainer">
@@ -167,7 +167,7 @@ const ForecastList = styled.div`
   display: ${(props) => (props.weatherToggle ? "flex" : "none")};
   box-shadow: 0 1rem 2rem 0 rgba(5, 41, 98, 0.8);
   position: absolute;
-  z-index: 999;
+  z-index: 10;
   right: 0;
   top: 2.7rem;
   text-align: center;

@@ -78,14 +78,9 @@ const Article = (props) => {
                     <div className="detail__meta">
                       <p>
                         {article.tags.length ? (
-                          <Link
-                            className="detail__link"
-                            target="_blank"
-                            rel="noreferrer"
-                            href="https://www.theguardian.com/profile/scottmurray"
-                          >
+                          <a className="detail__link">
                             {article.tags[0].webTitle}
-                          </Link>
+                          </a>
                         ) : (
                           ""
                         )}

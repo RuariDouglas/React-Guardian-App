@@ -10,7 +10,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 5;
+    z-index: 998;
     .close {
         right: -1rem;
     }
@@ -21,7 +21,7 @@
     background: white;
     position: absolute;
     color: black;
-    z-index: 10;
+    z-index: 999;
     box-shadow: 0px 0px 15px rgba(0, 7, 52, 0.5);
 }
 
@@ -46,6 +46,7 @@
     font-family: "Archivo", sans-serif;
     color: $neutral20;
     font-weight: 900;
+    cursor: default;
 }
 
 .detail__meta {

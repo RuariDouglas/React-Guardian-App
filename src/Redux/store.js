@@ -36,7 +36,7 @@ function loadFromLocalStorage() {
 }
 // window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ||
 const persistedState = loadFromLocalStorage();
-const composeEnhancer = compose;
+const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(
   allReducers(history),
   persistedState,
