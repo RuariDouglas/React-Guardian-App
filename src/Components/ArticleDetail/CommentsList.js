@@ -34,8 +34,7 @@ const CommentsList = () => {
           <CreateComment url={articlePath} />
         ) : (
           <p className="comments__login-signup-p">
-            Please <Link to="/login">login</Link> or{" "}
-            <Link to="/signup">Sign Up</Link> to leave a comment
+            Please <Link to="/login">login</Link> to leave a comment
           </p>
         )}
         {!commentsLoading && (
