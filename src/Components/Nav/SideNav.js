@@ -24,8 +24,8 @@ const SideNav = () => {
           onClick={() => dispatch({ type: "SIDE_NAV_TOGGLE" })}
         />
         <div className="nav__support-links">
-          <h4>Support me in 2021</h4>
-          <p>Frontend Developer ready to work</p>
+          <h4>Support Ruari Douglas</h4>
+          <p>Frontend developer ready to work immediately</p>
           <div className="support-links__wrapper">
             <a
               className="support-link"
