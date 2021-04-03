@@ -25,7 +25,7 @@ const SideNav = () => {
         />
         <div className="nav__support-links">
           <h4>Support Ruari Douglas</h4>
-          <p>Frontend developer ready to work immediately</p>
+          <p>Front-End developer available to work immediately</p>
           <div className="support-links__wrapper">
             <a
               className="support-link"
