@@ -29,14 +29,14 @@ const SideNav = () => {
           <div className="support-links__wrapper">
             <a
               className="support-link"
-              href="https://drive.google.com/file/d/1_032i59LL2YuEzrqsB_xjjI0X5klaRYr/view"
+              href="https://drive.google.com/file/d/1rJwz9pLK7l0pmIlDmFvkVIRdL1f0o_nz/view?usp=sharing"
               target="_blank"
             >
               View my CV <ArrowForwardIcon className="forward-icon" />
             </a>
             <a
               className="support-link"
-              href="https://www.linkedin.com/in/ruari-douglas-82312271/"
+              href="https://www.linkedin.com/in/ruari-douglas/"
               target="_blank"
             >
               My Linkedin <ArrowForwardIcon className="forward-icon" />

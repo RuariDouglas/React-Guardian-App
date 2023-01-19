@@ -52,17 +52,17 @@ const Nav = () => {
             {/* Support Links */}
             <div className="nav__support-links">
               <h4>Support Ruari Douglas</h4>
-              <p>Front-End developer available to work immediately</p>
+              <p>Front end developer open to work</p>
               <div className="support-links__wrapper">
                 <a
-                  href="https://drive.google.com/file/d/1_032i59LL2YuEzrqsB_xjjI0X5klaRYr/view"
+                  href="https://drive.google.com/file/d/1rJwz9pLK7l0pmIlDmFvkVIRdL1f0o_nz/view?usp=sharing"
                   className="support-link"
                   target="_blank"
                 >
                   View my CV <ArrowForwardIcon className="forward-icon" />
                 </a>
                 <a
-                  to="https://www.linkedin.com/in/ruari-douglas-82312271/"
+                  href="https://www.linkedin.com/in/ruari-douglas/"
                   className="support-link"
                   target="_blank"
                 >
